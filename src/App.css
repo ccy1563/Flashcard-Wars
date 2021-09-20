@@ -72,9 +72,18 @@
   /* display: flex; */
 }
 
+.textbox2{
+  /* display: flex; */
+  /* flex-direction: column; */
+}
+
+.fuse{
+  display: inline-flex;
+}
+
 .game{
   display: flex;
-  /* flex-direction: row; */
+  /* flex-direction: column; */
   flex-wrap: wrap;
   /* word-break: break-word */
   /* max-width:break-spaces 50% */
