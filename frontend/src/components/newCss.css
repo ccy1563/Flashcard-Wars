@@ -56,8 +56,18 @@
   color:red
 }
 
+.fuse-box{
+  padding: 0px;
+  margin: 0px;
+  height: 30px;
+}
+
+.box-input{
+  margin-top: 100px;
+}
+
 .WrongSpace{
-  background-color:red
+  background-color:rgb(241, 24, 9)
 }
 
 .footer-content{

@@ -7,7 +7,7 @@ export default class Box extends Component {
     constructor(props){
         super(props)
     this.state = {
-        flashcards: {2:`asdasdas asdasdsa`,
+        flashcards: {2:`aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`,
                 1:`for (let i = 0; i < 5; i++) {\ntext += "The number is " + i + "<br>"\n;\n}`,
                 3:`asd`,
                 4:`asd`,
@@ -92,10 +92,10 @@ export default class Box extends Component {
                 mainArr.push(arr)
                 arr = []
             }
-            if (flashcards[x] === " " && input[x] != " "){
-                arr.push(<h1 className="WrongSpace">&nbsp;</h1>)
+            if (flashcards[x] === " " && input[x] != " " && input[x] != undefined){
+                arr.push(<h1 className="WrongSpace">&nbsp;&nbsp;</h1>)
             }else if (flashcards[x] === " "){
-                arr.push(<h1>&nbsp;</h1>)
+                arr.push(<h1>&nbsp;&nbsp;</h1>)
             }
             if (input[x] === flashcards[x]){
                 arr.push(<h1 className="white">{flashcards[x]}</h1>)                
