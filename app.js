@@ -9,6 +9,8 @@ const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
 const flashcards = require("./routes/api/flashcards");
 const comments = require("./routes/api/comments");
+const decks = require("./routes/api/decks");
+
 
 const passport = require('passport');
 
@@ -35,6 +37,7 @@ require("./config/passport")(passport);
 app.use("/api/users", users);
 app.use("/api/flashcards", flashcards);
 app.use("/api/comments", comments);
+app.use("/api/decks", decks);
 
 app.use(express.urlencoded({ extended: true })); app.use(express.json());  
 

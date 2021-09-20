@@ -7,6 +7,10 @@ const CommentSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "users",
     },
+    deck: {
+      type: Schema.Types.ObjectId,
+      ref: "decks",
+    },
     text: {
       type: String,
       required: true,

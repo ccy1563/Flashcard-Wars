@@ -11,10 +11,15 @@ const FlashcardSchema = new Schema(
       type: String,
       required: true,
     },
-    user: {
+    deck: {
       type: Schema.Types.ObjectId,
-      ref: "users",
+      ref: "decks",
     },
+    // maybe we need it
+    // user: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: "users",
+    // }
   },
   {
     timestamps: true,
