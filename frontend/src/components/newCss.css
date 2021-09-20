@@ -1,0 +1,116 @@
+.navbar{
+  width: 100%;
+  background-color: #61dafb;
+  position: fixed;
+  z-index: 10;
+}
+
+.Bundle { 
+  display: flex;
+  height: 760px;
+  position: relative;
+  padding-top: 64px;
+}
+
+.bundle-box{
+  padding: 100px;
+  background-color: green;
+  flex: 2;
+  min-width: 800px;
+}
+
+.bundle-menu{
+  background-color: red;
+  flex: 1
+}
+.bundle-stats{
+  background-color: blue;
+  flex: 1
+}
+
+.scorebox-text{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px
+}
+
+.App {
+  text-align: center;
+}
+
+
+.footer{
+  background-color: rosybrown;
+  height: 500px;
+  
+}
+
+.white{
+  color:white;
+}
+
+.black{
+  color:black;
+}
+
+.red{
+  color:red
+}
+
+.WrongSpace{
+  background-color:red
+}
+
+.footer-content{
+  display: flex;
+  justify-content: center;
+}
+
+.fuse{
+  display: inline-flex;
+}
+
+.game{
+  display: flex;
+  flex-wrap: wrap;
+}
+  
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
