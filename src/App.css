@@ -1,5 +1,78 @@
+.navbar{
+  /* display: flex; */
+  /* justify-content: center; */
+  width: 100%;
+  background-color: #61dafb;
+  position: fixed;
+  z-index: 10;
+  /* height: 100vh; */
+}
+
+
+
+.Bundle { 
+  display: flex;
+  height: 760px;
+  position: relative;
+  padding-top: 64px;
+}
+
+.bundle-box{
+  padding: 100px;
+  background-color: blue;
+  flex: 2;
+  min-width: 800px;
+}
+
+.bundle-menu{
+  background-color: red;
+  flex: 1
+}
+.bundle-stats{
+  background-color: green;
+  flex: 1
+}
+
 .App {
   text-align: center;
+}
+
+
+.footer{
+  background-color: rosybrown;
+  height: 500px;
+  
+}
+
+.white{
+  color:white;
+  /* display:flex !important */
+}
+
+.black{
+  color:black;
+  /* display:flex */
+}
+
+.red{
+  color:red
+}
+
+.footer-content{
+  display: flex;
+  justify-content: center;
+}
+
+.box-render{
+  /* display: flex; */
+}
+
+.game{
+  display: flex;
+  /* flex-direction: row; */
+  flex-wrap: wrap;
+  /* word-break: break-word */
+  /* max-width:break-spaces 50% */
 }
 
 .App-logo {
