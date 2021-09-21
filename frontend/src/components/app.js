@@ -9,21 +9,21 @@ import Footer from './footer/footer';
 import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
-
 import DeckFormContainer from './deck/deck_form_container';
 import DeckIndexContainer from './deck/deck_index_container'
 import UserProfileContainer from './user_profile/user_profile_container';
 import FlashcardFormContainer from './flashcard/flashcard_form_container'
 import FlashcardIndexContainer from './flashcard/flashcard_index_container'
+import SplashPageContainer from './splash_page/splash_page_container';
 
 
 const App = () => (
      <div>     
         <div className='navbar'><NavBarContainer /></div>
 
+        <Route exact path ="/splash" component={SplashPageContainer}/>
         <Switch>
-
-            // typing page
+        {/* typing page */}
             <Route exact path="/type">
                 <div className="Bundle">
                     <div className='bundle-menu'><Menu /></div>
@@ -34,7 +34,6 @@ const App = () => (
 
             <Route exact path='/decks_index' component={DeckIndexContainer} />
             
-
 
             // User page
             <Route exact path="/user" component={UserProfileContainer} />
