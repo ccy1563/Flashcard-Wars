@@ -206,7 +206,7 @@ class Box extends React.Component {
         const resetGame = this.resetGame
         const loadDeck = this.loadDeck
         const{flashcards} = this.props
-        flashcards && renderCount === 0 ? this.propsTostate()  : null
+        // flashcards && renderCount === 0 ? this.propsTostate()  : null
 
         return (
             <div className='box-render'>
