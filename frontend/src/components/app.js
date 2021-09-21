@@ -10,8 +10,11 @@ import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 
+import DeckFormContainer from './deck/deck_form_container';
+
 const App = () => (
     <div>     
+        <DeckFormContainer />
         <div className='navbar'><NavBarContainer /></div>
         <div className="Bundle">
         <div className='bundle-menu'><Menu /></div>        

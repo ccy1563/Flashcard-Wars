@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/user/:user_id', (req, res) => {
+  // console.log(Deck.find({user: req.params.user_id}))
   Deck.find({user: req.params.user_id})
       .then(deck => res.json(deck))
       .catch(err =>
@@ -58,5 +59,14 @@ router.patch('/:id', (req, res) => {
       res.status(404).json({ nodeckfound: 'No deck found with that ID' })
     );
 });
+
+router.delete('/:id', (req, res) => {
+
+  Deck.findByIdAndRemove(req.params.id)
+    .then( () => res.json())
+    .catch(err =>
+      res.status(404).json({nodeckfound: 'No deck found with that ID'})
+  );
+})
 
 module.exports = router;
