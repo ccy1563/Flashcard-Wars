@@ -22,7 +22,7 @@ import DeckIndex from './deck_index';
 
 const mapStateToProps = state => {
 
-    debugger
+    // debugger
     return ({
         user_id: state.session.user.id
     });

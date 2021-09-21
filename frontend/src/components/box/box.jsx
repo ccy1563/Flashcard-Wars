@@ -1,79 +1,59 @@
-import React, { Component } from 'react'
-import '../newCss.css';
+import React from 'react'
+// import '../newCss.css';
 import Score from '../score/score.jsx'
+import {withRouter} from "react-router-dom"
 // import Time from '../time/time'
 import Fuse from './fuse'
-export default class Box extends Component {
+// import Datetime from 'react-datetime';
+class Box extends React.Component {
     constructor(props){
         super(props)
     this.state = {
-        flashcards: {2:`aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`,
-                1:`for (let i = 0; i < 5; i++) {\ntext += "The number is " + i + "<br>"\n;\n}`,
-                3:`asd`,
-                4:`asd`,
-                5:`asd`,
-                6:"Done"
+        flashcards: {
             },
         input: "",
-        counter: 1,
+        counter: 0,
         score:0,
-        ended:false
+        ended:false,
+        renderCount:0
     }
     this.resetGame = this.resetGame.bind(this)
     this.loadDeck = this.loadDeck.bind(this)
     }
 
-    // componentDidMount(){
-    //     getDeck
-    // }
+    componentDidMount(){       
+        // debugger
+        this.props.fetchDeckFlashcards(this.props.deckId)
 
-    // checkSingleChar(input,flashcards){
-    //     // let alreadyClear
-    //     let arr = []
-    //     if (input === flashcards && this.state.input != ""){
-    //         // this.setState({counter: this.state.counter+1})
-            
-    //         // debugger
-    //         // alreadyClear = this.state.input           
-    //         // console.log(arr) 
-    //         arr.push(<h1 className="white">{input}</h1>)
-    //         // return <h1 className="white">{this.state.input}</h1>
-    //     }
-       
-    //     else{                       
-    //         arr.push(<h1 className="black">{input}</h1>)                
-                
-    //     }
-    //     return arr
+    }
 
-    // }
-    // loop
+
 
     checkWholepassage(input,flashcards){
+       
         let arr = []
         let subArray = []
         let arrWithSpace = []
         for (let x = 0; x < flashcards.length; x++){
             if(flashcards[x] === `\n`){               
-                arr.push(<h1>{`\n`}</h1>)
+                arr.push(<div>{`\n`}</div>)
             }
             if (flashcards[x] === " "){
-                arr.push(<h1>&nbsp;</h1>)
+                arr.push(<div>&nbsp;</div>)
             }
             if (input[x] === flashcards[x]){
-                arr.push(<h1 className="white">{flashcards[x]}</h1>)                
+                arr.push(<div className="white">{flashcards[x]}</div>)                
             }            
             else if(input[x] && input[x] !== flashcards[x]){
-                arr.push(<h1 className="red">{flashcards[x]}</h1>)    
+                arr.push(<div className="red">{flashcards[x]}</div>)    
             }            
             else{
-                arr.push(<h1 className="black">{flashcards[x]}</h1>)
+                arr.push(<div className="black">{flashcards[x]}</div>)
             }
         }
         for (let x = 0; x < arr.length; x++){
             arrWithSpace.push(arr[x])
             
-            // arrWithSpace.push(<h1>_</h1>)
         }
         return arr
     }
@@ -83,69 +63,44 @@ export default class Box extends Component {
         let arr = []
         let mainArr = []
         let arrWithSpace = []
-        for (let x = 0; x < flashcards.length; x++){
-            if(flashcards[x] === `\n`){
-                for(let i = arr.length; i < 1000; i++){
-                    arr.push(<h1>&nbsp;</h1>)
+        if (flashcards){
+            for (let x = 0; x < flashcards.length; x++){
+                if(flashcards[x] === `\n`){
+                    for(let i = arr.length; i < 1000; i++){
+                        arr.push(<div>&nbsp;</div>)
+                    }
+                    
+                    mainArr.push(arr)
+                    arr = []
                 }
+                if (flashcards[x] === " " && input[x] != " " && input[x] != undefined){
+                    arr.push(<div className="WrongSpace">&nbsp;&nbsp;</div>)
+                }else if (flashcards[x] === " "){
+                    arr.push(<div>&nbsp;&nbsp;</div>)
+                }
+                if (input[x] === flashcards[x]){
+                    arr.push(<div className="white">{flashcards[x]}</div>)                
+                }            
+                else if(input[x] && input[x] !== flashcards[x]){
+                    arr.push(<div className="red">{flashcards[x]}</div>)    
+                }            
+                else{
+                    arr.push(<div className="black">{flashcards[x]}</div>)
+                }
+            }
+            for (let x = 0; x < arr.length; x++){
+                arrWithSpace.push(arr[x])
                 
-                mainArr.push(arr)
-                arr = []
             }
-            if (flashcards[x] === " " && input[x] != " " && input[x] != undefined){
-                arr.push(<h1 className="WrongSpace">&nbsp;&nbsp;</h1>)
-            }else if (flashcards[x] === " "){
-                arr.push(<h1>&nbsp;&nbsp;</h1>)
-            }
-            if (input[x] === flashcards[x]){
-                arr.push(<h1 className="white">{flashcards[x]}</h1>)                
-            }            
-            else if(input[x] && input[x] !== flashcards[x]){
-                arr.push(<h1 className="red">{flashcards[x]}</h1>)    
-            }            
-            else{
-                arr.push(<h1 className="black">{flashcards[x]}</h1>)
-            }
+            mainArr.push(arr)
+            arr = []
+            return mainArr
+        }else{
+            return mainArr
         }
-        for (let x = 0; x < arr.length; x++){
-            arrWithSpace.push(arr[x])
-            
-            // arrWithSpace.push(<h1>_</h1>)
-        }
-        mainArr.push(arr)
-        arr = []
-        console.log(mainArr)
-        return mainArr
+        
     }
 
-    // checkWholepassage(input,flashcards){
-    //     let arr = []
-    //     let subArray = []
-    //     let arrWithSpace = []
-    //     for (let x = 0; x < flashcards.length; x++){
-    //         if(flashcards[x] === `\n`){
-    //             arr.push(<h1>{`\n`}</h1>)
-    //         }
-    //         if (flashcards[x] === " "){
-    //             arr.push(<h1>&nbsp;</h1>)
-    //         }
-    //         if (input[x] === flashcards[x]){
-    //             arr.push(<h1 className="white">{flashcards[x]}</h1>)                
-    //         }            
-    //         else if(input[x] && input[x] !== flashcards[x]){
-    //             arr.push(<h1 className="red">{flashcards[x]}</h1>)    
-    //         }            
-    //         else{
-    //             arr.push(<h1 className="black">{flashcards[x]}</h1>)
-    //         }
-    //     }
-    //     for (let x = 0; x < arr.length; x++){
-    //         arrWithSpace.push(arr[x])
-            
-    //         // arrWithSpace.push(<h1>_</h1>)
-    //     }
-    //     return arr
-    // }
 
     addOne(){
         let oldcounter = this.state.counter
@@ -162,35 +117,28 @@ export default class Box extends Component {
         }
         
 
-        // if(Object.keys(this.state.flashcards).length === oldcounter){
-        //     this.setState({ended:!oldEnded})
-        // }
+      
         
     }
 
-    // endOfGame(stateEnded){
-    //     state
-    // }
+
 
     checkAll(input,flashcards){
-        for (let x = 0; x < flashcards.length; x++){
+        if(flashcards){
+             for (let x = 0; x < flashcards.length; x++){
             if(input[x] !== flashcards[x]){
                 return "Not Done"
             }
             
         }
         return "Done"
+        }else{
+            return "checkingall"
+        }
+       
     }
 
-    resetGame(){
-        // this.setState({
-        //     flashcards: {1:`asd`,
-        //             2:`qwe`,
-        //             3:`asd`,
-        //             4:`asd`,
-        //             5:`asd`,
-        //             6:"Done"
-        //         })
+    resetGame(){   
         this.setState({counter:1})
         this.setState({score:0})
         this.setState({input:""})
@@ -219,58 +167,63 @@ export default class Box extends Component {
 
    
 
-    
+    propsTostate(){
+        this.setState({renderCount:1}) 
+        const{flashcards} = this.props
+        let arr = []
+        if (flashcards){
+            for (let x = 0; x < flashcards.length;x++){
+                arr.push(flashcards[x].text)
+            }
+            
+            
+            let object = Object.assign({}, arr)
+          
+            let oldState = this.state.flashcards
+        
+            if (oldState != object){
+                this.setState({flashcards:object}) 
+             
+            }
+            // 
+        }else{
+            console.log("not found")
+        }
+       
+    }
 
  
 
     render() {
         
-        // const checkSingleChar = this.checkSingleChar(this.state.input[this.state.input.length-1],this.state.flashcards[this.state.input.length-1])
-        const checkWholepassage = this.checkWholepassage(this.state.input,this.state.flashcards[this.state.counter])
-        const checkWholepassage2 = this.checkWholepassage2(this.state.input,this.state.flashcards[this.state.counter])
-        const firstPassage = checkWholepassage2[0]
-        const firstPassage1 = checkWholepassage2[1]
-        const firstPassage2 = checkWholepassage2[1]
 
-        const checkAll = this.checkAll(this.state.input,this.state.flashcards[this.state.counter])
-        // const thisState = Object.keys(this.state.flashcards).length
-        // const checkAll = this.checkAll(this.state.input,this.state.flashcards[this.state.counter])
+        const checkWholepassage2 = this.checkWholepassage2(this.state.input,this.state.flashcards[this.state.counter])
+      
+        let renderCount = this.state.renderCount
+        const checkAll = this.checkAll(this.state.input,this.state.flashcards[this.state.counter]) 
         const stateEnded = this.state.ended
         const endOfGame = Object.keys(this.state.flashcards).length
         const resetGame = this.resetGame
         const loadDeck = this.loadDeck
-        
-
-        // const arr2 = []
-        // let arr4 = [<h1 className="white">Test</h1>,<h1 className="black">ing</h1>,<h1 className="white">s</h1>]
-        // let arr5 = [<h1 className="white">Test</h1>,<h1 className="black">ing</h1>,<h1 className="white">s</h1>]
-        // let arr6 = [arr4,arr5]
+        const{flashcards} = this.props
+        flashcards && renderCount === 0 ? this.propsTostate()  : null
 
         return (
             <div className='box-render'>
-                {/* <Time h={5}m={4}s={3}/> */}
-                <Score className="scorebox-text" text={"Your current score is"} currentScore={this.state.score}/>
-                <div className='instruction'><h1>Type this</h1></div>
+                {/* <Datetime ref="datetime"/> */}
+                {/* <Score className="scorebox-text" text={"Your current score is"} currentScore={this.state.score}/> */}
+                <div className='instruction'><div>Type this</div></div>
                 <div className="game">
-                    {/* {arr2} {checkWholepassage}                */}
                         {checkWholepassage2.map((ele,i) => (
-                            // ele.map((ele2,i) => (
-                                <div className="textbox2">
-                                    <Fuse ele={ele}/>
-                                    {/* {console.log(ele)} */}
-                                </div>
-                               
-                                // <div className="textbox2">
-                                  
-                                // </div>
-                                
-                                // ))
-                            // <div className="textbox2">
+                            
                               
-                            // </div>
+                                <Fuse className="textbox2" ele={ele} key={i}/>
+                            
+                               
+                    
                             
                             ))}  
-                      
+                        
                 </div>
                 {
                    (checkAll === 'Done') ? this.addOne() : null
@@ -279,19 +232,11 @@ export default class Box extends Component {
                 {
                     (stateEnded === false) 
                     ? <div className='box-input'><textarea name="Text1" value={this.state.input} onChange={(e)=>this.setState({input: e.target.value})}/></div> 
-                    : <Score text={"Your final score is"} currentScore={this.state.score}/>
+                    : <Score text={"Your final score is"} currentScore={this.state.score+1}/>
                 }
                 
-                {/* <div className='stateflashcards'><h1>{this.state.flashcards}</h1></div>                */}
                 
-                   
-                {/* <div className='game'>
-                    {   
-                        <div className='game2'>
-                        {arr2.map((ele) => ele)}                            
-                        </div>
-                    }
-                </div> */}
+       
           
           <button onClick={resetGame}>Reset Flashcards</button>
           <button onClick={loadDeck}>Load Deck 1</button>
@@ -301,3 +246,5 @@ export default class Box extends Component {
         )
     }
 }
+
+export default withRouter(Box)

@@ -23,7 +23,7 @@ class UserDeckIndexItem extends React.Component {
                         Show all cards
                     </button>
                 </Link>
-                <Link>
+                <Link to={`/practice/deck/${deck._id}`}>
                     <button>
                         Practice Typing
                     </button>
