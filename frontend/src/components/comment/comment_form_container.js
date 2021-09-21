@@ -1,11 +1,6 @@
 import { connect } from 'react-redux';
 import {
-  fetchComments,
-  fetchComment,
-  fetchDeckComments,
   createComment,
-  updateComment,
-  deleteComment
 } from '../../actions/comment_actions';
 import CommentForm from './comment_form';
 
@@ -19,12 +14,7 @@ const mapStateToProps = (state, myProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchComments: () => dispatch(fetchComments()),
-    fetchComment: id => dispatch(fetchComment(id)),
-    fetchDeckComments: id => dispatch(fetchDeckComments(id)),
     createComment: comment => dispatch(createComment(comment)),
-    updateComment: comment => dispatch(updateComment(comment)),
-    deleteComment: id => dispatch(deleteComment(id))
   }
 }
 
