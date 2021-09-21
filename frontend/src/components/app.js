@@ -2,7 +2,8 @@ import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Switch, Route } from 'react-router-dom';
 import NavBarContainer from './nav/navbar_container';
-import Box from './box/box';
+import BoxContainer from './box/box_container';
+
 import Menu from './menu/menu';
 import Stats from './stats/stats';
 import Footer from './footer/footer';
@@ -24,10 +25,10 @@ const App = () => (
         <Route exact path ="/splash" component={SplashPageContainer}/>
         <Switch>
         {/* typing page */}
-            <Route exact path="/type">
+            <Route exact path="/practice/deck/:deckId">
                 <div className="Bundle">
                     <div className='bundle-menu'><Menu /></div>
-                    <div className='bundle-box'><Box /></div>
+                    <div className='bundle-box'><BoxContainer/></div>
                     <div className='bundle-stats'><Stats /></div>
                 </div>
             </Route>
@@ -43,7 +44,7 @@ const App = () => (
             <Route exact path="/decks" component={DeckFormContainer} />
             // Renders all flashcards in a deck from user page
             <Route exact path="/flashcard/deck/:deckId" component={FlashcardIndexContainer} />
-
+            
 
 
             <AuthRoute exact path="/" component={MainPage} />
