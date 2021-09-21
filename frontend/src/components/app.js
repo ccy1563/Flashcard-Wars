@@ -11,12 +11,15 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 
 import DeckFormContainer from './deck/deck_form_container';
-
 import DeckIndexContainer from './deck/deck_index_container'
+import UserProfileContainer from './user_profile/user_profile_container';
+import FlashcardFormContainer from './flashcard/flashcard_form_container'
+import FlashcardIndexContainer from './flashcard/flashcard_index_container'
+
 
 const App = () => (
      <div>     
-        {/* <div className='navbar'><NavBarContainer /></div> */}
+        <div className='navbar'><NavBarContainer /></div>
 
         <Switch>
 
@@ -31,8 +34,18 @@ const App = () => (
 
             <Route exact path='/decks_index' component={DeckIndexContainer} />
             
-            // Renders form to submit decks
+
+
+            // User page
+            <Route exact path="/user" component={UserProfileContainer} />
+            // Page to insert card into deck from user page
+            <Route exact path="/flashcard/user/:userId/deck/:deckId/create" component={FlashcardFormContainer} />
+            // Renders form to submit decks from user page
             <Route exact path="/decks" component={DeckFormContainer} />
+            // Renders all flashcards in a deck from user page
+            <Route exact path="/flashcard/deck/:deckId" component={FlashcardIndexContainer} />
+
+
 
             <AuthRoute exact path="/" component={MainPage} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
