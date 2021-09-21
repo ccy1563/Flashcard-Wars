@@ -40,7 +40,7 @@ export const fetchFlashcards = () => dispatch => {
 }
 
 export const fetchFlashcard = id => dispatch => {
-    return FlashcardApiUtil.fetchFlashcard()
+    return FlashcardApiUtil.fetchFlashcard(id)
         .then(flashcard => dispatch(receiveFlashcard(flashcard)));
 }
 
