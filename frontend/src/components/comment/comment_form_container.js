@@ -9,11 +9,11 @@ import {
 } from '../../actions/comment_actions';
 import CommentForm from './comment_form';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, myProps) => {
   console.log(state)
   return({
     user_id: state.session.user.id,
-    
+    deckId: myProps.match.params.deckId,
   })
 };
 
