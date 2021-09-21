@@ -11,6 +11,7 @@ class DeckForm extends React.Component {
       errors: {}
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.navigateToUserPage = this.navigateToUserPage.bind(this);
   }
 
   // componentDidMount() {
@@ -24,6 +25,12 @@ class DeckForm extends React.Component {
     });
   }
 
+  navigateToUserPage() {
+    // debugger
+    const url = `/user`
+    this.props.history.push(url);
+  }
+
   // Handle form submission
   handleSubmit(e) {
     e.preventDefault();
@@ -33,6 +40,7 @@ class DeckForm extends React.Component {
         user: this.state.user
     };
     this.props.composeDeck(deck);
+    this.navigateToUserPage();
   }
 
   renderErrors() {
@@ -58,7 +66,7 @@ class DeckForm extends React.Component {
                   placeholder="Title"
               />
               <br />
-              <input type="submit" value="Submit" />
+              <input type="submit" value="Create Deck" />
           </div>
         </form>
       </div>
