@@ -12,17 +12,18 @@ const DeckReducer = (state = {}, action) => {
   
   switch(action.type) {
     case RECEIVE_ALL_DECKS:
-      console.log(action)
       return { ...action.decks };
 
     case RECEIVE_ALL_USER_DECKS:
-      console.log(action)
-      let decks = action.deck.data
+      // console.log(action)
+      // debugger
+      let decks = action.decks.data
       let nextState = { }
 
       decks.forEach((deck) => {
         nextState[deck._id]= deck
       })
+      // debugger
       return nextState;
 
     case RECEIVE_DECK:
@@ -32,7 +33,7 @@ const DeckReducer = (state = {}, action) => {
       return newState;
 
     case DELETE_A_DECK:
-      debugger
+      // debugger
       delete newState[action.id];
       return newState;
     default:

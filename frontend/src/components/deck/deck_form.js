@@ -13,6 +13,11 @@ class DeckForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  // componentDidMount() {
+  //   this.props.fetchUserDecks("6148fcd4300bf698b2d71234");
+  //   debugger
+  // }
+
   update(field) {
     return e => this.setState({
         [field]: e.currentTarget.value
@@ -28,7 +33,6 @@ class DeckForm extends React.Component {
         user: this.state.user
     };
     this.props.composeDeck(deck);
-    // debugger
   }
 
   renderErrors() {
