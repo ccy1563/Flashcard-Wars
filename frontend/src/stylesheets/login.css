@@ -1,0 +1,34 @@
+.login-form-box {
+    /* margin: 0 auto; */
+    align-items: center;
+    /* width: 350px; */
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    /* border-radius: 10px; */
+}
+
+.login-form {
+    width: 50vh;
+    height: 80vh;
+    background-color: yellow;
+}
+
+.login-form-content {
+    width: 30vh;
+    height: 30vh;
+    background-color: teal;
+    margin: 10vh 0 0 10vh;
+}
+
+.login-email-credentials {
+    margin: 5vh 0 0 4vh;
+}
+
+.login-password-credentials {
+    margin: 0 0 0 4vh;
+}
+
+.login-button {
+    margin: 0 0 0 11vh;
+}

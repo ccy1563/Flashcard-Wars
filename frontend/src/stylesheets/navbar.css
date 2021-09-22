@@ -1,0 +1,19 @@
+.nav-bar-box {
+    display: flex;
+    justify-content: space-between;
+    background-color: green;
+}
+
+.nav-bar-left {
+    display: flex;
+}
+
+.not-logged-in-box {
+
+}
+
+.nav-bar-title {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
