@@ -267,7 +267,7 @@ class Box extends React.Component {
                 {/* <Datetime ref="datetime"/> */}
                 
                 <Score className="scorebox-text" text={"Faster"} currentScore={this.state.timer} text2={"seconds has pass"} />
-                <Score text={"You are on"} currentScore={this.state.counter+1} text3={"of"} text2={endOfGame}/>
+                <Score text={"You are on"} currentScore={this.state.counter} text3={"of"} text2={endOfGame}/>
                 {/* <Score text={"Your record was"} currentScore={this.state.timer}/> */}
                     <div className='instruction'><div>Click below the text start typing</div></div>
 
