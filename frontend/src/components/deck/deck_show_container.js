@@ -6,7 +6,7 @@ import { fetchDeckComments, createComment, updateComment, deleteComment } from '
 import DeckShow from './deck_show'
 
 const mapStateToProps = (state, myProps) => {
-  debugger
+  // debugger
   return({
     user_id: state.session.user.id,
     deckId: myProps.match.params.deckId,

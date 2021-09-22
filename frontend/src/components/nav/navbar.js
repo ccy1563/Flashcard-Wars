@@ -70,7 +70,6 @@ class NavBar extends React.Component {
                     <div>{this.getProfileLink()}</div>
                 </div>
                 <div>{this.getLinks()}</div>
-                
             </div>
         );
     }

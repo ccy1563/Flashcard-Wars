@@ -1,0 +1,26 @@
+.splash-deck-index{
+  display: flex;
+  
+}
+
+.splash-page-index-item{
+  display: flex;
+  /* background-image: url('https://water-seeds.s3.amazonaws.com/back.png'); */
+  background-image: url('https://water-seeds.s3.amazonaws.com/deck2.jpg');
+  width: 250px;
+  height: 355px;
+}
+
+.splash-page-index-item a{
+  text-decoration: none;
+  width:inherit;
+}
+
+.splash-page-index-item p {
+  width:150px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  color:white;
+  padding-top: 100px
+}
