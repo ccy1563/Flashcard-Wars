@@ -4,7 +4,12 @@ export default class Menu extends Component {
     render() {
         return (
             <div>
-                <h1>This is the menu</h1>
+                <img src="https://water-seeds.s3.amazonaws.com/type1.gif" alt="" />
+                <img src="https://water-seeds.s3.amazonaws.com/type1.gif" alt="" />
+                <img src="https://water-seeds.s3.amazonaws.com/type1.gif" alt="" />
+                <img src="https://water-seeds.s3.amazonaws.com/type1.gif" alt="" />
+
+
             </div>
         )
     }
