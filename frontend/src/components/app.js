@@ -17,6 +17,7 @@ import UserProfileContainer from './user_profile/user_profile_container';
 import FlashcardFormContainer from './flashcard/flashcard_form_container'
 import FlashcardIndexContainer from './flashcard/flashcard_index_container'
 import SplashPageContainer from './splash_page/splash_page_container';
+import FlashcardEditContainer from './flashcard/flashcard_edit_container'
 
 const App = () => (
      <div>     
@@ -45,6 +46,8 @@ const App = () => (
             <Route exact path="/decks" component={DeckFormContainer} />
             // Renders all flashcards in a deck from user page
             <Route exact path="/flashcard/deck/:deckId" component={FlashcardIndexContainer} />
+            // Renders edit form for particular flashcard
+            <Route exact path="/flashcard/:flashcardId/deck/:deckId" component={FlashcardEditContainer} />
             
 
 
