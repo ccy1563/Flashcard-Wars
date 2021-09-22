@@ -13,17 +13,22 @@ class LoginForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
+        this.navigateToSplashPage = this.navigateToSplashPage.bind(this);
     }
 
     // Once the user has been authenticated, redirect to the Tweets page
     componentWillReceiveProps(nextProps) {
         if (nextProps.currentUser === true) {
-            this.props.history.push('/tweets');
+            this.props.history.push('/splash');
         }
 
         // Set or clear errors
         this.setState({ errors: nextProps.errors })
     }
+
+    // componentDidMount() {
+    //     debugger
+    // }
 
     // Handle field updates (called in the render method)
     update(field) {
@@ -40,9 +45,8 @@ class LoginForm extends React.Component {
             email: this.state.email,
             password: this.state.password
         };
-
         this.props.login(user);
-        // debugger
+        this.navigateToSplashPage();
     }
 
     // Render the session errors if there are any
@@ -57,6 +61,13 @@ class LoginForm extends React.Component {
             </ul>
         );
     }
+
+    navigateToSplashPage() {
+        // debugger
+        const url = `/splash`
+        this.props.history.push(url);
+    }
+
 
     render() {
         return (

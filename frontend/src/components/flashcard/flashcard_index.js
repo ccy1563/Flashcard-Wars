@@ -22,11 +22,28 @@ class FlashcardIndex extends React.Component {
             })
     }
 
+
+    handleDelete(e, flashcardId) {
+        e.preventDefault();
+        // debugger
+        this.props.deleteFlashcard(flashcardId)
+            .then(
+                this.props.fetchDeckFlashcards(this.props.deckId)
+                    .then(res => {
+                        this.setState({
+                            flashcardArray: Object.values(res.flashcards.data)
+                        })
+                    })
+            )
+    }
+
     render() {
 
         // debugger
 
+        
         const { flashcardArray } = this.state;
+
 
         if (flashcardArray.length === 0) return null;
 
@@ -34,10 +51,14 @@ class FlashcardIndex extends React.Component {
         const allFlashcardsInDeck = flashcardArray.map(flashcard => {
             // debugger
             return (
-                <FlashcardIndexItem
-                    key={flashcard._id}
-                    flashcard={flashcard}
-                />
+                <div key={flashcard._id}>
+                    <div>Title: {flashcard.title}</div>
+                    <div>Text: {flashcard.text}</div>
+                    {/* <Link><button>Edit</button></Link> */}
+                    <button>Edit</button>
+                    {/* {this.openEditForm()} */}
+                    <button onClick={(e) => this.handleDelete(e, flashcard._id)}>Delete</button>
+                </div>
             )
         });
 

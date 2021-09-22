@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 // import './navbar.css'
 import '../newCss.css';
 import '../newCss.css';
@@ -8,11 +8,19 @@ class NavBar extends React.Component {
         super(props);
         this.logoutUser = this.logoutUser.bind(this);
         this.getLinks = this.getLinks.bind(this);
+        this.getProfileLink = this.getProfileLink.bind(this);
+        this.navigateToLoginPage = this.navigateToLoginPage.bind(this);
     }
 
     logoutUser(e) {
         e.preventDefault();
         this.props.logout();
+        this.navigateToLoginPage();
+    }
+
+    navigateToLoginPage() {
+        const url = `/`
+        this.props.history.push(url);
     }
 
     // Selectively render links dependent on whether the user is logged in
@@ -26,21 +34,43 @@ class NavBar extends React.Component {
         } else {
             return (
                 <div>
-                    <Link to={'/signup'}>Signup</Link>
-                    <Link to={'/login'}>Login</Link>
+                    <button>
+                        <Link to={'/signup'}>Signup</Link>
+                    </button>
+                    <button>
+                        <Link to={'/login'}>Login</Link>
+                    </button>
                 </div>
             );
         }
     }
 
+    getProfileLink() {
+        if (this.props.loggedIn) {
+            return (
+                <div>
+                    <Link to="/user">
+                        <button>
+                            Profile
+                        </button>
+                    </Link>
+                </div>
+            )
+        }
+    }
+
     render() {
+        // debugger
         return (
             <div>
-                <h1>Flashcard Wars</h1>
-                {this.getLinks()}
+                <Link to="/splash">
+                    <h1>Flashcard Wars</h1>
+                </Link>
+                <div>{this.getLinks()}</div>
+                <div>{this.getProfileLink()}</div>
             </div>
         );
     }
 }
 
-export default NavBar;
+export default withRouter(NavBar);

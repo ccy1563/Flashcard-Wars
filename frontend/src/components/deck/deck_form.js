@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 
 
 class DeckForm extends React.Component {
@@ -11,7 +11,7 @@ class DeckForm extends React.Component {
       errors: {}
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.navigateToUserPage = this.navigateToUserPage.bind(this);
+    // this.navigateToUserPage = this.navigateToUserPage.bind(this);
   }
 
   // componentDidMount() {
@@ -39,8 +39,9 @@ class DeckForm extends React.Component {
         title: this.state.title,
         user: this.state.user
     };
-    this.props.composeDeck(deck);
-    this.navigateToUserPage();
+    this.props.composeDeck(deck)
+      .then(() => this.props.history.push("/user"));
+    // <Redirect to="/user" />
   }
 
   renderErrors() {

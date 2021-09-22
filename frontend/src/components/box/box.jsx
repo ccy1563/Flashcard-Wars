@@ -28,8 +28,9 @@ class Box extends React.Component {
     }
 
     componentDidMount(){       
+        this.props.fetchDeckFlashcards(this.props.deckId);
         // debugger
-        this.props.fetchDeckFlashcards(this.props.deckId)
+       
         this.startTimer()
         
     }
@@ -270,6 +271,8 @@ class Box extends React.Component {
             this.propsTostate()
         }
      
+
+        // flashcards && renderCount === 0 ? this.propsTostate()  : null
 
         return (
             <div className='box-render'>
