@@ -30,8 +30,8 @@ class FlashcardIndexItem extends React.Component {
                 <div>Title: {flashcard.title}</div>
                 <div>Text: {flashcard.text}</div>
                 <div>
-                    {/* <Link><button>Edit</button></Link> */}
-                    <button>Edit</button>
+                    {/* <Link to={}><button>Edit</button></Link> */}
+                    {/* <button>Edit</button> */}
                     {/* {this.openEditForm()} */}
                     <button onClick={(e) => this.handleDelete(e)}>Delete</button>
                 </div>

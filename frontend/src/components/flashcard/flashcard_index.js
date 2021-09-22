@@ -54,8 +54,7 @@ class FlashcardIndex extends React.Component {
                 <div key={flashcard._id}>
                     <div>Title: {flashcard.title}</div>
                     <div>Text: {flashcard.text}</div>
-                    {/* <Link><button>Edit</button></Link> */}
-                    <button>Edit</button>
+                    <Link to={`/flashcard/${flashcard._id}/deck/${flashcard.deck}`}><button>Edit</button></Link>
                     {/* {this.openEditForm()} */}
                     <button onClick={(e) => this.handleDelete(e, flashcard._id)}>Delete</button>
                 </div>
