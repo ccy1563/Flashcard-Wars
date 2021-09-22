@@ -63,7 +63,9 @@ class NavBar extends React.Component {
         // debugger
         return (
             <div>
-                <h1>Flashcard Wars</h1>
+                <Link to="/splash">
+                    <h1>Flashcard Wars</h1>
+                </Link>
                 <div>{this.getLinks()}</div>
                 <div>{this.getProfileLink()}</div>
             </div>

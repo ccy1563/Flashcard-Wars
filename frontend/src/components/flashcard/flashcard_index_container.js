@@ -27,6 +27,7 @@ const mapStateToProps = (state, myProps) => {
         user_id: state.session.user.id,
         deckId: myProps.match.params.deckId,
         myFlashcards: Object.values(state.entities.flashcards),
+        // canEdit: false,
     });
 };
 

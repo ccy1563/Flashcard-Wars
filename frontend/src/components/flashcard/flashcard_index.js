@@ -26,7 +26,13 @@ class FlashcardIndex extends React.Component {
 
         // debugger
 
+        
         const { flashcardArray } = this.state;
+
+
+        if (!this.props.myFlashcards) {
+            return null;
+        }
 
         if (flashcardArray.length === 0) return null;
 
@@ -37,6 +43,9 @@ class FlashcardIndex extends React.Component {
                 <FlashcardIndexItem
                     key={flashcard._id}
                     flashcard={flashcard}
+                    deleteFlashcard={this.props.deleteFlashcard}
+                    fetchDeckFlashcards={this.props.fetchDeckFlashcards}
+                    state={this.state}
                 />
             )
         });
