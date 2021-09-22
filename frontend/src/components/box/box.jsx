@@ -291,7 +291,7 @@ class Box extends React.Component {
                
                 {
                     (stateEnded === false) 
-                    ? <div className='box-input'><textarea className="Text1" value={this.state.input} onChange={(e)=>this.setState({input: e.target.value})}/></div>      
+                    ? <div className='box-input'><textarea className="Text1" spellcheck="false" value={this.state.input} onChange={(e)=>this.setState({input: e.target.value})}/></div>      
                     : this.stopTimer() 
                     // : <Score text={"Your final score is"} currentScore={this.state.score}/> ? this.stopTimer() : null  ? console.log("asd") : null
                     // (stateEnded === true)
