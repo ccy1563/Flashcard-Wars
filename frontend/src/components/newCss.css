@@ -67,7 +67,7 @@ table {
   
 }
 img{
-  width: 80%
+  /* width: 100% */height: 100%;
 }
 
 .bundle-box{
@@ -99,6 +99,8 @@ img{
   color:#45A29E
 
 }
+
+
 
 .App {
   text-align: center;
