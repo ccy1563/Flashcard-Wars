@@ -22,9 +22,8 @@ class Box extends React.Component {
     }
 
     componentDidMount(){       
+        this.props.fetchDeckFlashcards(this.props.deckId);
         // debugger
-        this.props.fetchDeckFlashcards(this.props.deckId)
-
     }
 
 

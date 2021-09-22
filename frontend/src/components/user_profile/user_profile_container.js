@@ -27,6 +27,8 @@ const mapStateToProps = state => {
     return ({
         userId: tempId,
         myDecks: Object.values(state.entities.decks),
+        deckFlashcards: Object.values(state.entities.flashcards),
+        myFlashcards: Object.values(state.entities.flashcards),
     });
 };
 
