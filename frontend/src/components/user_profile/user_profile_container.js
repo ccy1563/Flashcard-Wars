@@ -22,8 +22,10 @@ import UserProfile from './user_profile';
 const mapStateToProps = state => {
 
     // debugger
+    let tempId = undefined;
+    if (state.session.user) tempId = state.session.user.id;
     return ({
-        userId: state.session.user.id,
+        userId: tempId,
         myDecks: Object.values(state.entities.decks),
     });
 };
