@@ -17,6 +17,8 @@ import UserProfileContainer from './user_profile/user_profile_container';
 import FlashcardFormContainer from './flashcard/flashcard_form_container'
 import FlashcardIndexContainer from './flashcard/flashcard_index_container'
 import SplashPageContainer from './splash_page/splash_page_container';
+import DeckShowContainer from './deck/deck_show_container';
+import CommentIndexContainer from './comment/comment_index_container';
 
 const App = () => (
      <div>     
@@ -32,18 +34,22 @@ const App = () => (
                     <div className='bundle-stats'><Stats /></div>
                 </div>
             </Route>
+            <Route exact path='/comments/:comment_id' component = {CommentIndexContainer} />
+            
+            <Route exact path='/decks/:deckId' component={DeckShowContainer}/>
+
             <Route exact path='/decks_index' component={DeckIndexContainer} />
             
-            // Renders form to submit decks
-            <Route exact path ='/comments' component={CommentFormContainer} />
+            {/* // Renders form to submit decks */}
 
-            // User page
+            {/* // User page */}
             <Route exact path="/user" component={UserProfileContainer} />
-            // Page to insert card into deck from user page
+            {/* // Page to insert card into deck from user page */}
+            <Route exact path ="/comment/user/:userId/deck/:deckId/create" component={CommentFormContainer} />
             <Route exact path="/flashcard/user/:userId/deck/:deckId/create" component={FlashcardFormContainer} />
-            // Renders form to submit decks from user page
+            {/* // Renders form to submit decks from user page */}
             <Route exact path="/decks" component={DeckFormContainer} />
-            // Renders all flashcards in a deck from user page
+            {/* // Renders all flashcards in a deck from user page */}
             <Route exact path="/flashcard/deck/:deckId" component={FlashcardIndexContainer} />
             
 
