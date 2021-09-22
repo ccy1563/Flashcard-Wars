@@ -16,12 +16,12 @@ import UserProfileContainer from './user_profile/user_profile_container';
 import FlashcardFormContainer from './flashcard/flashcard_form_container'
 import FlashcardIndexContainer from './flashcard/flashcard_index_container'
 import SplashPageContainer from './splash_page/splash_page_container';
-
+import Rightmenu from './rightmenu/rightmenu';
 
 const App = () => (
-     <div>     
+     <div className='whole-div'>     
         <div className='navbar'><NavBarContainer /></div>
-
+        
         <Route exact path ="/splash" component={SplashPageContainer}/>
         <Switch>
         {/* typing page */}
@@ -29,7 +29,7 @@ const App = () => (
                 <div className="Bundle">
                     <div className='bundle-menu'><Menu /></div>
                     <div className='bundle-box'><BoxContainer/></div>
-                    <div className='bundle-stats'><Stats /></div>
+                    <div className='bundle-stats'><Rightmenu /></div>
                 </div>
             </Route>
 

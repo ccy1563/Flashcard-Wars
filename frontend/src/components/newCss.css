@@ -5,32 +5,51 @@
   /* z-index: 10;
 } */
 
+
+
 .Bundle { 
   display: flex;
   height: 760px;
   position: relative;
   padding-top: 64px;
 }
+.whole-div{
+  background-color: #0B0C10;
+  color:#66FCF1;
+  
+}
+img{
+  width: 80%
+}
 
 .bundle-box{
-  padding: 100px;
-  background-color: green;
+  padding: 0px;
+  background-color: #0B0C10;
   flex: 2;
   min-width: 800px;
+  /* flex-basis: 10%; */
 }
 
 .bundle-menu{
-  background-color: red;
-  flex: 1
+  background-color: #0B0C10;
+  flex: 1;
+  /* flex-basis: content; */
+  min-width: 140px;
 }
 .bundle-stats{
-  background-color: blue;
-  flex: 1
+  background-color: #0B0C10;
+  flex: 1;
+  min-width: 140px;
+
+  /* flex-basis: content; */
+  
 }
 
 .scorebox-text{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 20px
+  font-size: 20px;
+  color:#45A29E
+
 }
 
 .App {
@@ -45,15 +64,24 @@
 }
 
 .white{
-  color:white;
+  color:#66FCF1;
 }
 
 .black{
-  color:black;
+  color:#C5C6C7;
 }
 
+/* div{
+  
+} */
+
 .red{
-  color:red
+  color:#db2810
+}
+
+.Stats{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
 }
 
 .fuse-box{
@@ -69,12 +97,13 @@
 
 .Text1{
   background-color: transparent;
-
-  height: 600px;
+  border-radius: 25px;
+  height: 400px;
   width: 800px;
   border: none;
   color: transparent;
-
+  background: #0B0C10 url("https://water-seeds.s3.amazonaws.com/type2.gif") no-repeat  center;
+  /* background-image: ''; */
 }
 
 
@@ -150,3 +179,52 @@
     transform: rotate(360deg);
   }
 } 
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}

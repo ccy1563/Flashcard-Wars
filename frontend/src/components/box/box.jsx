@@ -23,16 +23,20 @@ class Box extends React.Component {
     }
     this.resetGame = this.resetGame.bind(this)
     this.loadDeck = this.loadDeck.bind(this)
+
+
     }
 
     componentDidMount(){       
         // debugger
         this.props.fetchDeckFlashcards(this.props.deckId)
         this.startTimer()
+        
     }
 
     componentWillUnmount(){
         this.stopTimer()
+        
     }
 
 
@@ -231,6 +235,10 @@ class Box extends React.Component {
     //     return false
     // }
 
+    someMethod() {
+        window.location.reload(false);
+    }
+    
     
 
  
@@ -246,6 +254,7 @@ class Box extends React.Component {
         const endOfGame = Object.keys(this.state.flashcards).length
         const resetGame = this.resetGame
         const loadDeck = this.loadDeck
+        const someMethod = this.someMethod
         const timerEnd = this.state.timerEnd
         const ranking = this.state.ranking
         // const timer = this.state.timer
@@ -304,6 +313,8 @@ class Box extends React.Component {
           
           <button onClick={resetGame}>Reset Flashcards</button>
           <button onClick={loadDeck}>Load Deck 1</button>
+          <button onClick={someMethod}>Refresh</button>
+
 
                            
             </div>

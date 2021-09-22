@@ -30,7 +30,7 @@ export default class Stats extends Component {
         list.sort()
         return (
             <div className="Stats">
-               {list}
+               <div>{list}</div>
             </div>
         )
     }
