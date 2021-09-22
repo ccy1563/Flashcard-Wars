@@ -42,17 +42,6 @@ class UserProfile extends React.Component {
                             Add Card
                         </button>
                     </Link>
-                    <Link to={`/comment/user/${deck.user}/deck/${deck._id}/create`}>
-                        <button>
-                            Add a comment
-                        </button>
-                    </Link>
-
-                    <Link to={`/comments/deck/${deck._id}`}>
-                        <button>
-                            Show all comments
-                        </button>
-                    </Link>
 
                     <Link to={`/flashcard/deck/${deck._id}`}>
                         <button>

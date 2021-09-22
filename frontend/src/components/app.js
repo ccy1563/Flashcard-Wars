@@ -59,7 +59,7 @@ const App = () => (
             {/* // Renders all flashcards in a deck from user page */}
             <Route exact path='/comments/deck/:deckId' component = {CommentIndexContainer} />
             <Route exact path="/flashcard/deck/:deckId" component={FlashcardIndexContainer} />
-            // Renders edit form for particular flashcard
+            {/* // Renders edit form for particular flashcard */}
             <Route exact path="/flashcard/:flashcardId/deck/:deckId" component={FlashcardEditContainer} />
             
 
