@@ -11,7 +11,7 @@ class CommentIndexItem extends React.Component{
     this.textEdited = React.createRef();
 
     this.handleDelete = this.handleDelete.bind(this);
-    // this.handleEdit = this.handleEdit.bind(this);S
+    this.handleEdit = this.handleEdit.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
   }
 
@@ -65,7 +65,7 @@ class CommentIndexItem extends React.Component{
       )
       submitButton = (
         <div className="edit-photo-button-container">
-          <button className="edit-photo-button" onClick={ (e) => this.handleEdit(e)}>Submit</button>
+          <button className="edit-photo-button" onClick={this.handleEdit}>Submit</button>
         </div>
       )
     };
@@ -73,7 +73,7 @@ class CommentIndexItem extends React.Component{
     return(
       <div>
         <div>
-          <div>Text: </div>
+          <div>Text </div>
 
           {editable ? 
             <div className="text-edited-container">
@@ -96,7 +96,7 @@ class CommentIndexItem extends React.Component{
         {
           isUploader ?
           <div className="delete-comment-container">
-            <button className="delete-comment" onClick={this.handleDelete}>Delete Comment</button> 
+            <button className="delete-comment" onClick={this.handleDelete}>Delete</button> 
           </div>
           :
           ""
