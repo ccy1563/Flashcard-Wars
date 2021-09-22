@@ -61,7 +61,8 @@ table {
   padding-top: 64px;
 }
 .whole-div{
-  background-color: #0B0C10;
+  
+  background-color: transparent;
   color:#66FCF1;
   
 }
@@ -204,7 +205,7 @@ img{
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: transparent;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

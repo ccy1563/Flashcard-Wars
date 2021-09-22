@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class SignupForm extends React.Component {
     constructor(props) {
@@ -57,37 +57,53 @@ class SignupForm extends React.Component {
     render() {
         return (
             <div className="signup-form-container">
-                <form onSubmit={this.handleSubmit}>
-                    <div className="signup-form">
-                        <br />
-                        <input type="text"
-                            value={this.state.email}
-                            onChange={this.update('email')}
-                            placeholder="Email"
-                        />
-                        <br />
-                        <input type="text"
-                            value={this.state.handle}
-                            onChange={this.update('handle')}
-                            placeholder="Handle"
-                        />
-                        <br />
-                        <input type="password"
-                            value={this.state.password}
-                            onChange={this.update('password')}
-                            placeholder="Password"
-                        />
-                        <br />
-                        <input type="password"
-                            value={this.state.password2}
-                            onChange={this.update('password2')}
-                            placeholder="Confirm Password"
-                        />
-                        <br />
-                        <input type="submit" value="Submit" />
-                        {this.renderErrors()}
-                    </div>
-                </form>
+                <div className ="login">
+                    <form onSubmit={this.handleSubmit} className="form-box">
+                        <p className="form-header">Sign up for Flashcard War</p>
+                        <div className = "session-form-errors">
+                            {this.renderErrors()}
+                        </div>
+
+                            <br />
+                            <input type="text"
+                                value={this.state.email}
+                                onChange={this.update('email')}
+                                placeholder="Email"
+                                className="signup-input"
+                            />
+                            <br />
+                            <input type="text"
+                                value={this.state.handle}
+                                onChange={this.update('handle')}
+                                placeholder="Handle"
+                                className="signup-input"
+                            />
+                            <br />
+                            <input type="password"
+                                value={this.state.password}
+                                onChange={this.update('password')}
+                                placeholder="Password"
+                                className="signup-input"
+                            />
+                            <br />
+                            <input type="password"
+                                value={this.state.password2}
+                                onChange={this.update('password2')}
+                                placeholder="Confirm Password"
+                                className="signup-input"
+                            />
+                            <br />
+
+                            <div className="button-input">
+                                <input className="session-submit" type="submit" value="Submit" />
+                            </div>
+                            <div>
+                                <p className="session-redirect">
+                                    Already a Flashcard War member? <Link to="/login">Log in here.</Link>
+                                </p>
+                            </div>
+                    </form>
+                </div>
             </div>
         );
     }

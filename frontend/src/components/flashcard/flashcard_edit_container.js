@@ -14,13 +14,13 @@ import FlashcardEdit from './flashcard_edit';
 class FlashcardEditContainer extends React.Component {
     componentDidMount() {
         this.props.fetchFlashcard(this.props.match.params.flashcardId);
-        debugger
+        // debugger
     }
 
     render() {
         const { flashcard } = this.props;
         
-        debugger
+        // debugger
         if (!flashcard) return null;
 
         return (

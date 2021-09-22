@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import '../../stylesheets/login.css';
 
 class LoginForm extends React.Component {
@@ -47,7 +47,9 @@ class LoginForm extends React.Component {
             password: this.state.password
         };
         this.props.login(user);
-        this.navigateToSplashPage();
+        if(this.props.auth){
+            this.navigateToSplashPage();
+        }
     }
 
     // Render the session errors if there are any
@@ -69,32 +71,41 @@ class LoginForm extends React.Component {
         this.props.history.push(url);
     }
 
-
     render() {
         return (
-            <div className='login-form-box'>
-                <form className='login-form' onSubmit={this.handleSubmit}>
-                    <div className='login-form-content'>
+            <div className='form-container'>
+                <div className="login">
+                    <form className='form-box' onSubmit={this.handleSubmit}>
+                        <p className="form-header">Log in to Flashcard Wars</p>
+                        <div className = "session-form-errors">
+                            {this.renderErrors()}
+                        </div>
                         <input 
-                            className='login-email-credentials'
+                            className="login-input"
                             type="text"
                             value={this.state.email}
                             onChange={this.update('email')}
                             placeholder="Email"
                         />
-                        <br />
+
                         <input
-                            className='login-password-credentials'
+                            className="login-input"
                             type="password"
                             value={this.state.password}
                             onChange={this.update('password')}
                             placeholder="Password"
                         />
-                        <br />
-                        <input className='login-button' type="submit" value="Submit" />
-                        {this.renderErrors()}
-                    </div>
-                </form>
+                        <div className="button-input">
+                            <input className="session-submit" type="submit" value="Submit" />
+                        </div>
+
+                        <div>
+                            <p className="session-redirect">
+                                Not a Flashcard War member? <Link to="/signup">Sign up here.</Link>
+                            </p>
+                        </div>
+                    </form>
+                </div>
             </div>
         );
     }
