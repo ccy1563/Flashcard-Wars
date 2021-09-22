@@ -63,7 +63,26 @@
 }
 
 .box-input{
-  margin-top: 100px;
+  margin-bottom: 200px;
+  background-color: transparent;
+}
+
+.Text1{
+  background-color: transparent;
+
+  height: 600px;
+  width: 800px;
+  border: none;
+  color: transparent;
+
+}
+
+
+
+.Text1:focus {
+  outline: none !important;
+  border:1px solid transparent;
+  box-shadow: 0 0 10px transparent;
 }
 
 .WrongSpace{
@@ -76,11 +95,18 @@
 }
 
 .fuse{
-  display: inline-flex;
+  display: flex;
+  flex-wrap:wrap ;
+  font-family: 'Roboto', sans-serif;
+
+  align-items:flex-start
 }
 
 .game{
+  margin-top: 10px;
   display: flex;
+  /* position: absolute; */
+  margin-right: 5%;
   flex-wrap: wrap;
 }
   

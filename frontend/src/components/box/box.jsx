@@ -1,10 +1,11 @@
 import React from 'react'
-// import '../newCss.css';
+import '../newCss.css';
 import Score from '../score/score.jsx'
 import {withRouter} from "react-router-dom"
 // import Time from '../time/time'
 import Fuse from './fuse'
 // import Datetime from 'react-datetime';
+import Stats from '../stats/stats';
 class Box extends React.Component {
     constructor(props){
         super(props)
@@ -15,7 +16,10 @@ class Box extends React.Component {
         counter: 0,
         score:0,
         ended:false,
-        renderCount:0
+        renderCount:0,
+        timer:0,
+        timerEnd:false,
+        ranking:[10,20,30]
     }
     this.resetGame = this.resetGame.bind(this)
     this.loadDeck = this.loadDeck.bind(this)
@@ -24,49 +28,57 @@ class Box extends React.Component {
     componentDidMount(){       
         // debugger
         this.props.fetchDeckFlashcards(this.props.deckId)
+        this.startTimer()
+    }
 
+    componentWillUnmount(){
+        this.stopTimer()
     }
 
 
 
-    checkWholepassage(input,flashcards){
+    // checkWholepassage(input,flashcards){
        
-        let arr = []
-        let subArray = []
-        let arrWithSpace = []
-        for (let x = 0; x < flashcards.length; x++){
-            if(flashcards[x] === `\n`){               
-                arr.push(<div>{`\n`}</div>)
-            }
-            if (flashcards[x] === " "){
-                arr.push(<div>&nbsp;</div>)
-            }
-            if (input[x] === flashcards[x]){
-                arr.push(<div className="white">{flashcards[x]}</div>)                
-            }            
-            else if(input[x] && input[x] !== flashcards[x]){
-                arr.push(<div className="red">{flashcards[x]}</div>)    
-            }            
-            else{
-                arr.push(<div className="black">{flashcards[x]}</div>)
-            }
-        }
-        for (let x = 0; x < arr.length; x++){
-            arrWithSpace.push(arr[x])
+    //     let arr = []
+    //     let subArray = []
+    //     let arrWithSpace = []
+    //     for (let x = 0; x < flashcards.length; x++){
+    //         if(flashcards[x] === `\n`){               
+    //             arr.push(<div>{`\n`}</div>)
+    //         }
+    //         if (flashcards[x] === " "){
+    //             arr.push(<div>&nbsp;</div>)
+    //         }
+    //         if (input[x] === flashcards[x]){
+    //             arr.push(<div className="white">{flashcards[x]}</div>)                
+    //         }            
+    //         else if(input[x] && input[x] !== flashcards[x]){
+    //             arr.push(<div className="red">{flashcards[x]}</div>)    
+    //         }            
+    //         else{
+    //             arr.push(<div className="black">{flashcards[x]}</div>)
+    //         }
+    //     }
+    //     for (let x = 0; x < arr.length; x++){
+    //         arrWithSpace.push(arr[x])
             
-        }
-        return arr
-    }
+    //     }
+    //     return arr
+    // }
+
+
 
 
     checkWholepassage2(input,flashcards){
         let arr = []
         let mainArr = []
         let arrWithSpace = []
+       
+
         if (flashcards){
             for (let x = 0; x < flashcards.length; x++){
                 if(flashcards[x] === `\n`){
-                    for(let i = arr.length; i < 1000; i++){
+                    for(let i = arr.length; i < 250; i++){
                         arr.push(<div>&nbsp;</div>)
                     }
                     
@@ -101,6 +113,8 @@ class Box extends React.Component {
         
     }
 
+    
+
 
     addOne(){
         let oldcounter = this.state.counter
@@ -121,7 +135,21 @@ class Box extends React.Component {
         
     }
 
+    stopTimer(){
+        clearInterval(this.interval)
+        // this.setState({timerEnd:true})
+    }
 
+    startTimer(){
+        this.interval = setInterval(() => {
+            this.setState(prevState  =>({
+                timer:prevState.timer + 1
+            }))
+        },1000)
+    } 
+    
+
+   
 
     checkAll(input,flashcards){
         if(flashcards){
@@ -139,10 +167,13 @@ class Box extends React.Component {
     }
 
     resetGame(){   
-        this.setState({counter:1})
+        this.setState({counter:0})
         this.setState({score:0})
         this.setState({input:""})
         this.setState({ended:false})
+        this.setState({timer:0})
+        this.startTimer()
+
 
 
 
@@ -192,6 +223,16 @@ class Box extends React.Component {
        
     }
 
+    // inputIsEmpty(input){
+    //     if(input){
+    //         console.log("true")
+    //         return true
+    //     }else
+    //     return false
+    // }
+
+    
+
  
 
     render() {
@@ -205,35 +246,58 @@ class Box extends React.Component {
         const endOfGame = Object.keys(this.state.flashcards).length
         const resetGame = this.resetGame
         const loadDeck = this.loadDeck
+        const timerEnd = this.state.timerEnd
+        const ranking = this.state.ranking
+        // const timer = this.state.timer
+        // const inputIsEmpty = this.inputIsEmpty(this.state.input)
+        // if (inputIsEmpty && timer === 0){
+        //     this.startTimer()
+        // }
+       
+        // checkIfStarted ? this.startTimer() : ""
+        // timer === 0 ? this.startTimer() : null
         const{flashcards} = this.props
-        flashcards && renderCount === 0 ? this.propsTostate()  : null
+        if (flashcards && renderCount === 0 ){
+            this.propsTostate()
+        }
+     
 
         return (
             <div className='box-render'>
                 {/* <Datetime ref="datetime"/> */}
-                {/* <Score className="scorebox-text" text={"Your current score is"} currentScore={this.state.score}/> */}
-                <div className='instruction'><div>Type this</div></div>
-                <div className="game">
-                        {checkWholepassage2.map((ele,i) => (
-                            
-                              
+                
+                <Score className="scorebox-text" text={"Faster"} currentScore={this.state.timer} text2={"seconds has pass"} />
+                <Score text={"You are on"} currentScore={this.state.counter+1} text3={"of"} text2={endOfGame}/>
+                {/* <Score text={"Your record was"} currentScore={this.state.timer}/> */}
+                    <div className='instruction'><div>Click below the text start typing</div></div>
+
+                    <div className="game" for='Text1' >
+                        {checkWholepassage2.map((ele,i) => (       
                                 <Fuse className="textbox2" ele={ele} key={i}/>
-                            
-                               
-                    
-                            
-                            ))}  
-                        
-                </div>
+                            ))}
+                    </div>
                 {
                    (checkAll === 'Done') ? this.addOne() : null
                 }
                
                 {
                     (stateEnded === false) 
-                    ? <div className='box-input'><textarea name="Text1" value={this.state.input} onChange={(e)=>this.setState({input: e.target.value})}/></div> 
-                    : <Score text={"Your final score is"} currentScore={this.state.score+1}/>
+                    ? <div className='box-input'><textarea className="Text1" value={this.state.input} onChange={(e)=>this.setState({input: e.target.value})}/></div>      
+                    : this.stopTimer() 
+                    // : <Score text={"Your final score is"} currentScore={this.state.score}/> ? this.stopTimer() : null  ? console.log("asd") : null
+                    // (stateEnded === true)
+                    // ? console.log(this.state.ranking)
+                    // : null
                 }
+                {
+                    (stateEnded === true)
+
+                    ?    <Stats array={this.state.ranking} currentTimer={this.state.timer}/>
+                    : ""
+                }
+
+                
+              
                 
                 
        
