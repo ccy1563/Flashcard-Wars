@@ -8,7 +8,7 @@ module.exports = function validateFlashcardInput(data) {
   data.title = validText(data.title) ? data.title : "";
   data.text = validText(data.text) ? data.text : "";
 
-  if (!Validator.isLength(data.title, { min: 5, max: 140 })) {
+  if (!Validator.isLength(data.title, { min: 1, max: 140 })) {
     errors.title = "Title must be between 5 and 140 characters";
   }
 
