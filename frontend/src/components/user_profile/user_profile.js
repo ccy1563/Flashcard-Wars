@@ -36,16 +36,30 @@ class UserProfile extends React.Component {
             return (
                 <div>
                     <div>Title: {deck.title}</div>
+
                     <Link to={`/flashcard/user/${deck.user}/deck/${deck._id}/create`}>
                         <button>
                             Add Card
                         </button>
                     </Link>
+                    <Link to={`/comment/user/${deck.user}/deck/${deck._id}/create`}>
+                        <button>
+                            Add a comment
+                        </button>
+                    </Link>
+
+                    <Link to={`/comments/deck/${deck._id}`}>
+                        <button>
+                            Show all comments
+                        </button>
+                    </Link>
+
                     <Link to={`/flashcard/deck/${deck._id}`}>
                         <button>
                             Show all cards
                         </button>
                     </Link>
+                    
                     <button onClick={(e) => this.handleDelete(e, deck._id)}>
                         Delete Deck
                     </button>

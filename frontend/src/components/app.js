@@ -10,15 +10,19 @@ import Footer from './footer/footer';
 import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
+
 import DeckFormContainer from './deck/deck_form_container';
-import DeckIndexContainer from './deck/deck_index_container'
-import CommentFormContainer from './comment/comment_form_container';
-import UserProfileContainer from './user_profile/user_profile_container';
-import FlashcardFormContainer from './flashcard/flashcard_form_container'
-import FlashcardIndexContainer from './flashcard/flashcard_index_container'
-import SplashPageContainer from './splash_page/splash_page_container';
+import DeckIndexContainer from './deck/deck_index_container';
 import DeckShowContainer from './deck/deck_show_container';
+
+import CommentFormContainer from './comment/comment_form_container';
 import CommentIndexContainer from './comment/comment_index_container';
+
+import FlashcardFormContainer from './flashcard/flashcard_form_container';
+import FlashcardIndexContainer from './flashcard/flashcard_index_container';
+
+import SplashPageContainer from './splash_page/splash_page_container';
+import UserProfileContainer from './user_profile/user_profile_container';
 
 const App = () => (
      <div>     
@@ -34,7 +38,6 @@ const App = () => (
                     <div className='bundle-stats'><Stats /></div>
                 </div>
             </Route>
-            <Route exact path='/comments/:comment_id' component = {CommentIndexContainer} />
             
             <Route exact path='/decks/:deckId' component={DeckShowContainer}/>
 
@@ -50,6 +53,7 @@ const App = () => (
             {/* // Renders form to submit decks from user page */}
             <Route exact path="/decks" component={DeckFormContainer} />
             {/* // Renders all flashcards in a deck from user page */}
+            <Route exact path='/comments/deck/:deckId' component = {CommentIndexContainer} />
             <Route exact path="/flashcard/deck/:deckId" component={FlashcardIndexContainer} />
             
 

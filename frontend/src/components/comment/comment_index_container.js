@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
-import { fetchDeckComments, createComment, updateComment, deleteComment } from '../../actions/comment_actions'
+import { fetchComment, fetchDeckComments, createComment, updateComment, deleteComment } from '../../actions/comment_actions'
 import CommentIndex from './comment_index'
 
 const mapStateToProps = (state, myProps) => {
-  debugger
+  // debugger
   return ({
     comments: Object.values(state.entities.comments),
+    deckId: myProps.match.params.deckId,
     user_id: state.session.user.id,
     // deckId: myProps.match.params.deckId,
   })
@@ -13,6 +14,7 @@ const mapStateToProps = (state, myProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    fetchComment: id => dispatch(fetchComment(id)),
     fetchDeckComments: id => dispatch(fetchDeckComments(id)),
     createComment: comment => dispatch(createComment(comment)),
     updateComment: comment => dispatch(updateComment(comment)),
