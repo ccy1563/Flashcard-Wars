@@ -16,10 +16,13 @@
 }
 
 .deck-title {
-    background-image: url("https://images.squarespace-cdn.com/content/v1/55dd99e6e4b0efe2fb47a02e/1596113137205-3EKHGS9SDYZ8ZBH9MY7G/flashcards.png?format=1000w");
+    /* margin: 5%; */
+    /* background-color: red; */
+    background-image: url("https://static.thenounproject.com/png/219525-200.png");
     background-size: 150px;
     width: 150px;
-    height: 120px;
+    height: 130px;
+    /* color: blue; */
     text-align: center;
     font-size: 15px;
     font-family: system-ui;
@@ -42,7 +45,7 @@
     height: 30px;
     background-color: transparent;
     text-decoration: none;
-    color: black;
+    color: white;
     justify-content: center;
     padding-top: 6px;
 }
@@ -65,7 +68,8 @@
     cursor: pointer;
     border-radius: 6px;
     font-family: Arial,Helvetica,sans-serif;
-    color: black;
+    /* color: rgb(214, 214, 214); */
+    color: white;
     border-radius: 6px;
     border: 0;
     cursor: pointer;
