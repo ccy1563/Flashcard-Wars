@@ -6,6 +6,7 @@
 .splash-deck-index{
   display: flex;
   flex-wrap: wrap;
+
   clear:both;
   overflow: scroll;
   position: relative;
