@@ -12,6 +12,7 @@ class LoginForm extends React.Component {
             errors: {}
         };
 
+        this.demoLogin = this.demoLogin.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
         this.navigateToSplashPage = this.navigateToSplashPage.bind(this);
@@ -71,6 +72,12 @@ class LoginForm extends React.Component {
         this.props.history.push(url);
     }
 
+    demoLogin(e){
+        e.preventDefault();
+        const demo = {email: "demouser@demo.com", password: "demouser"}
+        this.props.processDemo(demo);
+    }
+
     render() {
         return (
             <div className='form-container'>
@@ -97,6 +104,7 @@ class LoginForm extends React.Component {
                         />
                         <div className="button-input">
                             <input className="session-submit" type="submit" value="Submit" />
+                            <input className="session-demo" type="submit" value="Demo Login" onClick={this.demoLogin}/>
                         </div>
 
                         <div>
