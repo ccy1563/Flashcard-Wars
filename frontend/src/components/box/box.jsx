@@ -135,30 +135,31 @@ class Box extends React.Component {
     //     let mainArr = []
     //     let arrWithSpace = []
     //     let newStarting = 0
-    //     // console.log(flashcards)
-    //     // console.log(typeof flashcards)
     //     let split;
     //     if(flashcards){
     //         split = flashcards.split(" ")
     //     }
-    //     // console.log(split)
     //     let counter = 0
+    //     let inputLen = input.length
     //     let size = 0
-    //     if (input){
-    //         // console.log(input.length,split[counter].length)
-    //         if (input.length <= split[counter].length){
-    //             // console.log(split[counter])
-    //             // console.log(input.length+1, split[counter].length+size)
-    //             if(input.length+1 > split[counter].length+size){
-    //                 // console.log("Asd")
-    //                 counter += 1
-    //                 size+= split[counter].length
-    //             }
-    //         }
-    //     }
+    //     console.log(flashcards)
+    //     let totalLen = 0
+        // if (input){
+        //     totalLen += split[counter].length
+        //     if (inputLen < totalLen){     
+        //         // console.log(inputLen,totalLen)
+        //         // console.log(split[counter])
+        //     }else{
+        //         counter += 1
+        //         console.log(inputLen,counter)
+        //         inputLen += totalLen+1
+        //     }
+        //     // if (inputLen === totalLen){
+                
+        //     // }
+        // }
         
         // let split = flashcards.split(" ")
-        // console.log(split)
         // if (flashcards){
         //     for (let x = 0; x < flashcards.length; x++){
         //         console.log(flashcards.length)
@@ -204,7 +205,6 @@ class Box extends React.Component {
 
     stopTimer(){
         clearInterval(this.interval)
-        // this.setState({timerEnd:true})
     }
 
     startTimer(){
@@ -287,18 +287,11 @@ class Box extends React.Component {
             }
             // 
         }else{
-            // console.log("not found")
         }
        
     }
 
-    // inputIsEmpty(input){
-    //     if(input){
-    //         console.log("true")
-    //         return true
-    //     }else
-    //     return false
-    // }
+
 
     someMethod() {
         window.location.reload(false);
