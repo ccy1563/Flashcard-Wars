@@ -417,19 +417,23 @@ class Box extends React.Component {
             <div className='box-render'>
                 {/* <Datetime ref="datetime"/> */}
                 {/* {outputSingleWord} */}
-                <Score className="scorebox-text" text={"Faster"} currentScore={this.state.timer} text2={"seconds has passed"} />
-                <Score text={"You are on"} currentScore={this.state.counter} text3={"of"} text2={endOfGame}/>
+    
         
                 
                 
                 {/* <Score text={"Your record was"} currentScore={this.state.timer}/> */}
-                    <div className='instruction'><div>Click on the delete gif to start typing</div></div>
-                    <div className="button-div"><button onClick={resetGame}>Reset Flashcards</button>
-                    <button onClick={loadDeck}>Load Deck 1</button>
-                    <button onClick={someMethod}>Refresh</button></div>
+                    <div className='instruction'><div>Click below the text to start typing</div></div>
+                    <div className="button-div"><button className='reset' onClick={resetGame}>Reset Flashcards</button>
+                    {/* <button onClick={loadDeck}>Load Deck 1</button>
+                    <button onClick={someMethod}>Refresh</button> */}
+                    </div>
+                    <div className="score-bundle">
+                        <Score className="scorebox-text" text={"Faster"} currentScore={this.state.timer} text2={"seconds has passed"} />
+                        <Score text={"You are on"} currentScore={this.state.counter} text3={"of"} text2={endOfGame}/>
+                    </div>
+                    
 
-
-                    <div className='title'>Title of this card is {this.state.title[counter]}</div>
+                    <div className='title'>{this.state.title[counter]}</div>
 
                     <div className="game">
                         {checkWholepassage2.map((ele,i) => (       
