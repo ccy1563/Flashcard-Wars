@@ -1,44 +1,51 @@
 .splash-page-container{
-  height:1000px;
+  background-image: url("https://img.wallpapersafari.com/desktop/1920/1080/61/86/uzZq2M.jpg");
+  width: 100%;
+  min-height: 1250px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
 
 .splash-deck-index{
   display: flex;
   flex-wrap: wrap;
-
   clear:both;
-  overflow: scroll;
   position: relative;
   align-items: center;
 
-  padding: 0 0 0 6%;
+  padding: 2% 8% 2% 8%;
 
 }
 
 .splash-page-index-item{
+  background-image: url("https://static.thenounproject.com/png/219525-200.png");
   display: flex;
-  /* background-image: url('https://water-seeds.s3.amazonaws.com/back.png'); */
-  background-image: url('https://water-seeds.s3.amazonaws.com/deck2.jpg');
-  width: 250px;
-  height: 355px;
+  width: 200px;
+  height: 170px;
 }
 
 .splash-page-index-item a{
   text-decoration: none;
   width:inherit;
-
 }
 
 .splash-page-index-item p {
 
-  width:250px;
-  height:355px;
-  padding-top: 175px;
+  width: 200px;
+  height: 170px;
+  padding-top: 75px;
   text-align: center;
   vertical-align: middle;
   font-size: 25px;
   color:white;
+}
+
+.splash-page-index-item p:hover{
+  color: #8fa2ae;
+}
+
+.splash-page-index-item p:active{
+  color: #c4c4c4;
 }
 
 .splash-page-header{

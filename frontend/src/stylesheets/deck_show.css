@@ -1,0 +1,75 @@
+.deck-show-container{
+  background-image: url("https://img.wallpapersafari.com/desktop/1920/1080/61/86/uzZq2M.jpg");
+  width: 100%;
+  min-height: 2000px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.deck-show-container button {
+  margin: 1% 0 1% 42%;
+  width: 250px;
+  height: 50px;
+  background-color: transparent;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-family: Arial,Helvetica,sans-serif;
+  color: black;
+  border-radius: 6px;
+  border: 0;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 2px rgb(255 255 255 / 13%);
+}
+
+.deck-show-container button{
+  background-color: #128fdc;
+  color:white;
+}
+
+.deck-show-container button:hover{
+  background-color: #81cdfc;
+}
+
+.deck-show-container button:active{
+  background-color: #5da7d5;
+}
+
+.deck-show-render-flashcard{
+  padding-left: 20px;
+}
+
+.deck-show-header{
+  font-size: 30px;
+  padding-left: 5px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  color:white;
+}
+
+.deck-show-flashcard{
+  width: 25%;
+  border: solid grey 2px;
+}
+
+.deck-show-flashcard-title{
+  padding-top: 20px;
+  padding-left: 10px;
+  height: 50px;
+  font-size:30px;
+}
+
+.deck-show-flashcard-text{
+  display: none;
+}
+
+
+.deck-show-flashcard-title:hover + .deck-show-flashcard-text{
+  border-top: red solid 1px;
+  padding-top: 5px;
+  padding-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  font-size:25px;
+  min-height: 100px;
+}
