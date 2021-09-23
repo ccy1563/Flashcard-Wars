@@ -35,16 +35,17 @@ class UserProfile extends React.Component {
             // debugger
             return (
                 <div className='user-profile-all-decks'>
+                    
                     <div className='deck-title'>{deck.title}</div>
                     <div className='user-profile-all-buttons'>
 
-                        <Link to={`/flashcard/user/${deck.user}/deck/${deck._id}/create`}>
+                        <Link className='user-profile-link' to={`/flashcard/user/${deck.user}/deck/${deck._id}/create`}>
                             <button className='user-profile-button'>
                                 Add Card
                             </button>
                         </Link>
 
-                        <Link to={`/flashcard/deck/${deck._id}`}>
+                        <Link className='user-profile-link' to={`/flashcard/deck/${deck._id}`}>
                             <button className='user-profile-button'>
                                 Show all cards
                             </button>
@@ -53,7 +54,7 @@ class UserProfile extends React.Component {
                         <button className='user-profile-button' onClick={(e) => this.handleDelete(e, deck._id)}>
                             Delete Deck
                         </button>
-                        <Link to={`/practice/deck/${deck._id}`}>
+                        <Link className='user-profile-link' to={`/practice/deck/${deck._id}`}>
                             <button className='user-profile-button'>
                                 Practice Typing
                             </button>
@@ -64,13 +65,15 @@ class UserProfile extends React.Component {
         });
 
         return (
-            <div>
+            <div className='user-profile-page'>
                 <Link to="/decks">
                     <button className='user-profile-create-deck-button'>
                         Create a deck
                     </button>
                 </Link>
-                {allMyDecks}
+                <div className='decks-container'>
+                    {allMyDecks}
+                </div>
             </div>
         )
     }

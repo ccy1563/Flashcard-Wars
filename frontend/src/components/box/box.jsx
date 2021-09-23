@@ -135,30 +135,31 @@ class Box extends React.Component {
     //     let mainArr = []
     //     let arrWithSpace = []
     //     let newStarting = 0
-    //     // console.log(flashcards)
-    //     // console.log(typeof flashcards)
     //     let split;
     //     if(flashcards){
     //         split = flashcards.split(" ")
     //     }
-    //     // console.log(split)
     //     let counter = 0
+    //     let inputLen = input.length
     //     let size = 0
-    //     if (input){
-    //         // console.log(input.length,split[counter].length)
-    //         if (input.length <= split[counter].length){
-    //             // console.log(split[counter])
-    //             // console.log(input.length+1, split[counter].length+size)
-    //             if(input.length+1 > split[counter].length+size){
-    //                 // console.log("Asd")
-    //                 counter += 1
-    //                 size+= split[counter].length
-    //             }
-    //         }
-    //     }
+    //     console.log(flashcards)
+    //     let totalLen = 0
+        // if (input){
+        //     totalLen += split[counter].length
+        //     if (inputLen < totalLen){     
+        //         // console.log(inputLen,totalLen)
+        //         // console.log(split[counter])
+        //     }else{
+        //         counter += 1
+        //         console.log(inputLen,counter)
+        //         inputLen += totalLen+1
+        //     }
+        //     // if (inputLen === totalLen){
+                
+        //     // }
+        // }
         
         // let split = flashcards.split(" ")
-        // console.log(split)
         // if (flashcards){
         //     for (let x = 0; x < flashcards.length; x++){
         //         console.log(flashcards.length)
@@ -204,7 +205,6 @@ class Box extends React.Component {
 
     stopTimer(){
         clearInterval(this.interval)
-        // this.setState({timerEnd:true})
     }
 
     startTimer(){
@@ -234,6 +234,7 @@ class Box extends React.Component {
     }
 
     resetGame(){   
+        this.stopTimer()
         this.setState({counter:0})
         this.setState({score:0})
         this.setState({input:""})
@@ -286,18 +287,11 @@ class Box extends React.Component {
             }
             // 
         }else{
-            // console.log("not found")
         }
        
     }
 
-    // inputIsEmpty(input){
-    //     if(input){
-    //         console.log("true")
-    //         return true
-    //     }else
-    //     return false
-    // }
+
 
     someMethod() {
         window.location.reload(false);
@@ -322,6 +316,16 @@ class Box extends React.Component {
         
     }
 
+    handleUpdate(array){
+        const newDeck = {
+            id:this.props.deck._id,
+            title:this.props.deck.title,
+            user:this.props.deck.user,
+            leaderboard:array
+        }
+        this.props.reviseDeck(newDeck)
+    }
+
     addingToLeader(array,timer){
         let list = []
         let counter = 0
@@ -334,11 +338,12 @@ class Box extends React.Component {
             let sorted = array.sort(function(a, b) {
                             return a - b;
                 });
-            // if (sorted.length === 4){
-            //     array.pop()
-            // }
+            if (sorted.length === 4){
+                array.pop()
+            }
         }
-        console.log(array)
+        this.handleUpdate(array)
+        
 
 
     //     if (array && this.state.ended === true && counter === 0){
@@ -385,9 +390,9 @@ class Box extends React.Component {
         const loadDeck = this.loadDeck
         const someMethod = this.someMethod
         let addingToLeader = undefined
-        if (leaderboard && this.state.timer){
-             addingToLeader = this.addingToLeader(leaderboard,this.state.timer)
-        }
+        // if (leaderboard && this.state.timer){
+        //      addingToLeader = this.addingToLeader(leaderboard,this.state.timer)
+        // }
         const timerEnd = this.state.timerEnd
         const ranking = this.state.ranking
         // const outputSingleWord = this.outputSingleWord(this.state.input,this.state.flashcards[this.state.counter])
@@ -450,11 +455,13 @@ class Box extends React.Component {
                     ?    <Stats array={leaderboard} currentTimer={this.state.timer}/>
                     : ""
                 }
+                
                 {
                     (stateEnded === true)
                     
-                    ? addingToLeader
+                    ? this.addingToLeader(leaderboard,this.state.timer)
                     : ""
+                    
                 }
 
                 {/* {console.log(leaderboard)} */}

@@ -9,10 +9,11 @@ import DeckShow from './deck_show'
 
 const mapStateToProps = (state, myProps) => {
   // debugger
-  let tempId = undefined;
-  if (state.session.user) tempId = state.session.user.id;
-  return ({
-    user_id: tempId,
+  let temp = undefined;
+  if (state.session.user) temp = state.session.user.id;
+  return({
+    user_id: temp,
+
     deckId: myProps.match.params.deckId,
     comments: Object.values(state.entities.comments),
     flashcards: Object.values(state.entities.flashcards)

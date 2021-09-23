@@ -45,7 +45,7 @@ const mapDispatchToProps = (dispatch) => {
         fetchDeck: id => dispatch(fetchDeck(id)),
         // fetchUserDecks: id => dispatch(fetchUserDecks(id)),
         // composeDeck: deck => dispatch(composeDeck(deck)),
-        // reviseDeck: deck => dispatch(reviseDeck(deck)),
+        reviseDeck: deck => dispatch(reviseDeck(deck)),
         // eraseDeck: id => dispatch(eraseDeck(id))
     }
 }

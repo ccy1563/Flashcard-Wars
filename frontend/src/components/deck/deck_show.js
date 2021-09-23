@@ -48,10 +48,11 @@ class DeckShow extends React.Component {
         />
       )
     });
+    
     const allFlashcardsInDeck = flashcardArray.map(flashcard => {
       // debugger
       return (
-        <div key={flashcard._id}>
+        <div className="deck-show-flashcard"key={flashcard._id}>
           <div>Title {flashcard.title}</div>
           <div>Text {flashcard.text}</div>
         </div>
@@ -61,7 +62,7 @@ class DeckShow extends React.Component {
     return(
       <div>
         <Link to={`/practice/deck/${deckId}`}>
-          <button>
+          <button className ="">
               Practice Typing
           </button>
         </Link>
