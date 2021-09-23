@@ -90,6 +90,10 @@ img{
   padding: 0px;
   margin: 0px;
   height: 30px;
+  display: flex;
+  /* margin: auto; */
+  /* width: 50%; */
+  
 }
 
 .box-input{
@@ -108,7 +112,10 @@ img{
   /* background-image: ''; */
 }
 
-
+.button-div{
+  display: flex;
+  justify-content: center;
+}
 
 .Text1:focus {
   outline: none !important;
@@ -124,23 +131,24 @@ img{
   display: flex;
   justify-content: center;
 }
+/* 
+.textbox2{
+  display: flex;
+  justify-content: center;
+
+} */
 
 .fuse{
   display: flex;
+  margin-top: 10px;
   flex-wrap:wrap ;
   font-family: 'Roboto', sans-serif;
-
-  align-items:flex-start
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items:flex-start */
 }
 
-.game{
-  margin-top: 10px;
-  display: flex;
-  /* position: absolute; */
-  margin-right: 5%;
-  flex-wrap: wrap;
-}
-  
+
 
 
 .App {
