@@ -32,7 +32,7 @@ const App = () => (
      <div className='whole-div'>     
         <div className='navbar'><NavBarContainer /></div>
         
-        <Route exact path ="/splash" component={SplashPageContainer}/>
+        <Route exact path ="/" component={SplashPageContainer}/>
         <Switch>
         {/* typing page */}
             <Route exact path="/practice/deck/:deckId">

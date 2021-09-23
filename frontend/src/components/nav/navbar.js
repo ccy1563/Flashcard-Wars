@@ -28,17 +28,17 @@ class NavBar extends React.Component {
         if (this.props.loggedIn) {
             return (
                 <div className='logged-in-box'>
-                    <button onClick={this.logoutUser}>Logout</button>
+                    <button className='auth-button' onClick={this.logoutUser}>Logout</button>
                 </div>
             );
         } else {
             return (
                 <div className='not-logged-in-box'>
-                    <button>
-                        <Link to={'/signup'}>Signup</Link>
+                    <button className='auth-button'>
+                        <Link className='auth-button-link' to={'/signup'}>Signup</Link>
                     </button>
-                    <button>
-                        <Link to={'/login'}>Login</Link>
+                    <button className='auth-button'>
+                        <Link className='auth-button-link' to={'/login'}>Login</Link>
                     </button>
                 </div>
             );
@@ -50,7 +50,7 @@ class NavBar extends React.Component {
             return (
                 <div>
                     <Link to="/user">
-                        <button>
+                        <button className='nav-bar-profile-button'>
                             Profile
                         </button>
                     </Link>
@@ -64,10 +64,10 @@ class NavBar extends React.Component {
         return (
             <div className="nav-bar-box">
                 <div className='nav-bar-left'>
-                    <Link to="/splash">
+                    <Link to="/">
                         <div className='nav-bar-title'>Flashcard Wars</div>
                     </Link>
-                    <div>{this.getProfileLink()}</div>
+                    <div className='nav-bar-profile'>{this.getProfileLink()}</div>
                 </div>
                 <div>{this.getLinks()}</div>
             </div>

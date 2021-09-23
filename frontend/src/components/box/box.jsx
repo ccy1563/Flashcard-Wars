@@ -19,11 +19,18 @@ class Box extends React.Component {
         renderCount:0,
         timer:0,
         timerEnd:false,
-        ranking:[10,20,30]
+        ranking:[100,300,600],
+        title:[]
     }
     this.resetGame = this.resetGame.bind(this)
     this.loadDeck = this.loadDeck.bind(this)
 
+    var person = {
+    firstName:"John",
+    lastName:"Doe",
+    age:20,
+    nationality:"German"
+    };
 
     }
 
@@ -207,10 +214,14 @@ class Box extends React.Component {
         this.setState({renderCount:1}) 
         const{flashcards} = this.props
         let arr = []
+        let titlearr = []
         if (flashcards){
             for (let x = 0; x < flashcards.length;x++){
                 arr.push(flashcards[x].text)
+                titlearr.push(flashcards[x].title)
             }
+            this.setState({title:titlearr})
+            
             
             
             let object = Object.assign({}, arr)
@@ -246,9 +257,9 @@ class Box extends React.Component {
 
     render() {
         
-
+        
         const checkWholepassage2 = this.checkWholepassage2(this.state.input,this.state.flashcards[this.state.counter])
-      
+        let counter = this.state.counter
         let renderCount = this.state.renderCount
         const checkAll = this.checkAll(this.state.input,this.state.flashcards[this.state.counter]) 
         const stateEnded = this.state.ended
@@ -278,10 +289,11 @@ class Box extends React.Component {
             <div className='box-render'>
                 {/* <Datetime ref="datetime"/> */}
                 
-                <Score className="scorebox-text" text={"Faster"} currentScore={this.state.timer} text2={"seconds has pass"} />
+                <Score className="scorebox-text" text={"Faster"} currentScore={this.state.timer} text2={"seconds has passedg"} />
                 <Score text={"You are on"} currentScore={this.state.counter} text3={"of"} text2={endOfGame}/>
                 {/* <Score text={"Your record was"} currentScore={this.state.timer}/> */}
-                    <div className='instruction'><div>Click below the text start typing</div></div>
+                    <div className='instruction'><div>Click on the delete gif to start typing</div></div>
+                    <div className='title'>Title of this card is {this.state.title[counter]}</div>
 
                     <div className="game" for='Text1' >
                         {checkWholepassage2.map((ele,i) => (       
@@ -307,6 +319,7 @@ class Box extends React.Component {
                     ?    <Stats array={this.state.ranking} currentTimer={this.state.timer}/>
                     : ""
                 }
+                
 
                 
               
@@ -316,7 +329,7 @@ class Box extends React.Component {
           
           <button onClick={resetGame}>Reset Flashcards</button>
           <button onClick={loadDeck}>Load Deck 1</button>
-          <button onClick={someMethod}>Refresh</button>
+          {/* <button onClick={someMethod}>Refresh</button> */}
 
 
                            

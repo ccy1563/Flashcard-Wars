@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Redirect, withRouter } from 'react-router-dom';
 import UserDeckIndexItem from './user_deck_index_item';
-
+import '../../stylesheets/user_profile.css'
 
 class UserProfile extends React.Component {
     constructor(props) {
@@ -34,41 +34,43 @@ class UserProfile extends React.Component {
         const allMyDecks = this.props.myDecks.map(deck => {
             // debugger
             return (
-                <div>
-                    <div>Title: {deck.title}</div>
+                <div className='user-profile-all-decks'>
+                    <div className='deck-title'>{deck.title}</div>
+                    <div className='user-profile-all-buttons'>
 
-                    <Link to={`/flashcard/user/${deck.user}/deck/${deck._id}/create`}>
-                        <button>
-                            Add Card
-                        </button>
-                    </Link>
+                        <Link to={`/flashcard/user/${deck.user}/deck/${deck._id}/create`}>
+                            <button className='user-profile-button'>
+                                Add Card
+                            </button>
+                        </Link>
 
-                    <Link to={`/flashcard/deck/${deck._id}`}>
-                        <button>
-                            Show all cards
+                        <Link to={`/flashcard/deck/${deck._id}`}>
+                            <button className='user-profile-button'>
+                                Show all cards
+                            </button>
+                        </Link>
+
+                        <button className='user-profile-button' onClick={(e) => this.handleDelete(e, deck._id)}>
+                            Delete Deck
                         </button>
-                    </Link>
-                    
-                    <button onClick={(e) => this.handleDelete(e, deck._id)}>
-                        Delete Deck
-                    </button>
-                    <Link to={`/practice/deck/${deck._id}`}>
-                        <button>
-                            Practice Typing
-                        </button>
-                    </Link>
+                        <Link to={`/practice/deck/${deck._id}`}>
+                            <button className='user-profile-button'>
+                                Practice Typing
+                            </button>
+                        </Link>
+                    </div>
                 </div>
             )
         });
 
         return (
             <div>
-                {allMyDecks}
                 <Link to="/decks">
-                    <button>
+                    <button className='user-profile-create-deck-button'>
                         Create a deck
                     </button>
                 </Link>
+                {allMyDecks}
             </div>
         )
     }

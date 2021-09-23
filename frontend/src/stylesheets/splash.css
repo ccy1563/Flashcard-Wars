@@ -10,6 +10,9 @@
   overflow: scroll;
   position: relative;
   align-items: center;
+
+  padding: 0 0 0 6%;
+
 }
 
 .splash-page-index-item{
@@ -35,9 +38,9 @@
   vertical-align: middle;
   font-size: 25px;
   color:white;
-
 }
 
 .splash-page-header{
   font-size: 30px;
+  padding-top: 100px;
 }

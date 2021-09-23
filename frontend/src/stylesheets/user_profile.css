@@ -1,0 +1,24 @@
+.user-profile-all-decks {
+    /* padding: 3% 0 0 5%; */
+    display: flex;
+}
+
+.deck-title {
+    /* margin: 5%; */
+    background-color: red;
+    width: 150px;
+    height: 150px;
+    border: 1px solid grey;
+}
+
+.user-profile-button {
+    display: flex;
+}
+
+.user-profile-all-buttons {
+    padding: 2% 0 0 2%;
+}
+
+.user-profile-create-deck-button {
+    margin: 1% 0 1% 1.5%;
+}

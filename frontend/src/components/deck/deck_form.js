@@ -8,6 +8,7 @@ class DeckForm extends React.Component {
     this.state ={
       title: '',
       user: this.props.user_id,
+      leaderboard: [],
       errors: {}
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,7 +38,8 @@ class DeckForm extends React.Component {
 
     let deck = {
         title: this.state.title,
-        user: this.state.user
+        user: this.state.user,
+        leaderboard: this.state.leaderboard,
     };
     this.props.composeDeck(deck)
       .then(() => this.props.history.push("/user"));

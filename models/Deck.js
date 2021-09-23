@@ -12,6 +12,10 @@ const DeckSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "users",
     },
+    leaderboard: {
+      type: Array,
+      required: true,
+    }
   },
   {
     timestamps: true,
