@@ -64,13 +64,15 @@ class UserProfile extends React.Component {
         });
 
         return (
-            <div>
+            <div className='user-profile-page'>
                 <Link to="/decks">
                     <button className='user-profile-create-deck-button'>
                         Create a deck
                     </button>
                 </Link>
-                {allMyDecks}
+                <div className='decks-container'>
+                    {allMyDecks}
+                </div>
             </div>
         )
     }
