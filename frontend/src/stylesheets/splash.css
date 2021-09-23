@@ -1,6 +1,15 @@
+.splash-page-container{
+  height:1000px;
+}
+
+
 .splash-deck-index{
   display: flex;
-  
+  flex-wrap: wrap;
+  clear:both;
+  overflow: scroll;
+  position: relative;
+  align-items: center;
 }
 
 .splash-page-index-item{
@@ -14,13 +23,21 @@
 .splash-page-index-item a{
   text-decoration: none;
   width:inherit;
+
 }
 
 .splash-page-index-item p {
-  width:150px;
+
+  width:250px;
+  height:355px;
+  padding-top: 175px;
   text-align: center;
-  display: flex;
-  flex-direction: row;
+  vertical-align: middle;
+  font-size: 25px;
   color:white;
-  padding-top: 100px
+
+}
+
+.splash-page-header{
+  font-size: 30px;
 }
