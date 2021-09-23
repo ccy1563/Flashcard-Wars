@@ -28,17 +28,17 @@ class NavBar extends React.Component {
         if (this.props.loggedIn) {
             return (
                 <div className='logged-in-box'>
-                    <button className='auth-button' onClick={this.logoutUser}>[ Logout ]</button>
+                    <button className='auth-button' onClick={this.logoutUser}>Logout</button>
                 </div>
             );
         } else {
             return (
                 <div className='not-logged-in-box'>
                     <button className='auth-button'>
-                        <Link className='auth-button-link' to={'/signup'}>[ Signup ]</Link>
+                        <Link className='auth-button-link' to={'/signup'}>Signup</Link>
                     </button>
                     <button className='auth-button'>
-                        <Link className='auth-button-link' to={'/login'}>[ Login ]</Link>
+                        <Link className='auth-button-link' to={'/login'}>Login</Link>
                     </button>
                 </div>
             );
@@ -51,7 +51,7 @@ class NavBar extends React.Component {
                 <div>
                     <Link to="/user">
                         <button className='nav-bar-profile-button'>
-                            [ Profile ]
+                            Profile
                         </button>
                     </Link>
                 </div>
@@ -65,7 +65,7 @@ class NavBar extends React.Component {
             <div className="nav-bar-box">
                 <div className='nav-bar-left'>
                     <Link to="/">
-                        <div className='nav-bar-title'>[ Flashcard Wars ]</div>
+                        <div className='nav-bar-title'>Slipper</div>
                     </Link>
                     <div className='nav-bar-profile'>{this.getProfileLink()}</div>
                 </div>
