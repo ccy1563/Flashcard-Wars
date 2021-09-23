@@ -37,7 +37,10 @@ class Box extends React.Component {
 
     componentDidMount(){       
         this.props.fetchDeckFlashcards(this.props.deckId);
+        this.props.fetchDeck(this.props.deckId);
+
         // debugger
+        // console.log(this.props)
        
         // this.startTimer()
         
@@ -127,32 +130,32 @@ class Box extends React.Component {
     }
 
 
-    outputSingleWord(input,flashcards){
-        let arr = []
-        let mainArr = []
-        let arrWithSpace = []
-        let newStarting = 0
-        // console.log(flashcards)
-        // console.log(typeof flashcards)
-        let split;
-        if(flashcards){
-            split = flashcards.split(" ")
-        }
-        // console.log(split)
-        let counter = 0
-        let size = 0
-        if (input){
-            // console.log(input.length,split[counter].length)
-            if (input.length <= split[counter].length){
-                // console.log(split[counter])
-                // console.log(input.length+1, split[counter].length+size)
-                if(input.length+1 > split[counter].length+size){
-                    // console.log("Asd")
-                    counter += 1
-                    size+= split[counter].length
-                }
-            }
-        }
+    // outputSingleWord(input,flashcards){
+    //     let arr = []
+    //     let mainArr = []
+    //     let arrWithSpace = []
+    //     let newStarting = 0
+    //     // console.log(flashcards)
+    //     // console.log(typeof flashcards)
+    //     let split;
+    //     if(flashcards){
+    //         split = flashcards.split(" ")
+    //     }
+    //     // console.log(split)
+    //     let counter = 0
+    //     let size = 0
+    //     if (input){
+    //         // console.log(input.length,split[counter].length)
+    //         if (input.length <= split[counter].length){
+    //             // console.log(split[counter])
+    //             // console.log(input.length+1, split[counter].length+size)
+    //             if(input.length+1 > split[counter].length+size){
+    //                 // console.log("Asd")
+    //                 counter += 1
+    //                 size+= split[counter].length
+    //             }
+    //         }
+    //     }
         
         // let split = flashcards.split(" ")
         // console.log(split)
@@ -175,7 +178,7 @@ class Box extends React.Component {
         //     }
         // } 
         // console.log(arr)
-    }
+    // }
 
     
 
@@ -311,17 +314,67 @@ class Box extends React.Component {
         }
         if(this.state.timerHasStarted === false){
             this.setState({timerHasStarted:true})
-            console.log("asd")
+            // console.log("asd")
             this.startTimer()
         }
         
         
+        
     }
 
+    addingToLeader(array,timer){
+        let list = []
+        let counter = 0
+        if((array && this.state.ended === true && counter === 0)){
+            debugger
+            counter ++
+            if (array.length < 4 ){
+                array.push(timer)
+            }
+            let sorted = array.sort(function(a, b) {
+                            return a - b;
+                });
+            // if (sorted.length === 4){
+            //     array.pop()
+            // }
+        }
+        console.log(array)
+
+
+    //     if (array && this.state.ended === true && counter === 0){
+    //         array.push(timer)
+    //         let sorted = array.sort(function(a, b) {
+    //             return a - b;
+    //           });
+    //         // sorted.pop()
+    //         for (let x = 0; x < 3 ; x++){
+    //             if(x === 0){
+    //                 list.push(<ul>{sorted[x]}</ul>)
+    //             }
+    //             else if(x === 1){
+    //                 list.push(<ul>{sorted[x]}</ul>)
+    //             }
+    //             else{
+    //                 list.push(<ul>{sorted[x]}</ul>)
+
+    //             }
+                
+    //         }        
+    //     // console.log(sorted)
+
+    //     }
+    //     // console.log(list)
+    //     // list.sort()
+    // }
+    }
     
     render() {
-        
-        
+        // const {deck} = this.props
+        let leaderboard = undefined
+        if (this.props.deck){
+            leaderboard = this.props.deck.leaderboard
+            // console.log(leaderboard)
+        }
         const checkWholepassage2 = this.checkWholepassage2(this.state.input,this.state.flashcards[this.state.counter])
         let counter = this.state.counter
         let renderCount = this.state.renderCount
@@ -331,9 +384,13 @@ class Box extends React.Component {
         const resetGame = this.resetGame
         const loadDeck = this.loadDeck
         const someMethod = this.someMethod
+        let addingToLeader = undefined
+        if (leaderboard && this.state.timer){
+             addingToLeader = this.addingToLeader(leaderboard,this.state.timer)
+        }
         const timerEnd = this.state.timerEnd
         const ranking = this.state.ranking
-        const outputSingleWord = this.outputSingleWord(this.state.input,this.state.flashcards[this.state.counter])
+        // const outputSingleWord = this.outputSingleWord(this.state.input,this.state.flashcards[this.state.counter])
         // const timer = this.state.timer
         // const inputIsEmpty = this.inputIsEmpty(this.state.input)
         // if (inputIsEmpty && timer === 0){
@@ -354,10 +411,11 @@ class Box extends React.Component {
         return (
             <div className='box-render'>
                 {/* <Datetime ref="datetime"/> */}
-                {outputSingleWord}
+                {/* {outputSingleWord} */}
                 <Score className="scorebox-text" text={"Faster"} currentScore={this.state.timer} text2={"seconds has passed"} />
                 <Score text={"You are on"} currentScore={this.state.counter} text3={"of"} text2={endOfGame}/>
-
+        
+                
                 
                 {/* <Score text={"Your record was"} currentScore={this.state.timer}/> */}
                     <div className='instruction'><div>Click on the delete gif to start typing</div></div>
@@ -388,10 +446,18 @@ class Box extends React.Component {
                 }
                 {
                     (stateEnded === true)
-
-                    ?    <Stats array={this.state.ranking} currentTimer={this.state.timer}/>
+                    
+                    ?    <Stats array={leaderboard} currentTimer={this.state.timer}/>
                     : ""
                 }
+                {
+                    (stateEnded === true)
+                    
+                    ? addingToLeader
+                    : ""
+                }
+
+                {/* {console.log(leaderboard)} */}
                 
 
                 

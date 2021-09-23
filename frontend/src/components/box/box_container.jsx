@@ -26,7 +26,8 @@ const mapStateToProps = (state, ownProps)  => {
     return ({
         // user_id: state.session.user.id,
         flashcards: state.entities.flashcards.data,
-        deckId: ownProps.match.params.deckId
+        deckId: ownProps.match.params.deckId,
+        deck: state.entities.decks.data
     });
 };
 
@@ -41,7 +42,7 @@ const mapDispatchToProps = (dispatch) => {
 
 
         // fetchAllDecks: () => dispatch(fetchAllDecks()),
-        // fetchDeck: id => dispatch(fetchDeck(id)),
+        fetchDeck: id => dispatch(fetchDeck(id)),
         // fetchUserDecks: id => dispatch(fetchUserDecks(id)),
         // composeDeck: deck => dispatch(composeDeck(deck)),
         // reviseDeck: deck => dispatch(reviseDeck(deck)),

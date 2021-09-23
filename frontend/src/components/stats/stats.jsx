@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../newCss.css';
-export default class Stats extends Component {
+export default class  Stats extends Component {
     render() {
         const array = this.props.array
         const timer = this.props.currentTimer
