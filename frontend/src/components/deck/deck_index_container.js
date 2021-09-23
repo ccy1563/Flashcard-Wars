@@ -23,8 +23,10 @@ import DeckIndex from './deck_index';
 const mapStateToProps = state => {
 
     // debugger
+    let tempId = undefined;
+    if (state.session.user) tempId = state.session.user.id;
     return ({
-        user_id: state.session.user.id
+        user_id: tempId
     });
 };
 
