@@ -28,10 +28,10 @@
 .deck-title {
     /* margin: 5%; */
     /* background-color: red; */
-    background-image: url("https://images.squarespace-cdn.com/content/v1/55dd99e6e4b0efe2fb47a02e/1596113137205-3EKHGS9SDYZ8ZBH9MY7G/flashcards.png?format=1000w");
+    background-image: url("https://static.thenounproject.com/png/219525-200.png");
     background-size: 150px;
     width: 150px;
-    height: 120px;
+    height: 130px;
     /* color: blue; */
     text-align: center;
 
@@ -41,7 +41,7 @@
     box-shadow: 1px 1px 10px rgb(0 0 0 / 5%);
     border-radius: 5px;
     /* border: 1px solid grey; */
-    color: black;
+    color: white;
 }
 
 .user-profile-button {
@@ -58,7 +58,7 @@
     height: 30px;
     background-color: transparent;
     text-decoration: none;
-    color: black;
+    color: white;
     justify-content: center;
     padding-top: 6px;
 }
@@ -84,7 +84,7 @@
     border-radius: 6px;
     font-family: Arial,Helvetica,sans-serif;
     /* color: rgb(214, 214, 214); */
-    color: black;
+    color: white;
 
     
     border-radius: 6px;

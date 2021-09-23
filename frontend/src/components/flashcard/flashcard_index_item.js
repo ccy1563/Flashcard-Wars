@@ -27,8 +27,8 @@ class FlashcardIndexItem extends React.Component {
         // debugger
         return (
             <div>
-                <div>Title: {flashcard.title}</div>
-                <div>Text: {flashcard.text}</div>
+                <div>{flashcard.title}</div>
+                <div>{flashcard.text}</div>
                 <div>
                     {/* <Link to={}><button>Edit</button></Link> */}
                     {/* <button>Edit</button> */}

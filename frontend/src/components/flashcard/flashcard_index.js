@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Redirect, withRouter } from 'react-router-dom';
 import FlashcardIndexItem from './flashcard_index_item';
-
+import '../../stylesheets/flashcard_index.css'
 
 class FlashcardIndex extends React.Component {
     constructor(props) {
@@ -51,18 +51,29 @@ class FlashcardIndex extends React.Component {
         const allFlashcardsInDeck = flashcardArray.map(flashcard => {
             // debugger
             return (
-                <div key={flashcard._id}>
-                    <div>Title: {flashcard.title}</div>
-                    <div>Text: {flashcard.text}</div>
-                    <Link to={`/flashcard/${flashcard._id}/deck/${flashcard.deck}`}><button>Edit</button></Link>
+                <div key={flashcard._id} className='flashcard-index-card-form'>
+                    <div>
+                        <div className='flashcard-index-card-img'>
+                        </div>
+                        <div className="flashcard-index-card-top">
+                            <div className="flashcard-index-card-form-header">
+                                <div>{flashcard.title}</div>
+                            </div>
+                            <div className="flashcard-index-card-body">
+                                <div>{flashcard.text}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <Link className='flashcard-index-edit-link' to={`/flashcard/${flashcard._id}/deck/${flashcard.deck}`}><button className='flashcard-index-button'>Edit</button></Link>
                     {/* {this.openEditForm()} */}
-                    <button onClick={(e) => this.handleDelete(e, flashcard._id)}>Delete</button>
+                    <button className='flashcard-index-button' onClick={(e) => this.handleDelete(e, flashcard._id)}>Delete</button>
                 </div>
             )
         });
 
         return (
-            <div>
+            <div className='flashcard-index-page'>
                 {allFlashcardsInDeck}
             </div>
         )

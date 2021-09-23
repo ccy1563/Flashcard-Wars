@@ -47,7 +47,7 @@ class UserProfile extends React.Component {
 
                         <Link className='user-profile-link' to={`/flashcard/deck/${deck._id}`}>
                             <button className='user-profile-button'>
-                                Show all cards
+                                Show all Cards
                             </button>
                         </Link>
 
