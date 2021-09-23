@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
+import '../../stylesheets/comment_form.css'
 
 class CommentForm extends React.Component{
 

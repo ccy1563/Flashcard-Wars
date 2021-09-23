@@ -3,6 +3,8 @@ import { Link, Redirect, withRouter } from 'react-router-dom';
 import FlashcardIndexItem from './flashcard_index_item';
 import '../../stylesheets/flashcard_index.css'
 
+import FlashcardFormContainer from '../../components/flashcard/flashcard_form_container'
+
 class FlashcardIndex extends React.Component {
     constructor(props) {
         super(props);
