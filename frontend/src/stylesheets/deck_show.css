@@ -1,13 +1,19 @@
 .deck-show-container{
-  background-image: url("https://img.wallpapersafari.com/desktop/1920/1080/61/86/uzZq2M.jpg");
+  /* background-image: url("https://img.wallpapersafari.com/desktop/1920/1080/61/86/uzZq2M.jpg"); */
   width: 100%;
   min-height: 2000px;
   background-repeat: no-repeat;
   background-size: cover;
+  color:white;
+  text-align: center;
+  align-items: center;
+
+  margin: auto;
+  width: 600px; 
+  margin: 1% 0 1% 42%;
 }
 
 .deck-show-container button {
-  margin: 1% 0 1% 42%;
   width: 250px;
   height: 50px;
   background-color: transparent;
@@ -20,9 +26,6 @@
   border: 0;
   cursor: pointer;
   box-shadow: inset 0 0 0 2px rgb(255 255 255 / 13%);
-}
-
-.deck-show-container button{
   background-color: #128fdc;
   color:white;
 }
@@ -36,7 +39,7 @@
 }
 
 .deck-show-render-flashcard{
-  padding-left: 20px;
+  width: 600px;
 }
 
 .deck-show-header{
@@ -45,10 +48,18 @@
   padding-bottom: 10px;
   font-weight: bold;
   color:white;
+  width: 600px;
+  border-bottom: grey solid 10px;
+  padding-top: 20px;
+}
+
+.deck-show-flashcard-container{
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 .deck-show-flashcard{
-  width: 25%;
+  width: 600px;
   border: solid grey 2px;
 }
 
@@ -57,12 +68,14 @@
   padding-left: 10px;
   height: 50px;
   font-size:30px;
+  text-align: left;
 }
 
 .deck-show-flashcard-text{
   display: none;
-}
+  text-align: left;
 
+}
 
 .deck-show-flashcard-title:hover + .deck-show-flashcard-text{
   border-top: red solid 1px;
