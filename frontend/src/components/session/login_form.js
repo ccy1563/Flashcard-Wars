@@ -20,7 +20,7 @@ class LoginForm extends React.Component {
     // Once the user has been authenticated, redirect to the Tweets page
     componentWillReceiveProps(nextProps) {
         if (nextProps.currentUser === true) {
-            this.props.history.push('/splash');
+            this.props.history.push('/');
         }
 
         // Set or clear errors
@@ -67,7 +67,7 @@ class LoginForm extends React.Component {
 
     navigateToSplashPage() {
         // debugger
-        const url = `/splash`
+        const url = `/`
         this.props.history.push(url);
     }
 
