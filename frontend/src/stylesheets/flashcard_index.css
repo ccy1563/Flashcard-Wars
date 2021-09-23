@@ -1,5 +1,4 @@
 .flashcard-index-page {
-    background-image: url("https://img.wallpapersafari.com/desktop/1920/1080/61/86/uzZq2M.jpg");
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -7,6 +6,11 @@
 }
 
 .flashcard-index-card-form {
+    /* background-image: url("https://img.wallpapersafari.com/desktop/1920/1080/61/86/uzZq2M.jpg");
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover; */
+
 }
 
 .flashcard-index-card-img {

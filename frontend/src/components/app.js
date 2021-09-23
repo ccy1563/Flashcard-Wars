@@ -33,6 +33,7 @@ const App = () => (
         <div className='navbar'><NavBarContainer /></div>
         
         <Route exact path ="/" component={SplashPageContainer}/>
+        <div className='whole-div2'>  
         <Switch>
         {/* typing page */}
             <Route exact path="/practice/deck/:deckId">
@@ -68,7 +69,7 @@ const App = () => (
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
         </Switch>
-
+        </div>
         {/* <div className='footer'><Footer /></div> */}
     </div>
 );
