@@ -24,7 +24,7 @@ class Box extends React.Component {
     }
     this.resetGame = this.resetGame.bind(this)
     this.loadDeck = this.loadDeck.bind(this)
-
+    this.tabChange = this.tabChange.bind(this)
     var person = {
     firstName:"John",
     lastName:"Doe",
@@ -38,7 +38,7 @@ class Box extends React.Component {
         this.props.fetchDeckFlashcards(this.props.deckId);
         // debugger
        
-        this.startTimer()
+        // this.startTimer()
         
     }
 
@@ -186,9 +186,6 @@ class Box extends React.Component {
         this.setState({timer:0})
         this.startTimer()
 
-
-
-
     }
 
 
@@ -253,8 +250,18 @@ class Box extends React.Component {
     
     
 
- 
+    tabChange(e){
+        if(e.code == "TAB" || e.code == "Tab" || e.code == "TABKEY"){
+            e.preventDefault()
+            console.log(this.state.input)
+            this.setState({input:this.state.input + "    "})
+            console.log(e)
+        }
+       
+        
+    }
 
+    
     render() {
         
         
@@ -281,6 +288,7 @@ class Box extends React.Component {
         if (flashcards && renderCount === 0 ){
             this.propsTostate()
         }
+        
      
 
         // flashcards && renderCount === 0 ? this.propsTostate()  : null
@@ -289,7 +297,7 @@ class Box extends React.Component {
             <div className='box-render'>
                 {/* <Datetime ref="datetime"/> */}
                 
-                <Score className="scorebox-text" text={"Faster"} currentScore={this.state.timer} text2={"seconds has passedg"} />
+                <Score className="scorebox-text" text={"Faster"} currentScore={this.state.timer} text2={"seconds has passed"} />
                 <Score text={"You are on"} currentScore={this.state.counter} text3={"of"} text2={endOfGame}/>
                 {/* <Score text={"Your record was"} currentScore={this.state.timer}/> */}
                     <div className='instruction'><div>Click on the delete gif to start typing</div></div>
@@ -306,7 +314,7 @@ class Box extends React.Component {
                
                 {
                     (stateEnded === false) 
-                    ? <div className='box-input'><textarea className="Text1" spellcheck="false" value={this.state.input} onChange={(e)=>this.setState({input: e.target.value})}/></div>      
+                    ? <div className='box-input'><textarea className="Text1" spellcheck="false" value={this.state.input} onKeyDown={this.tabChange} onChange={(e)=>this.setState({input: e.target.value})}/></div>      
                     : this.stopTimer() 
                     // : <Score text={"Your final score is"} currentScore={this.state.score}/> ? this.stopTimer() : null  ? console.log("asd") : null
                     // (stateEnded === true)
