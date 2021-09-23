@@ -29,7 +29,8 @@ class SplashPage extends React.Component {
     //   return null
     // }
     return(
-      <div>
+
+      <div className="splash-page-container">
         <div className="splash-deck-index">
           {
             deckArray.map(deck => (
