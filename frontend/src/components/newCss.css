@@ -216,12 +216,19 @@ img{
   font-size: 20px;
   display: flex;
   color: #b8beda;
+  
 }
 
 .score-bundle{
   text-align: center;
   padding:20px
 }
+
+.red2{
+  color:rgb(209, 213, 214)
+}
+
+
 
 .title{
   font-family: Georgia, 'Times New Roman', Times, serif;

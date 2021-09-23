@@ -422,7 +422,7 @@ class Box extends React.Component {
                 
                 
                 {/* <Score text={"Your record was"} currentScore={this.state.timer}/> */}
-                    <div className='instruction'><div>Click below the text to start typing</div></div>
+                    <div className='instruction'><div>Click&nbsp;</div> <div className="red2">below&nbsp;</div> <div>the text to start typing</div></div>
                     <div className="button-div"><button className='reset' onClick={resetGame}>Reset Flashcards</button>
                     {/* <button onClick={loadDeck}>Load Deck 1</button>
                     <button onClick={someMethod}>Refresh</button> */}
