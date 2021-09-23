@@ -5,10 +5,14 @@ import { fetchDeckComments, createComment, updateComment, deleteComment } from '
 
 import DeckShow from './deck_show'
 
+
+
 const mapStateToProps = (state, myProps) => {
   // debugger
-  return({
-    user_id: state.session.user.id,
+  let tempId = undefined;
+  if (state.session.user) tempId = state.session.user.id;
+  return ({
+    user_id: tempId,
     deckId: myProps.match.params.deckId,
     comments: Object.values(state.entities.comments),
     flashcards: Object.values(state.entities.flashcards)
