@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Redirect, withRouter } from 'react-router-dom';
 import UserDeckIndexItem from './user_deck_index_item';
 import '../../stylesheets/user_profile.css'
-
+import DeckFormContainer from '../../components/deck/deck_form_container';
 class UserProfile extends React.Component {
     constructor(props) {
         super(props);
@@ -66,11 +66,14 @@ class UserProfile extends React.Component {
 
         return (
             <div className='user-profile-page'>
-                <Link to="/decks">
+                <div>
+                    <DeckFormContainer />
+                </div>
+                {/* <Link to="/decks">
                     <button className='user-profile-create-deck-button'>
                         Create a deck
                     </button>
-                </Link>
+                </Link> */}
                 <div className='decks-container'>
                     {allMyDecks}
                 </div>

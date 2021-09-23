@@ -41,9 +41,11 @@ class DeckForm extends React.Component {
         user: this.state.user,
         leaderboard: this.state.leaderboard,
     };
+    // debugger
     this.props.composeDeck(deck)
-      .then(() => this.props.history.push("/user"));
+      // .then(() => this.props.history.push("/user"));
     // <Redirect to="/user" />
+    window.location.reload(false);
   }
 
   renderErrors() {
@@ -54,7 +56,7 @@ class DeckForm extends React.Component {
                     {this.state.errors[error]}
                 </li>
             ))}
-        </ul>
+        </ul> 
     );
   } 
 
@@ -63,13 +65,13 @@ class DeckForm extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <div>
-              <input type="text"
+            <input className='user-profile-create-deck-text-box' type="text"
                   value={this.state.title}
                   onChange={this.update('title')}
                   placeholder="Title"
               />
               <br />
-              <input type="submit" value="Create Deck" />
+            <input className='user-profile-create-deck-button' type="submit" value="Create Deck" />
           </div>
         </form>
       </div>

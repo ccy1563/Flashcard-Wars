@@ -92,3 +92,18 @@
 .user-profile-page button:active{
     background-color: #5da7d5;
 }
+
+.user-profile-create-deck-text-box {
+    background: #FFFFFF;
+    box-shadow: 0 1px 4px 0 rgb(204, 204, 204);
+    border-color: rgba(34, 34, 34, 0.15);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 6px;
+    color: #222222;
+    outline: none;
+    resize: none;
+    margin: 1% 0 0 42%;
+    width: 245px;
+    text-align: center;
+}

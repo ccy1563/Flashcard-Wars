@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
+import '../../stylesheets/flashcard_form.css'
 
 
 // title: {
@@ -72,23 +72,26 @@ class FlashcardForm extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='flashcard-form-top'>
                 <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <input type="text"
+                    <div className='flashcard-form'>
+                        <input 
+                            className='flashcard-form-title-input'
+                            type="text"
                             value={this.state.title}
                             onChange={this.update('title')}
                             placeholder="title"
-                        />
+                        />  
                         <br />
                         <textarea
+                            className='flashcard-form-textarea'
                             placeholder="enter text here..."
                             cols="65"
                             rows="4"
                             value={this.state.text}
                             onChange={this.update("text")}
                         />
-                        <input type="submit" value="Add card" />
+                        <input className='flashcard-form-submit' type="submit" value="Add card" />
                     </div>
                 </form>
             </div>
