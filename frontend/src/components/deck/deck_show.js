@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import CommentIndexItem from '../comment/comment_index_item';
-
+import '../../stylesheets/deck_show.css'
 class DeckShow extends React.Component {
   constructor(props){
     super(props);
@@ -53,28 +53,27 @@ class DeckShow extends React.Component {
       // debugger
       return (
         <div className="deck-show-flashcard"key={flashcard._id}>
-          <div>Title {flashcard.title}</div>
-          <div>Text {flashcard.text}</div>
+          <div className="deck-show-flashcard-title"> {flashcard.title}</div>
+          <div className="deck-show-flashcard-text">{flashcard.text}</div>
         </div>
       )
     });
 
     return(
-      <div>
+      <div className="deck-show-container">
         <Link to={`/practice/deck/${deckId}`}>
           <button className ="">
               Practice Typing
           </button>
         </Link>
-        <div>
-          <h3>Flashcards</h3>
+        <div className="deck-show-render-flashcard">
+          <div className="deck-show-header">Flashcards</div>
           { allFlashcardsInDeck }
         </div>
         <div>
-          <h3>Comments</h3>
+          <div className="deck-show-header">Comments</div>
           { allCommentsInDeck }
         </div>
-
       </div>
     )
   }
