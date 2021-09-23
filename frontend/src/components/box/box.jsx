@@ -20,11 +20,12 @@ class Box extends React.Component {
         timer:0,
         timerEnd:false,
         ranking:[100,300,600],
-        title:[]
+        title:[],
+        timerHasStarted:false
     }
     this.resetGame = this.resetGame.bind(this)
     this.loadDeck = this.loadDeck.bind(this)
-
+    this.tabChange = this.tabChange.bind(this)
     var person = {
     firstName:"John",
     lastName:"Doe",
@@ -38,7 +39,7 @@ class Box extends React.Component {
         this.props.fetchDeckFlashcards(this.props.deckId);
         // debugger
        
-        this.startTimer()
+        // this.startTimer()
         
     }
 
@@ -90,7 +91,7 @@ class Box extends React.Component {
         if (flashcards){
             for (let x = 0; x < flashcards.length; x++){
                 if(flashcards[x] === `\n`){
-                    for(let i = arr.length; i < 250; i++){
+                    for(let i = arr.length; i < 500; i++){
                         arr.push(<div>&nbsp;</div>)
                     }
                     
@@ -123,6 +124,57 @@ class Box extends React.Component {
             return mainArr
         }
         
+    }
+
+
+    outputSingleWord(input,flashcards){
+        let arr = []
+        let mainArr = []
+        let arrWithSpace = []
+        let newStarting = 0
+        // console.log(flashcards)
+        // console.log(typeof flashcards)
+        let split;
+        if(flashcards){
+            split = flashcards.split(" ")
+        }
+        // console.log(split)
+        let counter = 0
+        let size = 0
+        if (input){
+            // console.log(input.length,split[counter].length)
+            if (input.length <= split[counter].length){
+                // console.log(split[counter])
+                // console.log(input.length+1, split[counter].length+size)
+                if(input.length+1 > split[counter].length+size){
+                    // console.log("Asd")
+                    counter += 1
+                    size+= split[counter].length
+                }
+            }
+        }
+        
+        // let split = flashcards.split(" ")
+        // console.log(split)
+        // if (flashcards){
+        //     for (let x = 0; x < flashcards.length; x++){
+        //         console.log(flashcards.length)
+        //         if(flashcards[x] === `\n` || flashcards[x] === ""){
+        //             for(let i = newStarting; i < [x]; i++){
+        //                 if (input[x] === flashcards[x]){
+        //                     arr.push(<div className="white">{flashcards[x]}</div>)       
+        //                 }            
+        //                 else if(input[x] && input[x] !== flashcards[x]){
+        //                     arr.push(<div className="red">{flashcards[x]}</div>)    
+        //                 }            
+        //                 else{
+        //                     arr.push(<div className="black">{flashcards[x]}</div>)
+        //                 }
+        //             }
+        //         }
+        //     }
+        // } 
+        // console.log(arr)
     }
 
     
@@ -184,10 +236,7 @@ class Box extends React.Component {
         this.setState({input:""})
         this.setState({ended:false})
         this.setState({timer:0})
-        this.startTimer()
-
-
-
+        this.setState({timerHasStarted:false})
 
     }
 
@@ -234,7 +283,7 @@ class Box extends React.Component {
             }
             // 
         }else{
-            console.log("not found")
+            // console.log("not found")
         }
        
     }
@@ -253,8 +302,23 @@ class Box extends React.Component {
     
     
 
- 
+    tabChange(e){
+        if(e.code == "TAB" || e.code == "Tab" || e.code == "TABKEY"){
+            e.preventDefault()
+            // console.log(this.state.input)
+            this.setState({input:this.state.input + "    "})
+            // console.log(e)
+        }
+        if(this.state.timerHasStarted === false){
+            this.setState({timerHasStarted:true})
+            console.log("asd")
+            this.startTimer()
+        }
+        
+        
+    }
 
+    
     render() {
         
         
@@ -269,6 +333,7 @@ class Box extends React.Component {
         const someMethod = this.someMethod
         const timerEnd = this.state.timerEnd
         const ranking = this.state.ranking
+        const outputSingleWord = this.outputSingleWord(this.state.input,this.state.flashcards[this.state.counter])
         // const timer = this.state.timer
         // const inputIsEmpty = this.inputIsEmpty(this.state.input)
         // if (inputIsEmpty && timer === 0){
@@ -281,6 +346,7 @@ class Box extends React.Component {
         if (flashcards && renderCount === 0 ){
             this.propsTostate()
         }
+        
      
 
         // flashcards && renderCount === 0 ? this.propsTostate()  : null
@@ -288,14 +354,21 @@ class Box extends React.Component {
         return (
             <div className='box-render'>
                 {/* <Datetime ref="datetime"/> */}
-                
-                <Score className="scorebox-text" text={"Faster"} currentScore={this.state.timer} text2={"seconds has passedg"} />
+                {outputSingleWord}
+                <Score className="scorebox-text" text={"Faster"} currentScore={this.state.timer} text2={"seconds has passed"} />
                 <Score text={"You are on"} currentScore={this.state.counter} text3={"of"} text2={endOfGame}/>
+
+                
                 {/* <Score text={"Your record was"} currentScore={this.state.timer}/> */}
                     <div className='instruction'><div>Click on the delete gif to start typing</div></div>
+                    <div className="button-div"><button onClick={resetGame}>Reset Flashcards</button>
+                    <button onClick={loadDeck}>Load Deck 1</button>
+                    <button onClick={someMethod}>Refresh</button></div>
+
+
                     <div className='title'>Title of this card is {this.state.title[counter]}</div>
 
-                    <div className="game" for='Text1' >
+                    <div className="game">
                         {checkWholepassage2.map((ele,i) => (       
                                 <Fuse className="textbox2" ele={ele} key={i}/>
                             ))}
@@ -306,7 +379,7 @@ class Box extends React.Component {
                
                 {
                     (stateEnded === false) 
-                    ? <div className='box-input'><textarea className="Text1" spellcheck="false" value={this.state.input} onChange={(e)=>this.setState({input: e.target.value})}/></div>      
+                    ? <div className='box-input'><textarea className="Text1" spellCheck="false" value={this.state.input} onKeyDown={this.tabChange} onChange={(e)=>this.setState({input: e.target.value})}/></div>      
                     : this.stopTimer() 
                     // : <Score text={"Your final score is"} currentScore={this.state.score}/> ? this.stopTimer() : null  ? console.log("asd") : null
                     // (stateEnded === true)
@@ -327,9 +400,7 @@ class Box extends React.Component {
                 
        
           
-          <button onClick={resetGame}>Reset Flashcards</button>
-          <button onClick={loadDeck}>Load Deck 1</button>
-          {/* <button onClick={someMethod}>Refresh</button> */}
+      
 
 
                            
