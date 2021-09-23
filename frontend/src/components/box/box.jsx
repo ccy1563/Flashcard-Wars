@@ -234,6 +234,7 @@ class Box extends React.Component {
     }
 
     resetGame(){   
+        this.stopTimer()
         this.setState({counter:0})
         this.setState({score:0})
         this.setState({input:""})
@@ -322,6 +323,16 @@ class Box extends React.Component {
         
     }
 
+    handleUpdate(array){
+        const newDeck = {
+            id:this.props.deck._id,
+            title:this.props.deck.title,
+            user:this.props.deck.user,
+            leaderboard:array
+        }
+        this.props.reviseDeck(newDeck)
+    }
+
     addingToLeader(array,timer){
         let list = []
         let counter = 0
@@ -334,11 +345,12 @@ class Box extends React.Component {
             let sorted = array.sort(function(a, b) {
                             return a - b;
                 });
-            // if (sorted.length === 4){
-            //     array.pop()
-            // }
+            if (sorted.length === 4){
+                array.pop()
+            }
         }
-        console.log(array)
+        this.handleUpdate(array)
+        
 
 
     //     if (array && this.state.ended === true && counter === 0){
@@ -385,9 +397,9 @@ class Box extends React.Component {
         const loadDeck = this.loadDeck
         const someMethod = this.someMethod
         let addingToLeader = undefined
-        if (leaderboard && this.state.timer){
-             addingToLeader = this.addingToLeader(leaderboard,this.state.timer)
-        }
+        // if (leaderboard && this.state.timer){
+        //      addingToLeader = this.addingToLeader(leaderboard,this.state.timer)
+        // }
         const timerEnd = this.state.timerEnd
         const ranking = this.state.ranking
         // const outputSingleWord = this.outputSingleWord(this.state.input,this.state.flashcards[this.state.counter])
@@ -450,11 +462,13 @@ class Box extends React.Component {
                     ?    <Stats array={leaderboard} currentTimer={this.state.timer}/>
                     : ""
                 }
+                
                 {
                     (stateEnded === true)
                     
-                    ? addingToLeader
+                    ? this.addingToLeader(leaderboard,this.state.timer)
                     : ""
+                    
                 }
 
                 {/* {console.log(leaderboard)} */}
