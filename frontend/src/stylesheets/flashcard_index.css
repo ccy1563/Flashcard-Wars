@@ -1,8 +1,9 @@
 .flashcard-index-page {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     color: black;
+    min-height: 1000px;
 }
 
 .flashcard-index-card-form {
