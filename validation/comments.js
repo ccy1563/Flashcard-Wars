@@ -6,8 +6,8 @@ module.exports = function validateCommentInput(data) {
 
   data.text = validText(data.text) ? data.text : "";
 
-  if (!Validator.isLength(data.text, { min: 5 })) { // if it breaks max: 400
-    errors.text = "Text must be higher than 5 characters";
+  if (!Validator.isLength(data.text, { min: 1 })) { // if it breaks max: 400
+    errors.text = "Text must be higher than 1 characters";
   }
 
   if (Validator.isEmpty(data.text)) {

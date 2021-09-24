@@ -12,11 +12,11 @@ class CommentIndexItem extends React.Component{
     this.textEdited = React.createRef();
 
     this.handleDelete = this.handleDelete.bind(this);
-    this.handleEdit = this.handleEdit.bind(this);
+    this.handleCommentEdit = this.handleCommentEdit.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
   }
 
-  handleEdit(e){
+  handleCommentEdit(e){
     e.preventDefault();
     // debugger
     const { comment, user_id, deckId } = this.props;
@@ -38,7 +38,7 @@ class CommentIndexItem extends React.Component{
 
   handleDelete(e){
     e.preventDefault(e);
-    console.log(this.props)
+    // console.log(this.props)
     this.props.deleteComment(this.props.comment._id)
     window.location.reload(false);
   }
@@ -66,13 +66,14 @@ class CommentIndexItem extends React.Component{
       )
       submitButton = (
         <div className="edit-photo-button-container">
-          <button className="edit-photo-button" onClick={this.handleEdit}>Submit</button>
+          <button className="edit-photo-button" onClick={this.handleCommentEdit}>Submit</button>
         </div>
       )
     };
 
     return(
       <div className="comment-index-item-container">
+        <h1>{}</h1>
         <div>
           {editable ? 
             <div className="text-edited-container">

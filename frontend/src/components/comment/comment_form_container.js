@@ -5,8 +5,8 @@ import {
 import CommentForm from './comment_form';
 
 const mapStateToProps = (state, myProps) => {
-  console.log(state)
-  console.log(myProps)
+  // console.log(state)
+  // console.log(myProps)
   let temp = undefined;
   if (state.session.user) temp = state.session.user.id;
   return({

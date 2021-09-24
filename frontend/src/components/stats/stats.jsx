@@ -21,7 +21,7 @@ export default class  Stats extends Component {
                 
             }        
         }
-        console.log(list)
+        // console.log(list)
         // list.sort()  
         return (
             <div className="Stats">

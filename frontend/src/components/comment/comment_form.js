@@ -28,7 +28,7 @@ class CommentForm extends React.Component{
       text: this.state.text,
       deck: this.state.deck,
     };
-    console.log(comment)
+    // console.log(comment)
     this.props.createComment(comment);
     window.location.reload(false);
   }

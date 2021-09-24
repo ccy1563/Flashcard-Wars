@@ -43,7 +43,7 @@ router.post('/deck/:deck_id',
       return res.status(400).json(errors);
     }
 
-    console.log(req);
+    // console.log(req);
 
     const newComment = new Comment({
       text: req.body.text,
