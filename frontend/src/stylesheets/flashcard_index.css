@@ -14,6 +14,10 @@
 
 }
 
+.emptyDiv{
+    height:800px;
+}
+
 .flashcard-index-card-img {
     background-image: url("https://images.squarespace-cdn.com/content/v1/55dd99e6e4b0efe2fb47a02e/1596113137205-3EKHGS9SDYZ8ZBH9MY7G/flashcards.png?format=1000w");
     background-size: 150px;

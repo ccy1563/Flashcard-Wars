@@ -79,8 +79,9 @@ table {
    */
 }
 
-/* .box-render{
-} */
+.box-render{
+  min-height: 2000px;
+}
 img{
   /* width: 100% */height: 100%;
 }

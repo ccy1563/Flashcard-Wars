@@ -415,8 +415,6 @@ class Box extends React.Component {
 
         return (
             <div className='box-render'>
-                {/* <Datetime ref="datetime"/> */}
-                {/* {outputSingleWord} */}
     
         
                 
