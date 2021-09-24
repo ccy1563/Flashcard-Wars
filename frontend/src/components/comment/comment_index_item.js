@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 class CommentIndexItem extends React.Component{
 
   constructor(props){
@@ -71,13 +72,11 @@ class CommentIndexItem extends React.Component{
     };
 
     return(
-      <div>
+      <div className="comment-index-item-container">
         <div>
-          <div>Text </div>
-
           {editable ? 
             <div className="text-edited-container">
-              <input 
+              <textarea 
                 className="text-edited" 
                 type='text' 
                 ref={this.textEdited} 
@@ -90,17 +89,20 @@ class CommentIndexItem extends React.Component{
             </h1>
           }
 
-          {editable === false ? editButton : submitButton }
         </div>
-    
-        {
-          isUploader ?
-          <div className="delete-comment-container">
-            <button className="delete-comment" onClick={this.handleDelete}>Delete</button> 
-          </div>
-          :
-          ""
-        }
+
+        <div className="comment-index-button">
+          {editable === false ? editButton : submitButton }
+      
+          {
+            isUploader ?
+            <div className="delete-comment-container">
+              <button className="delete-comment-button" onClick={this.handleDelete}>Delete</button> 
+            </div>
+            :
+            ""
+          }
+        </div>
       </div>
     )
   }

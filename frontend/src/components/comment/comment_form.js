@@ -12,7 +12,6 @@ class CommentForm extends React.Component{
       deck: this.props.deckId,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.navigateToUserPage = this.navigateToUserPage.bind(this);
   }
 
   update(field) {
@@ -24,35 +23,39 @@ class CommentForm extends React.Component{
   // Handle form submission
   handleSubmit(e) {
     e.preventDefault();
-
     let comment = {
-        user: this.state.user,
-        text: this.state.text,
-        deck: this.state.deck,
+      user: this.state.user,
+      text: this.state.text,
+      deck: this.state.deck,
     };
+    console.log(comment)
     this.props.createComment(comment);
-    this.navigateToUserPage();
+    window.location.reload(false);
   }
   
-  navigateToUserPage() {
-    // debugger
-    const url = `/user`
-    this.props.history.push(url);
-}
-  
   render(){
-    return(
-      <div>
+    let commentSubmit;
+    if(this.props.user_id){
+      commentSubmit = (
+        <div className="comment-form">
         <form onSubmit={this.handleSubmit}>
           <textarea
             placeholder="enter text here..."
-            cols="65"
+            cols="58"
             rows="4"
             value={this.state.text}
             onChange={this.update("text")}
+            className="comment-form-text-area"
           />
-          <input type="submit" value="Add comment" />
+          <input type="submit" value="Comment"  className="comment-form-submit"/>
         </form>
+      </div>
+      )
+    }
+
+    return(
+      <div>
+        {commentSubmit}
       </div>
     )
   }

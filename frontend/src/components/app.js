@@ -53,7 +53,6 @@ const App = () => (
             {/* // User page */}
             <Route exact path="/user" component={UserProfileContainer} />
             {/* // Page to insert card into deck from user page */}
-            <Route exact path ="/comment/user/:userId/deck/:deckId/create" component={CommentFormContainer} />
             <Route exact path="/flashcard/user/:userId/deck/:deckId/create" component={FlashcardFormContainer} />
             {/* // Renders form to submit decks from user page */}
             <Route exact path="/decks" component={DeckFormContainer} />
