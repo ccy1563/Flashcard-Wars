@@ -7,14 +7,12 @@
   color:white;
   text-align: center;
   align-items: center;
-
   margin: auto;
   width: 600px; 
-  margin: 1% 0 1% 42%;
 }
 
 .deck-show-container button {
-  width: 250px;
+  width: 150px;
   height: 50px;
   background-color: transparent;
   font-size: 18px;
@@ -54,11 +52,11 @@
 }
 
 .deck-show-flashcard-container{
-  padding-top: 10px;
   padding-bottom: 20px;
 }
 
 .deck-show-flashcard{
+  margin-top: 10px;
   width: 600px;
   border: solid grey 2px;
 }

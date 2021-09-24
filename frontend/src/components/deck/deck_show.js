@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import CommentIndexItem from '../comment/comment_index_item';
+import CommentFormContainer from '../comment/comment_form_container';
 import '../../stylesheets/deck_show.css'
 class DeckShow extends React.Component {
   constructor(props){
@@ -72,8 +73,14 @@ class DeckShow extends React.Component {
         </div>
         <div>
           <div className="deck-show-header">Comments</div>
+          <div>
+            <CommentFormContainer 
+              deckId = {deckId}
+            />
+          </div>
           { allCommentsInDeck }
         </div>
+
       </div>
     )
   }

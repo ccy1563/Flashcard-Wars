@@ -16,19 +16,40 @@
 }
 
 .deck-title {
-    /* margin: 5%; */
-    /* background-color: red; */
+
     background-image: url("https://static.thenounproject.com/png/219525-200.png");
     background-size: 150px;
     width: 150px;
     height: 130px;
-    /* color: blue; */
     text-align: center;
     font-size: 15px;
     font-family: system-ui;
     box-shadow: 1px 1px 10px rgb(0 0 0 / 5%);
     border-radius: 5px;
     color: white;
+}
+
+.deck-title p {
+
+    width: 150px;
+    height: 130px;
+    padding-top: 60px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 15px;
+    color:white;
+}
+
+.deck-title p:hover{
+    color: #8fa2ae;
+}
+  
+.deck-title p:active{
+    color: #c4c4c4;
+}
+
+.deck-title a {
+    text-decoration: none;
 }
 
 .user-profile-button {
@@ -106,4 +127,17 @@
     margin: 1% 0 0 42%;
     width: 245px;
     text-align: center;
+}
+
+.user-profile-create-deck-button{
+    background-color: #128fdc;
+    color:white;
+}
+
+.user-profile-create-deck-button:hover{
+    background-color: #81cdfc;
+}
+
+.user-profile-create-deck-button:active{
+    background-color: #5da7d5;
 }
