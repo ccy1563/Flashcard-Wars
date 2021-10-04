@@ -67,7 +67,7 @@
     background-color: #5da7d5;
   }
   
-  .session-form-errors > ul > li{
+  .session-form-errors{
     margin-top: 5px;
     text-align: center;
     color: red;
