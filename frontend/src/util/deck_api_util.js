@@ -13,7 +13,7 @@ export const getUserDeck = id =>{
 };
 
 export const createDeck = data => {
-  console.log(data)
+  // console.log(data)
   return axios.post(`/api/decks/user/${data.user}`, data)
 }
 

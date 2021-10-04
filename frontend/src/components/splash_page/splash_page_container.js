@@ -6,7 +6,7 @@ import {
 import SplashPage from './splash_page';
 
 const mapStateToProps = state => {
-  console.log(state)
+  // console.log(state)
   return ({
     decks: Object.values(state.entities.decks)
   })

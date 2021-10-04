@@ -8,7 +8,8 @@ class DeckShow extends React.Component {
     super(props);
     this.state = {
       commentArray: [],
-      flashcardArray: []
+      flashcardArray: [],
+      deckTitle: {}
     }
 
     this.textEdited = React.createRef();
@@ -28,6 +29,7 @@ class DeckShow extends React.Component {
           flashcardArray: Object.values(res.flashcards.data)
         })
       })
+
   }
 
   render(){

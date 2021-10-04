@@ -1,11 +1,7 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class UserDeckIndexItem extends React.Component {
-
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         const { deck } = this.props;

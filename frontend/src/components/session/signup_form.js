@@ -42,57 +42,48 @@ class SignupForm extends React.Component {
         this.props.signup(user, this.props.history);
     }
 
-    renderErrors() {
-        return (
-            <ul>
-                {Object.keys(this.state.errors).map((error, i) => (
-                    <li key={`error-${i}`}>
-                        {this.state.errors[error]}
-                    </li>
-                ))}
-            </ul>
-        );
-    }
-
     render() {
         return (
             <div className="signup-form-container">
                 <div className ="login">
                     <form onSubmit={this.handleSubmit} className="form-box">
                         <p className="form-header">Sign up for Flashcard War</p>
-                        <div className = "session-form-errors">
-                            {this.renderErrors()}
-                        </div>
-
-                            <br />
+                            <div className = "session-form-errors">
+                              {this.state.errors.email}
+                            </div>
                             <input type="text"
                                 value={this.state.email}
                                 onChange={this.update('email')}
                                 placeholder="Email"
                                 className="signup-input"
                             />
-                            <br />
+                            <div className = "session-form-errors">
+                              {this.state.errors.handle}
+                            </div>
                             <input type="text"
                                 value={this.state.handle}
                                 onChange={this.update('handle')}
                                 placeholder="Handle"
                                 className="signup-input"
                             />
-                            <br />
+                            <div className = "session-form-errors">
+                              {this.state.errors.password}
+                            </div>
                             <input type="password"
                                 value={this.state.password}
                                 onChange={this.update('password')}
                                 placeholder="Password"
                                 className="signup-input"
                             />
-                            <br />
+                            <div className = "session-form-errors">
+                              {this.state.errors.password2}
+                            </div>
                             <input type="password"
                                 value={this.state.password2}
                                 onChange={this.update('password2')}
                                 placeholder="Confirm Password"
                                 className="signup-input"
                             />
-                            <br />
 
                             <div className="button-input">
                                 <input className="session-submit" type="submit" value="Submit" />

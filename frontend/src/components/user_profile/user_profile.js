@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link, Redirect, withRouter } from 'react-router-dom';
-import UserDeckIndexItem from './user_deck_index_item';
+import { Link, withRouter } from 'react-router-dom';
+// import UserDeckIndexItem from './user_deck_index_item';
 import '../../stylesheets/user_profile.css'
 import DeckFormContainer from '../../components/deck/deck_form_container';
 class UserProfile extends React.Component {

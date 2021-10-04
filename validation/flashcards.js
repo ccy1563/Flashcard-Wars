@@ -9,15 +9,15 @@ module.exports = function validateFlashcardInput(data) {
   data.text = validText(data.text) ? data.text : "";
 
   if (!Validator.isLength(data.title, { min: 1, max: 140 })) {
-    errors.title = "Title must be between 5 and 140 characters";
+    errors.title = "Title must be between 1 and 140 characters";
   }
 
   if (Validator.isEmpty(data.title)) {
     errors.title = "Title field is required";
   }
 
-  if (!Validator.isLength(data.text, { min: 5 })) { // if it breaks max: 400
-    errors.text = "Text must be higher than 5 characters";
+  if (!Validator.isLength(data.text, { min: 1 })) { // if it breaks max: 400
+    errors.text = "Text must be higher than 1 characters";
   }
 
   if (Validator.isEmpty(data.text)) {

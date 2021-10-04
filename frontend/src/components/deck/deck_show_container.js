@@ -9,6 +9,7 @@ import DeckShow from './deck_show'
 
 const mapStateToProps = (state, myProps) => {
   // debugger
+
   let temp = undefined;
   if (state.session.user) temp = state.session.user.id;
   return({

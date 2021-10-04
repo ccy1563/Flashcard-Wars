@@ -1,12 +1,12 @@
 import React from 'react';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { AuthRoute } from '../util/route_util';
 import { Switch, Route } from 'react-router-dom';
 import NavBarContainer from './nav/navbar_container';
 import BoxContainer from './box/box_container';
 
 import Menu from './menu/menu';
-import Stats from './stats/stats';
-import Footer from './footer/footer';
+// import Stats from './stats/stats';
+// import Footer from './footer/footer';
 import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
@@ -24,7 +24,7 @@ import Rightmenu from './rightmenu/rightmenu';
 
 import DeckShowContainer from './deck/deck_show_container';
 
-import CommentFormContainer from './comment/comment_form_container';
+// import CommentFormContainer from './comment/comment_form_container';
 import CommentIndexContainer from './comment/comment_index_container';
 
 
@@ -53,6 +53,7 @@ const App = () => (
             {/* // User page */}
             <Route exact path="/user" component={UserProfileContainer} />
             {/* // Page to insert card into deck from user page */}
+            {/* <Route exact path ="/comment/user/:userId/deck/:deckId/create" component={CommentFormContainer} /> */}
             <Route exact path="/flashcard/user/:userId/deck/:deckId/create" component={FlashcardFormContainer} />
             {/* // Renders form to submit decks from user page */}
             <Route exact path="/decks" component={DeckFormContainer} />

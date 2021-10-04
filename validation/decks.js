@@ -8,7 +8,7 @@ module.exports = function validateDeckInput(data) {
   data.title = validText(data.title) ? data.title : "";
 
   if (!Validator.isLength(data.title, { min: 1, max: 38 })) {
-    errors.title = "Title must be between 5 and 38 characters";
+    errors.title = "Title must be between 1 and 38 characters";
   }
 
   if (Validator.isEmpty(data.title)) {

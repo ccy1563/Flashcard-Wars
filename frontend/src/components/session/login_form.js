@@ -14,7 +14,6 @@ class LoginForm extends React.Component {
 
         this.demoLogin = this.demoLogin.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.renderErrors = this.renderErrors.bind(this);
         this.navigateToSplashPage = this.navigateToSplashPage.bind(this);
     }
 
@@ -53,19 +52,6 @@ class LoginForm extends React.Component {
         }
     }
 
-    // Render the session errors if there are any
-    renderErrors() {
-        return (
-            <ul>
-                {Object.keys(this.state.errors).map((error, i) => (
-                    <li key={`error-${i}`}>
-                        {this.state.errors[error]}
-                    </li>
-                ))}
-            </ul>
-        );
-    }
-
     navigateToSplashPage() {
         // debugger
         const url = `/`
@@ -85,7 +71,7 @@ class LoginForm extends React.Component {
                     <form className='form-box' onSubmit={this.handleSubmit}>
                         <p className="form-header">Log in to Flashcard Wars</p>
                         <div className = "session-form-errors">
-                            {this.renderErrors()}
+                            {this.state.errors.email}
                         </div>
                         <input 
                             className="login-input"
@@ -94,7 +80,9 @@ class LoginForm extends React.Component {
                             onChange={this.update('email')}
                             placeholder="Email"
                         />
-
+                        <div className = "session-form-errors">
+                            {this.state.errors.password}
+                        </div>
                         <input
                             className="login-input"
                             type="password"
