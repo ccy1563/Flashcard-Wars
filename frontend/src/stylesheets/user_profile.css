@@ -141,3 +141,22 @@
 .user-profile-create-deck-button:active{
     background-color: #5da7d5;
 }
+
+.deck-title-p {
+        /* padding-top: 10px; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    /* -webkit-box-orient: vertical;
+    overflow-wrap: break-word; */
+
+    color: #FFFFFF;
+    text-decoration: none!important;
+    width: 140px;
+    
+}
+
+.deck-title-link {
+    text-decoration: none;
+}

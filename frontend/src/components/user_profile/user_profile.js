@@ -36,10 +36,12 @@ class UserProfile extends React.Component {
             return (
                 <div className='user-profile-all-decks'>
                     
+                    <Link className='deck-title-link' to={`/decks/${deck._id}`}>
+                        <p className="deck-title-p">
+                            {deck.title}
+                        </p>
+                    </Link>
                     <div className='deck-title'>
-                        <Link to={`/decks/${deck._id}`}>
-                            <p>{deck.title}</p>
-                        </Link>
                     </div>
                     <div className='user-profile-all-buttons'>
 

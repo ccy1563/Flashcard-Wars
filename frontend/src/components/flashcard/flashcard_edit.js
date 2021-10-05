@@ -86,7 +86,7 @@ class FlashcardForm extends React.Component {
                             value={this.state.text}
                             onChange={this.update("text")}
                         />
-                        <input className='flashcard-form-submit' type="submit" value="Edit card" />
+                        <input className='flashcard-form-submit'     type="submit" value="Edit card" />
                     </div>
                 </form>
             </div>
