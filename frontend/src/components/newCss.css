@@ -85,25 +85,33 @@ table {
 img{
   /* width: 100% */height: 100%;
 }
+/* .game{
+  margin-left: auto;
+  margin-right: auto;
+
+} */
 
 .bundle-box{
   padding: 0px;
   /* background-color: #0B0C10; */
   flex: 2;
-  min-width: 800px;
+  min-width: 300px;
   /* flex-basis: 10%; */
 }
 
 .bundle-menu{
   /* background-color: #0B0C10; */
-  flex: 1;
+  /* flex: 1; */
   /* flex-basis: content; */
-  min-width: 140px;
+  min-width: 200px;
+  max-width: 300px;
 }
 .bundle-stats{
   /* background-color: #0B0C10; */
-  flex: 1;
-  min-width: 140px;
+  /* flex: 1; */
+  min-width: 200px;
+  max-width: 300px;
+
 
   /* flex-basis: content; */
   
@@ -112,7 +120,7 @@ img{
 .scorebox-text{
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 20px;
-  color:#1af6eb
+  color:white
 
 }
 
@@ -162,17 +170,17 @@ img{
 
 .box-input{
   margin-bottom: 200px;
-  background-color: transparent;
+  /* background-color: transparent; */
 }
 
 .Text1{
   background-color: white;
-  border-radius: 25px;
-  height: 1000px;
-  width: 1000px;
+  border-radius: 10px;
+  height: 500px;
+  width: 100%;
   border: none;
-  color: transparent;
-  background: transparent
+  /* color: transparent; */
+  /* background: transparent */
   /* background-image: ''; */
 }
 
@@ -243,9 +251,9 @@ img{
   font-family: Georgia, 'Times New Roman', Times, serif;
   text-align: center;
 
-  color: #5c5c61;
+  color: white;
   font-size: 20px;
-  border: 2px solid rgb(1, 94, 131);
+  /* border-bottom: 2px solid rgb(131, 1, 1); */
   width: max-content;
   margin-left: auto;
   margin-right: auto;
@@ -253,7 +261,7 @@ img{
   padding-top: 20px;
 
   padding-bottom: 20px;
-  border-radius: 5px;
+  /* border-radius: 5px; */
  
 }
 
@@ -278,6 +286,7 @@ img{
   /* width: max-content; */
   /* margin-left: auto;
   margin-right: auto; */
+  justify-content: center !important  ;
  
   /* border: 2px solid rgb(156, 1, 35); */
 
