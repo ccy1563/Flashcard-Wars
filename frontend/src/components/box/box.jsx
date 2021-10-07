@@ -21,11 +21,13 @@ class Box extends React.Component {
         timerEnd:false,
         ranking:[100,300,600],
         title:[],
-        timerHasStarted:false
+        timerHasStarted:false,
+        name:"",
     }
     this.resetGame = this.resetGame.bind(this)
     this.loadDeck = this.loadDeck.bind(this)
     this.tabChange = this.tabChange.bind(this)
+    this.handleChange = this.handleChange.bind(this);
     var person = {
     firstName:"John",
     lastName:"Doe",
@@ -329,23 +331,55 @@ class Box extends React.Component {
     addingToLeader(array,timer){
         let list = []
         let counter = 0
+        let name = ""
+        let sorted = []
+        let winners = []
+        let score = []
+        let empty = []
+
         if((array && this.state.ended === true && counter === 0)){
-            // debugger
+            name = this.state.name
+            if (name === ""){
+                name = "Anonymous"
+            }
+            
             counter ++
             if (array.length < 4 ){
-                array.push(timer)
+                array.push([name,timer])
             }
-            let sorted = array.sort(function(a, b) {
-                            return a - b;
-                });
-            if (sorted.length === 4){
+            // for (let x = 0; x < array.length; x++){
+            //     winners.push(array[x][0])
+            //     score.push(array[x][1])
+              
+            // }
+            // for (let x = 0; x < array.length; x++){
+            //     var indexMenor = score.indexOf(Math.min(...score));
+            //     console.log(indexMenor);
+            //     console.log(winners[indexMenor])
+            //     sorted.push(winners[indexMenor],score[indexMenor])
+        
+            // }
+            // array = [[2,text],[5,text],[1,text]];
+            // array = [[2,text],[5,text],[1,text]];
+            array.sort(function(a,b){return a[1] - b[1]})
+            console.log(array)
+           
+
+            // let sorted = array.sort(function(a, b) {
+            //                 return a - b;
+            //     });
+            if (array.length === 4){
                 array.pop()
             }
         }
+        console.log(array)
+        // console.log(score  )
+        // console.log(winners)
+
         this.handleUpdate(array)
         
 
-
+        
     //     if (array && this.state.ended === true && counter === 0){
     //         array.push(timer)
     //         let sorted = array.sort(function(a, b) {
@@ -372,7 +406,10 @@ class Box extends React.Component {
     //     // list.sort()
     // }
     }
-    
+    handleChange(event) {
+        this.setState({name: event.target.value});
+        console.log(this.state.name)
+      }
     render() {
         // const {deck} = this.props
         let leaderboard = undefined
@@ -409,7 +446,7 @@ class Box extends React.Component {
             this.propsTostate()
         }
         
-     
+    
 
         // flashcards && renderCount === 0 ? this.propsTostate()  : null
 
@@ -441,7 +478,13 @@ class Box extends React.Component {
                 {
                    (checkAll === 'Done') ? this.addOne() : null
                 }
-               
+                    <form>
+                        <label>
+                            Name:
+                            <input type="text" value={this.state.name} onChange={this.handleChange}/>
+                        </label>
+                        {/* <input type="submit" value="Submit" /> */}
+                    </form>
                 {
                     (stateEnded === false) 
                     ? <div className='box-input'><textarea className="Text1" spellCheck="false" value={this.state.input} onKeyDown={this.tabChange} onChange={(e)=>this.setState({input: e.target.value})}/></div>      
