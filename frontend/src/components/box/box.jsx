@@ -478,6 +478,11 @@ class Box extends React.Component {
                 {
                    (checkAll === 'Done') ? this.addOne() : null
                 }
+
+                {
+                    (stateEnded === false)
+                    
+                    ?     
                     <form>
                         <label>
                             Name:
@@ -485,6 +490,9 @@ class Box extends React.Component {
                         </label>
                         {/* <input type="submit" value="Submit" /> */}
                     </form>
+                    : ""
+                }
+                   
                 {
                     (stateEnded === false) 
                     ? <div className='box-input'><textarea className="Text1" spellCheck="false" value={this.state.input} onKeyDown={this.tabChange} onChange={(e)=>this.setState({input: e.target.value})}/></div>      
