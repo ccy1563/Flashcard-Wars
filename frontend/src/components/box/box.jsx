@@ -516,6 +516,15 @@ class Box extends React.Component {
                     : ""
                     
                 }
+                    {
+                        (stateEnded === true)
+                        
+                        ? <div className="button-div"><button className='reset' onClick={resetGame}>Reset Flashcards</button></div>
+                        : ""
+                        
+                    }
+
+
 
                 {/* {console.log(leaderboard)} */}
                 
