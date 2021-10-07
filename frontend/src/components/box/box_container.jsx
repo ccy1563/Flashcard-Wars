@@ -24,7 +24,7 @@ const mapStateToProps = (state, ownProps)  => {
 
     // debugger
     return ({
-        // user_id: state.session.user.id,
+        user_id: state.session.user.id,
         flashcards: state.entities.flashcards.data,
         deckId: ownProps.match.params.deckId,
         deck: state.entities.decks.data
