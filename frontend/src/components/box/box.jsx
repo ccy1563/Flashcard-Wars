@@ -323,7 +323,7 @@ class Box extends React.Component {
             id:this.props.deck._id,
             title:this.props.deck.title,
             user:this.props.deck.user,
-            leaderboard:[array]
+            leaderboard:array
         }
         this.props.reviseDeck(newDeck)
     }
@@ -336,7 +336,7 @@ class Box extends React.Component {
         let winners = []
         let score = []
         let empty = []
-
+        
         if((array && this.state.ended === true && counter === 0)){
             name = this.state.name
             if (name === ""){
@@ -344,6 +344,13 @@ class Box extends React.Component {
             }
             
             counter ++
+            if (array.length === 0){
+                array.push(["Chen",500])
+                array.push(["Smith",600])
+                array.push(["Janssen",700])
+            }
+
+
             if (array.length < 4 ){
                 array.push([name,timer])
             }
@@ -464,10 +471,10 @@ class Box extends React.Component {
                     </div>
 
                     <div className="score-bundle">
-                        <div><Score className="scorebox-text" currentScore={this.state.timer/100}   /></div>
+                        <div><Score className="scorebox-text3" currentScore={this.state.timer/100}   /></div>
 
                         <div><Score className="scorebox-text"  text2={"seconds"}  /></div>
-                        <div><Score currentScore={this.state.counter} text3={"/"} text2={endOfGame}/></div>
+                        <div><Score className="scorebox-text" currentScore={this.state.counter} text3={"/"} text2={endOfGame}/></div>
                     </div>
                     
 
