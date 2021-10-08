@@ -214,7 +214,7 @@ class Box extends React.Component {
             this.setState(prevState  =>({
                 timer:prevState.timer + 1
             }))
-        },1000)
+        },10)
     } 
     
 
@@ -336,7 +336,7 @@ class Box extends React.Component {
         let winners = []
         let score = []
         let empty = []
-
+        
         if((array && this.state.ended === true && counter === 0)){
             name = this.state.name
             if (name === ""){
@@ -344,6 +344,13 @@ class Box extends React.Component {
             }
             
             counter ++
+            if (array.length === 0){
+                array.push(["Chen",500])
+                array.push(["Smith",600])
+                array.push(["Janssen",700])
+            }
+
+
             if (array.length < 4 ){
                 array.push([name,timer])
             }
@@ -458,13 +465,16 @@ class Box extends React.Component {
                 
                 {/* <Score text={"Your record was"} currentScore={this.state.timer}/> */}
                     {/* <div className='instruction'><div>Click&nbsp;</div> <div className="red2">below&nbsp;</div> <div>the text to start typing</div></div> */}
-                    <div className="button-div"><button className='reset' onClick={resetGame}>Reset Flashcards</button>
-                    {/* <button onClick={loadDeck}>Load Deck 1</button>
-                    <button onClick={someMethod}>Refresh</button> */}
+                    {/* <div className="button-div"><button className='reset' onClick={resetGame}>Reset Flashcards</button></div> */}
+                    <div className="leaderboardMain">
+                        <Stats array={leaderboard} currentTimer={this.state.timer/100}/>
                     </div>
+
                     <div className="score-bundle">
-                        <Score className="scorebox-text" text={"Faster"} currentScore={this.state.timer} text2={"seconds has passed"} />
-                        <Score text={"You are on"} currentScore={this.state.counter} text3={"of"} text2={endOfGame}/>
+                        <div><Score className="scorebox-text3" currentScore={this.state.timer/100}   /></div>
+
+                        <div><Score className="scorebox-text"  text2={"seconds"}  /></div>
+                        <div><Score className="scorebox-text" currentScore={this.state.counter} text3={"/"} text2={endOfGame}/></div>
                     </div>
                     
 
@@ -505,14 +515,14 @@ class Box extends React.Component {
                 {
                     (stateEnded === true)
                     
-                    ?    <Stats array={leaderboard} currentTimer={this.state.timer}/>
+                    ?    <Stats array={leaderboard} currentTimer={this.state.timer/100}/>
                     : ""
                 }
                 
                 {
                     (stateEnded === true)
                     
-                    ? this.addingToLeader(leaderboard,this.state.timer)
+                    ? this.addingToLeader(leaderboard,this.state.timer/100)
                     : ""
                     
                 }
