@@ -168,6 +168,11 @@ img{
   
 }
 
+.leaderboardMain{
+  text-align: center;
+
+}
+
 .box-input{
   margin-bottom: 200px;
   /* background-color: transparent; */
@@ -237,8 +242,15 @@ img{
 }
 
 .score-bundle{
-  text-align: center;
-  padding:20px
+  /* text-align: center; */
+  padding:20px;
+  display:flex;
+  justify-content: center;
+}
+.score-bundle > div{
+  /* text-align: center; */
+  /* margin-right: 20px; */
+  width: 75px;
 }
 
 .red2{

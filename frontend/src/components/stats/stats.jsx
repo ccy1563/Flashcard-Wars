@@ -10,12 +10,12 @@ export default class  Stats extends Component {
             for (let x = 0; x < array.length ; x++){
                 // 
                 if(x === 0 ){
-                    list.push(<ul>{array[x][0]} with {array[x][1]}  seconds was the fastest</ul>)
+                    list.push(<ul>1st Place {array[x][0]} with {array[x][1]}</ul>)
                 }
                 else if(x === 1 && array[x][1]>=0){
-                    list.push(<ul>{array[x][0]} with {array[x][1]}  seconds was a close second</ul>)
+                    list.push(<ul>2nd Place {array[x][0]} with {array[x][1]}</ul>)
                 }else if(x === 2 && array[x][1]>=0){
-                    list.push(<ul>{array[x][0]} with {array[x][1]}  seconds was the bronze medalist</ul>)
+                    list.push(<ul>3rd Place {array[x][0]} with {array[x][1]}</ul>)
 
                 }
                 
