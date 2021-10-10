@@ -44,7 +44,11 @@ class UserProfile extends React.Component {
                     <div className='deck-title'>
                     </div>
                     <div className='user-profile-all-buttons'>
-
+                        <Link className='user-profile-link' to={`/decks/${deck._id}/edit`}>
+                            <button className='user-profile-button'>
+                                Edit Title
+                            </button>
+                        </Link>
                         <Link className='user-profile-link' to={`/flashcard/user/${deck.user}/deck/${deck._id}/create`}>
                             <button className='user-profile-button'>
                                 Add Card
