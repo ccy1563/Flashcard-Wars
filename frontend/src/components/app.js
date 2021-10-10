@@ -12,7 +12,7 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 
 import DeckFormContainer from './deck/deck_form_container';
-
+import DeckTitleContainer from './deck/deck_title_container';
 import DeckIndexContainer from './deck/deck_index_container'
 import UserProfileContainer from './user_profile/user_profile_container';
 import FlashcardFormContainer from './flashcard/flashcard_form_container'
@@ -47,11 +47,12 @@ const App = () => (
             <Route exact path='/decks/:deckId' component={DeckShowContainer}/>
 
             <Route exact path='/decks_index' component={DeckIndexContainer} />
-            
+            <Route exact path='/decks/:deckId/edit' component={DeckTitleContainer} />
             {/* // Renders form to submit decks */}
 
             {/* // User page */}
             <Route exact path="/user" component={UserProfileContainer} />
+
             {/* // Page to insert card into deck from user page */}
             {/* <Route exact path ="/comment/user/:userId/deck/:deckId/create" component={CommentFormContainer} /> */}
             <Route exact path="/flashcard/user/:userId/deck/:deckId/create" component={FlashcardFormContainer} />
