@@ -28,7 +28,7 @@ class DeckTitle extends React.Component {
     }
     console.log(editedDeck)
     this.props.reviseDeck(editedDeck);
-
+    this.props.history.push('/user');
   }
 
   render(){
