@@ -37,6 +37,7 @@ class FlashcardIndex extends React.Component {
                         })
                     })
             )
+        window.location.reload();
     }
 
     render() {
