@@ -12,9 +12,10 @@ class DeckTitle extends React.Component {
     this.handleTitleEdit = this.handleTitleEdit.bind(this);
   }
 
-  componentDidMount() {
-    
-  }
+  // componentDidMount() {
+  //   debugger
+  //   this.props.fetchDeck(this.props.deckId)
+  // }
 
   handleTitleEdit(e){
     e.preventDefault();
@@ -38,8 +39,11 @@ class DeckTitle extends React.Component {
       <div>
         <form onSubmit={this.handleTitleEdit}>
           <div>
-            <input className='user-profile-create-deck-text-box' type="text"
+            <input 
+              className='user-profile-create-deck-text-box'
+              type="text"
               ref = {this.titleEdited}
+              value={this.props.decks[this.props.deckId].title}
 
             />
             <br />

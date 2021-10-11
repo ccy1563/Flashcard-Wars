@@ -11,11 +11,11 @@ const mapStateToProps = (state, myProps) => {
   let temp = undefined;
 
   if (state.session.user) temp = state.session.user.id;
-
+  // debugger
   return({
     user_id: temp,
     deckId: myProps.match.params.deckId,
-
+    decks: state.entities.decks,
   });
 };
 

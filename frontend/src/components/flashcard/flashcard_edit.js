@@ -74,6 +74,7 @@ class FlashcardForm extends React.Component {
             // return null;
         // }
 
+        // debugger
         return (
             <div className='flashcard-form-top'>
                 <form onSubmit={this.handleSubmit}>
@@ -81,7 +82,7 @@ class FlashcardForm extends React.Component {
                         <input 
                             className='flashcard-form-title-input'
                             type="text"
-                            value={this.props.flashcard.title}
+                            value={this.state.title}
                             onChange={this.update('title')}
                         />
                         <br />
@@ -89,7 +90,7 @@ class FlashcardForm extends React.Component {
                             className='flashcard-form-textarea'
                             cols="65"
                             rows="4"
-                            value={this.props.flashcard.text}
+                            value={this.state.text}
                             onChange={this.update("text")}
                         />
                         <input className='flashcard-form-submit'     type="submit" value="Edit card" />
