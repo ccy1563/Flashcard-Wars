@@ -9,7 +9,6 @@ const flashcardReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
     
-    // debugger   
     let flashcards = undefined;     
     if (action.flashcards) {
         flashcards = action.flashcards.data
@@ -21,7 +20,6 @@ const flashcardReducer = (state = {}, action) => {
             flashcards.forEach((flashcard) => {
                 nextState[flashcard._id] = flashcard
             })
-            // debugger
             return nextState;
         case RECEIVE_DECK_FLASHCARDS:
             // let nextState = {};

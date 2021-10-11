@@ -4,10 +4,7 @@ import { withRouter, Redirect } from 'react-router-dom';
 class DeckTitle extends React.Component {
   constructor(props){
     super(props);
-    this.state ={
-      editable: false,
-      
-    };
+    this.state = this.props.decks[this.props.deckId];
     this.titleEdited = React.createRef();
     this.handleTitleEdit = this.handleTitleEdit.bind(this);
   }
@@ -32,6 +29,12 @@ class DeckTitle extends React.Component {
     this.props.history.push('/user');
   }
 
+  update(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value
+    });
+  }
+
   render(){
     // debugger
 
@@ -43,8 +46,8 @@ class DeckTitle extends React.Component {
               className='user-profile-create-deck-text-box'
               type="text"
               ref = {this.titleEdited}
-              value={this.props.decks[this.props.deckId].title}
-
+              value={this.state.title}
+              onChange={this.update('title')}
             />
             <br />
             <input className='user-profile-create-deck-button' type="submit" value="Revise Title" />
