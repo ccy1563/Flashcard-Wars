@@ -10,7 +10,7 @@ export default class  Stats extends Component {
             for (let x = 0; x < array.length ; x++){
                 // 
                 if(x === 0 ){
-                    list.push(<ul>1st Place {array[x][0]+" "} {array[x][1]} seconds </ul>)
+                    list.push(<ul>1st Place {array[x][0]} {array[x][1]} seconds </ul>)
                 }
                 else if(x === 1 && array[x][1]>=0){
                     list.push(<ul>2nd Place {array[x][0]} {array[x][1]} seconds </ul>)

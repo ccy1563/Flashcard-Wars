@@ -118,15 +118,16 @@ img{
 }
 
 .scorebox-text3{
-  margin-left: 50px;
+  margin-left: 100px;
 }
 
 
 .scorebox-text{
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 20px;
-  color:white
-
+  color:white;
+  justify-content: center;
+  display: inline-flex;
 }
 
 
@@ -248,7 +249,6 @@ img{
 
 .score-bundle{
   /* text-align: center; */
-  padding:20px;
   display:flex;
   justify-content: center;
 }
