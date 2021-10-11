@@ -1,4 +1,4 @@
-import {getDecks, getDeck, getUserDeck, createDeck, updateDeck, deleteDeck} from '../util/deck_api_util';
+import * as DeckApiUtil from '../util/deck_api_util';
 
 export const RECEIVE_ALL_DECKS = "RECEIVE_ALL_DECKS";
 export const RECEIVE_ALL_USER_DECKS = "RECEIVE_ALL_USER_DECKS"
@@ -44,34 +44,33 @@ export const deleteADeck = id => {
 }
 
 export const fetchAllDecks = () => dispatch =>(
-  getDecks()
+  DeckApiUtil.fetchDecks()
     .then(decks => dispatch(recieveAllDecks(decks)))
 )
 export const fetchUserDecks = (id) => dispatch =>(
-  getUserDeck(id)
+  DeckApiUtil.fetchUserDeck(id)
     .then(decks => dispatch(recieveAllUserDecks(decks)))
 )
 
 export const fetchDeck = id => dispatch => {
-  getDeck(id)
+  DeckApiUtil.fetchDeck(id)
     .then(deck => dispatch(recieveDeck(deck)))
 }
 
-
 export const composeDeck = (data) => dispatch =>(
-  createDeck(data)
+  DeckApiUtil.createDeck(data)
     .then(deck => dispatch(recieveDeck(deck)))
 )
 
 export const reviseDeck = (data) => dispatch =>(
-  updateDeck(data)
+  DeckApiUtil.updateDeck(data)
     .then(deck => dispatch(updateADeck(deck)))
 )
 
 export const eraseDeck = id => dispatch => {
   // debugger
   return (
-    deleteDeck(id)
+    DeckApiUtil.deleteDeck(id)
       .then( () => dispatch(deleteADeck(id)))
   )
 }
