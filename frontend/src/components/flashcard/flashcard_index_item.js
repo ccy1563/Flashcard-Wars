@@ -22,7 +22,6 @@ class FlashcardIndexItem extends React.Component {
     }
 
     render() {
-        // debugger
         const { flashcard } = this.props;
         // debugger
         return (

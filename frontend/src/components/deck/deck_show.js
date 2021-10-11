@@ -16,6 +16,9 @@ class DeckShow extends React.Component {
   }
 
   componentDidMount(){
+    // this.setState({deckTitle: })
+    this.props.fetchDeck(this.props.DeckId);
+
     this.props.fetchDeckComments(this.props.deckId)
       .then( res => {
         this.setState({
@@ -29,10 +32,38 @@ class DeckShow extends React.Component {
           flashcardArray: Object.values(res.flashcards.data)
         })
       })
+    this.props.fetchDeck(this.props.DeckId);  
+    // debugger
+  }
+
+  handleSave(e) {
+    e.preventDefault();
+    // debugger
+    let currDeck = this.props.decks[0]
+    let deck = {
+      leaderboard: currDeck.leaderboard,
+      title: currDeck.title,
+      user: this.props.user_id
+    };
+    this.props.composeDeck(deck);
+    this.props.fetchUserDecks(this.props.user_id);
+    // debugger
+    // this.state.flashcardArray.forEach(flashcard => {
+    //   // create flashcard and call create
+    //   let flashcard = {
+    //     deck: this.props.
+    //   }
+    //   this.props.createFlashcard(flashcard)
+    // })
+
+    // comments.forEach(comment => {
+    //   nextState[comment._id] = comment
+    // })
 
   }
 
   render(){
+    // debugger
     const { commentArray, flashcardArray } = this.state;
     const { fetchComment, fetchDeckComments, createComment, updateComment, deleteComment, user_id, deckId} = this.props
 
@@ -73,6 +104,11 @@ class DeckShow extends React.Component {
           <div className="deck-show-header">Flashcards</div>
           { allFlashcardsInDeck }
         </div>
+
+        <div>
+          <button onClick={(e) => this.handleSave(e)}>Save Deck</button>
+        </div>
+
         <div>
           <div className="deck-show-header">Comments</div>
           <div>

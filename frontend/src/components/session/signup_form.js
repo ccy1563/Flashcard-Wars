@@ -63,7 +63,7 @@ class SignupForm extends React.Component {
                             <input type="text"
                                 value={this.state.handle}
                                 onChange={this.update('handle')}
-                                placeholder="Handle"
+                                placeholder="Username"
                                 className="signup-input"
                             />
                             <div className = "session-form-errors">
