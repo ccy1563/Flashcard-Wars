@@ -25,7 +25,8 @@ class FlashcardForm extends React.Component {
     }
 
     componentDidMount() {
-        // this.props.match.params.deckId;
+        this.props.fetchFlashcards();
+        // debugger
     }
 
     update(field) {
@@ -67,7 +68,12 @@ class FlashcardForm extends React.Component {
     }
 
     render() {
-        // debugger
+
+        // if (this.state.title === undefined) {
+            // window.location.reload(false);
+            // return null;
+        // }
+
         return (
             <div className='flashcard-form-top'>
                 <form onSubmit={this.handleSubmit}>
@@ -75,7 +81,7 @@ class FlashcardForm extends React.Component {
                         <input 
                             className='flashcard-form-title-input'
                             type="text"
-                            value={this.state.title}
+                            value={this.props.flashcard.title}
                             onChange={this.update('title')}
                         />
                         <br />
@@ -83,7 +89,7 @@ class FlashcardForm extends React.Component {
                             className='flashcard-form-textarea'
                             cols="65"
                             rows="4"
-                            value={this.state.text}
+                            value={this.props.flashcard.text}
                             onChange={this.update("text")}
                         />
                         <input className='flashcard-form-submit'     type="submit" value="Edit card" />

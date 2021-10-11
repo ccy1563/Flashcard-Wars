@@ -17,16 +17,22 @@ class FlashcardEditContainer extends React.Component {
         // debugger
     }
 
+    componentDidUpdate() {
+
+    }
+
     render() {
         const { flashcard } = this.props;
         
         // debugger
         if (!flashcard) return null;
-
+        // debugger
         return (
             <FlashcardEdit
                 flashcard={flashcard}
+                flashcardId={this.props.flashcardId}
                 updateFlashcard={this.props.updateFlashcard}
+                fetchFlashcards={this.props.fetchDeckFlashcards}
             />
         )
     }
@@ -34,6 +40,7 @@ class FlashcardEditContainer extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
 
+    // debugger
     return {
         flashcard: state.entities.flashcards.data,
         flashcardId: ownProps.match.params.flashcardId,
