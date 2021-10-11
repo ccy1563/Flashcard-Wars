@@ -471,7 +471,7 @@ class Box extends React.Component {
                     </div>
 
                     <div className="score-bundle">
-                        <div><Score className="scorebox-text3" currentScore={this.state.timer/100}   /></div>
+                        <div><Score className="scorebox-text" currentScore={this.state.timer/100}   /></div>
 
                         <div><Score className="scorebox-text"  text2={"seconds"}  /></div>
                         <div><Score className="scorebox-text" currentScore={this.state.counter} text3={"/"} text2={endOfGame}/></div>
