@@ -19,7 +19,14 @@ import '../../stylesheets/flashcard_form.css'
 class FlashcardForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.flashcard;
+        this.state = undefined;
+        // let currFlashcard = undefined;
+        this.props.flashcard.forEach(f => {
+            if (f._id === this.props.flashcardId) {
+                this.state = f;
+            }
+            // debugger
+        });
         this.handleSubmit = this.handleSubmit.bind(this);
         // this.navigateToUserPage = this.navigateToUserPage.bind(this);
     }
@@ -93,7 +100,7 @@ class FlashcardForm extends React.Component {
                             value={this.state.text}
                             onChange={this.update("text")}
                         />
-                        <input className='flashcard-form-submit'     type="submit" value="Edit card" />
+                        <input className='flashcard-form-submit' type="submit" value="Edit card" />
                     </div>
                 </form>
             </div>

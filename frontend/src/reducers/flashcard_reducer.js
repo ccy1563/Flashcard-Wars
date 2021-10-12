@@ -16,11 +16,11 @@ const flashcardReducer = (state = {}, action) => {
     let nextState = {};
     switch(action.type) {
         case RECEIVE_FLASHCARDS:
-            // return { ...action.flashcards };
-            flashcards.forEach((flashcard) => {
-                nextState[flashcard._id] = flashcard
-            })
-            return nextState;
+            return { ...action.flashcards };
+            // flashcards.forEach((flashcard) => {
+            //     nextState[flashcard._id] = flashcard
+            // })
+            // return nextState;
         case RECEIVE_DECK_FLASHCARDS:
             // let nextState = {};
             flashcards.forEach((flashcard) => {
