@@ -9,15 +9,22 @@ class DeckShow extends React.Component {
     this.state = {
       commentArray: [],
       flashcardArray: [],
-      deckTitle: {}
+      deckTitle: {},
+      saved: false,
     }
 
     this.textEdited = React.createRef();
   }
+  
+  // componentDidUpdate() {
+  //   if (this.props.decks[0]._id !== this.props.deckId && this.props.decks.length === 6) {
+  //     console.log("jdslkfjadklsjflksa;fsdjlkfa;")
+  //   }
+  // }
 
   componentDidMount(){
-    // this.setState({deckTitle: })
-    this.props.fetchDeck(this.props.DeckId);
+    // this.setState({deckTitle: }) 
+    this.props.fetchDeck(this.props.deckId);
 
     this.props.fetchDeckComments(this.props.deckId)
       .then( res => {
@@ -33,7 +40,6 @@ class DeckShow extends React.Component {
         })
       })
     this.props.fetchDeck(this.props.DeckId);  
-    // debugger
   }
 
   handleSave(e) {
@@ -47,7 +53,11 @@ class DeckShow extends React.Component {
     };
     this.props.composeDeck(deck);
     this.props.fetchUserDecks(this.props.user_id);
-    // debugger
+
+    this.setState({
+      saved: true
+    })
+  
     // this.state.flashcardArray.forEach(flashcard => {
     //   // create flashcard and call create
     //   let flashcard = {
@@ -64,8 +74,31 @@ class DeckShow extends React.Component {
 
   render(){
     // debugger
+    
     const { commentArray, flashcardArray } = this.state;
     const { fetchComment, fetchDeckComments, createComment, updateComment, deleteComment, user_id, deckId} = this.props
+
+    // super janky
+    // uses most recent update from creating deck
+    // gets id and uses the new id to make flashcards
+    if (this.props.decks.length === 6 && this.props.decks[0]._id !== this.props.deckId && this.state.saved) {
+      // this.state.flashcard
+      this.state.flashcardArray.forEach(flashcard => {
+      // create flashcard and call create
+        console.log(flashcard)
+      let fl = {
+        deck: this.props.decks[0]._id,
+        text: flashcard.text,
+        title: flashcard.title,
+      }
+      this.props.createFlashcard(fl)
+    })
+    this.setState({
+      saved: false,
+    })
+    }
+
+    // debugger
 
     const allCommentsInDeck = commentArray.map(comment => {
       return(
