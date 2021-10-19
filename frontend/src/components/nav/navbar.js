@@ -69,7 +69,7 @@ class NavBar extends React.Component {
                     </Link>
 
                     <Link to="/about">
-                        <div className='nav-bar-title'>About</div>
+                        <div className='nav-bar-profile-button'>About</div>
                     </Link>
                     <div className='nav-bar-profile'>{this.getProfileLink()}</div>
                 </div>
