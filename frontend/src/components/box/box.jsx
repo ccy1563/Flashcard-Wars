@@ -96,9 +96,9 @@ class Box extends React.Component {
         if (flashcards){
             for (let x = 0; x < flashcards.length; x++){
                 if(flashcards[x] === `\n`){
-                    for(let i = arr.length; i < 500; i++){
-                        arr.push(<div>&nbsp;</div>)
-                    }
+                    // for(let i = arr.length; i < 500; i++){
+                        arr.push(<div></div>)
+                    // }
                     
                     mainArr.push(arr)
                     arr = []
@@ -469,6 +469,7 @@ class Box extends React.Component {
                     <div className="leaderboardMain">
                         <Stats array={leaderboard} currentTimer={this.state.timer/100}/>
                     </div>
+                
 
                     <div className="score-bundle">
                         <div><Score className="scorebox-text" currentScore={this.state.timer/100}   /></div>
@@ -494,9 +495,9 @@ class Box extends React.Component {
                     
                     ?     
                     <form>
-                        <label>
+                        <label className="nameLabel">
                             Name:
-                            <input type="text" value={this.state.name} onChange={this.handleChange}/>
+                            <input className='nameInput' type="text" value={this.state.name} onChange={this.handleChange}/>
                         </label>
                         {/* <input type="submit" value="Submit" /> */}
                     </form>
@@ -512,12 +513,12 @@ class Box extends React.Component {
                     // ? console.log(this.state.ranking)
                     // : null
                 }
-                {
+                {/* {
                     (stateEnded === true)
                     
                     ?    <Stats array={leaderboard} currentTimer={this.state.timer/100}/>
                     : ""
-                }
+                } */}
                 
                 {
                     (stateEnded === true)
