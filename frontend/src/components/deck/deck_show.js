@@ -85,7 +85,7 @@ class DeckShow extends React.Component {
       // this.state.flashcard
       this.state.flashcardArray.forEach(flashcard => {
       // create flashcard and call create
-        console.log(flashcard)
+        // console.log(flashcard)
       let fl = {
         deck: this.props.decks[0]._id,
         text: flashcard.text,

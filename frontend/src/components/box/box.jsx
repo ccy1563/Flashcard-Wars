@@ -369,7 +369,7 @@ class Box extends React.Component {
             // array = [[2,text],[5,text],[1,text]];
             // array = [[2,text],[5,text],[1,text]];
             array.sort(function(a,b){return a[1] - b[1]})
-            console.log(array)
+            // console.log(array)
            
 
             // let sorted = array.sort(function(a, b) {
@@ -379,7 +379,7 @@ class Box extends React.Component {
                 array.pop()
             }
         }
-        console.log(array)
+        // console.log(array)
         // console.log(score  )
         // console.log(winners)
 
@@ -415,7 +415,7 @@ class Box extends React.Component {
     }
     handleChange(event) {
         this.setState({name: event.target.value});
-        console.log(this.state.name)
+        // console.log(this.state.name)
       }
     render() {
         // const {deck} = this.props

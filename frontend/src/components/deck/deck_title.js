@@ -24,7 +24,7 @@ class DeckTitle extends React.Component {
       user: this.props.user_id,
       title: editTitle
     }
-    console.log(editedDeck)
+    // console.log(editedDeck)
     this.props.reviseDeck(editedDeck);
     this.props.history.push('/user');
   }
