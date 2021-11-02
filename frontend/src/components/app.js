@@ -20,7 +20,7 @@ import FlashcardIndexContainer from './flashcard/flashcard_index_container'
 import SplashPageContainer from './splash_page/splash_page_container';
 import FlashcardEditContainer from './flashcard/flashcard_edit_container'
 import Rightmenu from './rightmenu/rightmenu';
-import About from './about/about';
+import Team from './team/team';
 
 
 import DeckShowContainer from './deck/deck_show_container';
@@ -64,7 +64,7 @@ const App = () => (
             <Route exact path="/flashcard/deck/:deckId" component={FlashcardIndexContainer} />
             {/* // Renders edit form for particular flashcard */}
             <Route exact path="/flashcard/:flashcardId/deck/:deckId" component={FlashcardEditContainer} />
-            <Route exact path="/about" component={About} />
+            <Route exact path="/team" component={Team} />
 
 
             <AuthRoute exact path="/" component={MainPage} />

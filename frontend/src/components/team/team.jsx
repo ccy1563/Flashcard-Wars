@@ -2,16 +2,13 @@ import React from "react";
 import { Link, withRouter } from 'react-router-dom';
 import '../../stylesheets/about.css'
 
-class About extends React.Component {
+class Team extends React.Component {
   render() {
     var github = require('../../images/github.png');
     var linkedin = require('../../images/linkedin.png');
     var portfolio = require('../../images/portfolio.png')
     return(
       <div className="about-page">
-
-        <h2>About</h2>
-        <p>This app was created to help students actively memorize information and help them type faster at the same time.</p>
         <h2>Team</h2>
         <div className="team-container">
           <div className="profile-container">
@@ -65,4 +62,4 @@ class About extends React.Component {
   }
 }
 
-export default withRouter(About);
+export default withRouter(Team);
