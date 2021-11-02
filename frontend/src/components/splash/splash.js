@@ -4,10 +4,6 @@ import '../../stylesheets/splash.css';
 
 class Splash extends React.Component{
 
-  open(url){
-    window.open(url, "_blank");
-  }
-  
   render(){
     var github = require('../../images/github.png');
     var linkedin = require('../../images/linkedin.png');
