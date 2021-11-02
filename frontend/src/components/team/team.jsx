@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, withRouter } from 'react-router-dom';
-import '../../stylesheets/about.css'
+import '../../stylesheets/team.css'
 
 class Team extends React.Component {
   render() {
@@ -8,7 +8,7 @@ class Team extends React.Component {
     var linkedin = require('../../images/linkedin.png');
     var portfolio = require('../../images/portfolio.png')
     return(
-      <div className="about-page">
+      <div className="team-page">
         <h2>Team</h2>
         <div className="team-container">
           <div className="profile-container">

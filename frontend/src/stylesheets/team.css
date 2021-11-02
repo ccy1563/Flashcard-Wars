@@ -1,9 +1,9 @@
-.about-page{
+.team-page{
   min-height: 1140px;
   flex-direction: row;
 }
 
-.about-page h2 {
+.team-page h2 {
   text-align: center;
   font-size: 50px;
   color: white;
@@ -11,7 +11,7 @@
   padding-bottom: 20px;
 }
 
-.about-page p{
+.team-page p{
   text-align: center;
   font-size: 50px;
   color: white;
@@ -19,7 +19,7 @@
   padding-bottom: 20px;
 }
 
-.about-page p {
+.team-page p {
   font-size: 30px;
 }
 
