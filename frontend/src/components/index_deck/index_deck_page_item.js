@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../../stylesheets/splash.css';
-const SplashPageItem = props => {
+import '../../stylesheets/index_deck.css';
+const IndexDeckPageItem = props => {
 
   const { deck } = props;
   return (
-    <div className="splash-page-index-item">
+    <div className="index-page-index-item">
       <Link to={`/decks/${deck._id}`}>
         <p>{deck.title}</p>
       </Link>
@@ -13,4 +13,4 @@ const SplashPageItem = props => {
   )
 }
 
-export default SplashPageItem;
+export default IndexDeckPageItem;

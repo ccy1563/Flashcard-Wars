@@ -17,7 +17,7 @@ import DeckIndexContainer from './deck/deck_index_container'
 import UserProfileContainer from './user_profile/user_profile_container';
 import FlashcardFormContainer from './flashcard/flashcard_form_container'
 import FlashcardIndexContainer from './flashcard/flashcard_index_container'
-import SplashPageContainer from './splash_page/splash_page_container';
+import IndexDeckPageContainer from './index_deck/index_deck_page_container';
 import FlashcardEditContainer from './flashcard/flashcard_edit_container'
 import Rightmenu from './rightmenu/rightmenu';
 import Team from './team/team';
@@ -33,7 +33,7 @@ const App = () => (
      <div className='whole-div'>     
         <div className='navbar'><NavBarContainer /></div>
         
-        <Route exact path ="/" component={SplashPageContainer}/>
+        <Route exact path ="/" component={IndexDeckPageContainer}/>
         <div className='whole-div2'>  
         <Switch>
         {/* typing page */}
