@@ -71,10 +71,6 @@ class NavBar extends React.Component {
                     <Link to ='/allDecks'>
                         <div className='nav-bar-profile-button'>Decks</div>
                     </Link>
-
-                    <Link to="/team">
-                        <div className='nav-bar-profile-button'>Team</div>
-                    </Link>
                     <div className='nav-bar-profile'>{this.getProfileLink()}</div>
                 </div>
                 <div>{this.getLinks()}</div>
