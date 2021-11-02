@@ -47,7 +47,7 @@ class CommentForm extends React.Component{
             onChange={this.update("text")}
             className="comment-form-text-area"
           />
-          <input type="submit" value="Comment"  className="comment-form-submit"/>
+          <button type="submit">Comment</button>
         </form>
       </div>
       )

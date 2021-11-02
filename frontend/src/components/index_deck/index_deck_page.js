@@ -1,8 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import SplashPageItem from './splash_page_item';
+import IndexDeckPageItem from './index_deck_page_item';
 
-class SplashPage extends React.Component {
+class IndexDeckPage extends React.Component {
 
   constructor(props){
     super(props);
@@ -14,27 +14,21 @@ class SplashPage extends React.Component {
   componentDidMount(){
     this.props.fetchAllDecks()
     .then(res => {
-      // console.log("this is res: ",res)
       this.setState({
         deckArray: Object.values(res.decks.data)
       })
-      // console.log("this is deckArray", this.state.deckArray)
     })
   }
 
   render(){
     const { deckArray } = this.state
-    // console.log(this.props)
-    // if(decks.length === 0){
-    //   return null
-    // }
     return(
 
-      <div className="splash-page-container">
-        <div className="splash-deck-index">
+      <div className="index-page-container">
+        <div className="index-deck-index">
           {
             deckArray.map(deck => (
-              <SplashPageItem 
+              <IndexDeckPageItem 
                 deck = {deck}
                 key = {deck._id}
               />
@@ -46,4 +40,4 @@ class SplashPage extends React.Component {
   }
 }
 
-export default withRouter(SplashPage);
+export default withRouter(IndexDeckPage);

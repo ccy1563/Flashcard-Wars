@@ -1,54 +1,112 @@
-.splash-page-container{
-  background-image: url("https://img.wallpapersafari.com/desktop/1920/1080/61/86/uzZq2M.jpg");
-  width: 100%;
-  min-height: 1250px;
-  background-repeat: no-repeat;
-  background-size: cover;
+.splash-page{
+  max-height:fit-content;
+  flex-direction: row;
+  background-color: white;
 }
 
-.splash-deck-index{
-  display: flex;
-  flex-wrap: wrap;
-  clear:both;
-  position: relative;
-  align-items: center;
+/* splash header 1 */
 
-  padding: 2% 8% 2% 8%;
-
-}
-
-.splash-page-index-item{
-  background-image: url("https://static.thenounproject.com/png/219525-200.png");
-  display: flex;
-  width: 200px;
-  height: 170px;
-}
-
-.splash-page-index-item a{
-  text-decoration: none;
-  width:inherit;
-}
-
-.splash-page-index-item p {
-
-  width: 200px;
-  height: 170px;
-  padding-top: 75px;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 25px;
-  color:white;
-}
-
-.splash-page-index-item p:hover{
-  color: #8fa2ae;
-}
-
-.splash-page-index-item p:active{
-  color: #c4c4c4;
-}
-
-.splash-page-header{
-  font-size: 30px;
+.splash-header-1{
+  width:500px;
+  height: 500px;
   padding-top: 100px;
+  padding-left: 300px;
+}
+
+.header-1-para{
+  color: rgb(92, 92, 255);
+  font-size: 50px;
+}
+
+.header-1-para p:last-child{
+  color: rgb(0, 0, 255);
+  font-size: 45px;
+  font-weight: 1000;
+}
+
+.header-1-para-2{
+  padding-top: 25px;
+  color: black;
+  font-size: 25px;
+}
+
+.splash-header-1 .button-input{
+  padding-top: 20px;
+}
+
+/* splash header 2 */
+
+.splash-header-2{
+  background-color: lightgrey;
+  height: 500px;
+
+}
+
+.splash-header-2 h1{
+  text-align: center;
+  font-size: 40px;
+  color: rgb(92, 92, 255);
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.splash-header-2-ul {
+  padding-left: 600px;
+  font-size: 30px;
+}
+
+.splash-header-2-ul li{
+  list-style: circle;
+  padding: 10px;
+}
+/* team container */
+
+.team-header{
+  text-align: center;
+  font-size: 50px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.team-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-bottom: 100px;
+}
+
+.team-container .profile-container {
+  padding:20px;
+  color: black;
+  border: black solid 1px;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex-wrap: nowrap;
+}
+
+.link-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.github-icon{
+  width:50px;
+  height:50px;
+  margin-top: 10px;
+}
+
+.linkedin-icon{
+  width:70px;
+  height:70px;
+}
+
+.portfolio-icon{
+  width:49px;
+  height:49px;
+  margin-top: 10px;
+  margin-left: 10px;
 }

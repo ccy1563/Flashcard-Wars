@@ -1,0 +1,54 @@
+.index-page-container{
+  background-image: url("https://img.wallpapersafari.com/desktop/1920/1080/61/86/uzZq2M.jpg");
+  width: 100%;
+  min-height: 1250px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.index-deck-index{
+  display: flex;
+  flex-wrap: wrap;
+  clear:both;
+  position: relative;
+  align-items: center;
+
+  padding: 2% 8% 2% 8%;
+
+}
+
+.index-page-index-item{
+  background-image: url("https://static.thenounproject.com/png/219525-200.png");
+  display: flex;
+  width: 200px;
+  height: 170px;
+}
+
+.index-page-index-item a{
+  text-decoration: none;
+  width:inherit;
+}
+
+.index-page-index-item p {
+
+  width: 200px;
+  height: 170px;
+  padding-top: 75px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 25px;
+  color:white;
+}
+
+.index-page-index-item p:hover{
+  color: #8fa2ae;
+}
+
+.index-page-index-item p:active{
+  color: #c4c4c4;
+}
+
+.index-page-header{
+  font-size: 30px;
+  padding-top: 100px;
+}
