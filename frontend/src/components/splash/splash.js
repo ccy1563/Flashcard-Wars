@@ -23,11 +23,7 @@ class Splash extends React.Component{
           </div>
           <p className="header-1-para-2">Active learning should be more than just memorizing. Why not make it more "active". 
           Improve your typing speed while memorizing key information at the same time.</p>
-          <div className="button-input">
-            <Link to="/signup">
-              <input className ="try-now" value="Try Now"/>
-            </Link>
-          </div>
+
         </div>
 
         <div className="splash-header-2">
@@ -82,7 +78,7 @@ class Splash extends React.Component{
                   <a href="https://github.com/KevLin2358?tab=repositories" target="_blank" rel="noreferrer">
                     <img className="github-icon" src={github.default} alt="github"/>
                   </a>
-                  <a href="https://github.com/KevLin2358?tab=repositories" target="_blank" rel="noreferrer">
+                  <a href="https://github.com/KevLin2358?tab=repositories" >
                     <img className="portfolio-icon" src={portfolio.default} alt="portfolio"/>
                   </a>
                 </div>
