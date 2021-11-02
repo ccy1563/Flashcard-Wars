@@ -1,34 +1,90 @@
 .splash-page{
-  min-height: 1140px;
+  max-height:fit-content;
   flex-direction: row;
+  background-color: white;
 }
 
-/* .splash-page h2 {
-  text-align: center;
-  font-size: 50px;
-  color: white;
-  padding-top: 20px;
-  padding-bottom: 20px;
+/* splash header 1 */
+
+.splash-header-1{
+  width:500px;
+  height: 500px;
+  padding-top: 100px;
+  padding-left: 300px;
 }
 
-.splash-page p{
-  text-align: center;
+.header-1-para{
+  color: rgb(92, 92, 255);
   font-size: 50px;
-  color: white;
+}
+
+.header-1-para p:last-child{
+  color: rgb(0, 0, 255);
+  font-size: 45px;
+  font-weight: 1000;
+}
+
+.header-1-para-2{
+  padding-top: 25px;
+  color: black;
+  font-size: 25px;
+}
+
+.splash-header-1 .button-input{
   padding-top: 20px;
-  padding-bottom: 20px;
+}
+
+.button-input .try-now{
+  width:100px;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* splash header 2 */
+
+.splash-header-2{
+  background-color: lightgrey;
+  height: 500px;
+
+}
+
+.splash-header-2 h1{
+  text-align: center;
+  font-size: 40px;
+  color: rgb(92, 92, 255);
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.splash-header-2-ul {
+  padding-left: 600px;
   font-size: 30px;
-} */
+}
+
+.splash-header-2-ul li{
+  list-style: circle;
+  padding: 10px;
+}
+/* team container */
+
+.team-header{
+  text-align: center;
+  font-size: 50px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
 
 .team-container{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  padding-bottom: 100px;
 }
 
 .team-container .profile-container {
   padding:20px;
-  color: white;
+  color: black;
   border: black solid 1px;
   width: 200px;
   height: 100px;
