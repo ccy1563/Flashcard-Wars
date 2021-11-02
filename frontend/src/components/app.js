@@ -21,7 +21,7 @@ import IndexDeckPageContainer from './index_deck/index_deck_page_container';
 import FlashcardEditContainer from './flashcard/flashcard_edit_container'
 import Rightmenu from './rightmenu/rightmenu';
 import Team from './team/team';
-
+import Splash from './splash/splash'
 
 import DeckShowContainer from './deck/deck_show_container';
 
@@ -33,8 +33,8 @@ const App = () => (
      <div className='whole-div'>     
         <div className='navbar'><NavBarContainer /></div>
         
-        <Route exact path ="/" component={IndexDeckPageContainer}/>
         <div className='whole-div2'>  
+        <Route exact path ="/" component={Splash}/>
         <Switch>
         {/* typing page */}
             <Route exact path="/practice/deck/:deckId">
@@ -44,7 +44,6 @@ const App = () => (
                     <div className='bundle-stats'><Rightmenu /></div>
                 </div>
             </Route>
-            
             <Route exact path='/decks/:deckId' component={DeckShowContainer}/>
 
             <Route exact path='/decks_index' component={DeckIndexContainer} />
@@ -65,6 +64,7 @@ const App = () => (
             {/* // Renders edit form for particular flashcard */}
             <Route exact path="/flashcard/:flashcardId/deck/:deckId" component={FlashcardEditContainer} />
             <Route exact path="/team" component={Team} />
+            <Route exact path='/allDecks' component={IndexDeckPageContainer}/>
 
 
             <AuthRoute exact path="/" component={MainPage} />

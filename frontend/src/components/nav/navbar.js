@@ -68,6 +68,10 @@ class NavBar extends React.Component {
                         <div className='nav-bar-title'>Slipper</div>
                     </Link>
 
+                    <Link to ='/allDecks'>
+                        <div className='nav-bar-profile-button'>Decks</div>
+                    </Link>
+
                     <Link to="/team">
                         <div className='nav-bar-profile-button'>Team</div>
                     </Link>
