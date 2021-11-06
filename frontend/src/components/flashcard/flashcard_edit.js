@@ -2,7 +2,6 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import '../../stylesheets/flashcard_form.css'
 
-
 // title: {
 //     type: String,
 //         required: true,
@@ -75,15 +74,8 @@ class FlashcardForm extends React.Component {
     }
 
     render() {
-
-        // if (this.state.title === undefined) {
-            // window.location.reload(false);
-            // return null;
-        // }
-
-        // debugger
         return (
-            <div className='flashcard-form-top'>
+            <div className='modal'>
                 <form onSubmit={this.handleSubmit}>
                     <div className='flashcard-form'>
                         <input 

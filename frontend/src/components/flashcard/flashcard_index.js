@@ -9,7 +9,8 @@ class FlashcardIndex extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            flashcardArray: []
+            flashcardArray: [],
+            flag: false,
         }
     }
 
@@ -40,10 +41,24 @@ class FlashcardIndex extends React.Component {
         window.location.reload();
     }
 
+    handleOpen(e) {
+        e.preventDefault();
+        this.setState({
+            flag: true,
+        })
+        debugger
+    }
+
+    handleClose(e) {
+        e.preventDefault();
+        this.setState({
+            flag: false,
+        })
+    }
+
     render() {
 
         // debugger
-
         
         const { flashcardArray } = this.state;
 
@@ -68,7 +83,19 @@ class FlashcardIndex extends React.Component {
                         </div>
                     </div>
 
-                    <Link className='flashcard-index-edit-link' to={`/flashcard/${flashcard._id}/deck/${flashcard.deck}`}><button className='flashcard-index-button'>Edit</button></Link>
+                    {/* <Link className='flashcard-index-edit-link'
+                          to={`/flashcard/${flashcard._id}/deck/${flashcard.deck}`}>
+                        <button className='flashcard-index-button'>
+                            Edit
+                        </button>
+                    </Link> */}
+
+                    <button 
+                        className='flashcard-index-button'
+                        onClick={(e)=>this.handleOpen(e)}>
+                        Edit
+                    </button>
+                    
                     {/* {this.openEditForm()} */}
                     <button className='flashcard-index-button' onClick={(e) => this.handleDelete(e, flashcard._id)}>Delete</button>
                 </div>
