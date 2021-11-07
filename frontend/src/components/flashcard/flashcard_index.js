@@ -5,7 +5,7 @@ import '../../stylesheets/flashcard_index.css'
 
 import FlashcardFormContainer from '../../components/flashcard/flashcard_form_container'
 
-import FlashcardEdit from '../flashcard/flashcard_edit_container'
+import FlashcardEdit from '../flashcard/flashcard_edit'
 
 // import Modal from '../../components/modal/modal'
 import Modal from '../modal/modal'
@@ -87,7 +87,8 @@ class FlashcardIndex extends React.Component {
                         Edit
                     </button> */}
                     <FlashcardEdit 
-                        // {}
+                        target={flashcard}
+                        updateFlashcard={this.props.updateFlashcard}
                     />
                     
                     {/* {this.openEditForm()} */}

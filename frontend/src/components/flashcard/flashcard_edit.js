@@ -22,21 +22,16 @@ class FlashcardForm extends React.Component {
             flag: false,
         };
         // let currFlashcard = undefined;
-        this.props.flashcard.forEach(f => {
-            if (f._id === this.props.flashcardId) {
-                // this.state = f;
-                this.state["deck"] = f.deck;
-                this.state["text"] = f.text;
-                this.state["title"] = f.title;
-            }
-            // debugger
-        });
+        this.state["deck"] = this.props.target.deck;
+        this.state["text"] = this.props.target.text;
+        this.state["title"] = this.props.target.title;
+        
         this.handleSubmit = this.handleSubmit.bind(this);
         // this.navigateToUserPage = this.navigateToUserPage.bind(this);
     }
 
     componentDidMount() {
-        this.props.fetchFlashcards();
+        // this.props.fetchFlashcards();
         // debugger
     }
 
@@ -51,7 +46,7 @@ class FlashcardForm extends React.Component {
         e.preventDefault();
         // debugger
         let flashcard = {
-            id: this.props.match.params.flashcardId,
+            id: this.props.target._id,
             title: this.state.title,
             text: this.state.text,
             deck: this.state.deck,
@@ -84,7 +79,6 @@ class FlashcardForm extends React.Component {
         this.setState({
             flag: true,
         })
-        // debugger
     }
 
     handleClose(e) {
@@ -99,7 +93,7 @@ class FlashcardForm extends React.Component {
 
         if (!this.state.flag) {
             return <button onClick={(e) => this.handleOpen(e)}>
-                EDIT
+                Edit
             </button>
         }
 
