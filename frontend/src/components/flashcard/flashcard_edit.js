@@ -2,7 +2,6 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import '../../stylesheets/flashcard_form.css'
 
-
 // title: {
 //     type: String,
 //         required: true,
@@ -19,20 +18,20 @@ import '../../stylesheets/flashcard_form.css'
 class FlashcardForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = undefined;
+        this.state = {
+            flag: false,
+        };
         // let currFlashcard = undefined;
-        this.props.flashcard.forEach(f => {
-            if (f._id === this.props.flashcardId) {
-                this.state = f;
-            }
-            // debugger
-        });
+        this.state["deck"] = this.props.target.deck;
+        this.state["text"] = this.props.target.text;
+        this.state["title"] = this.props.target.title;
+        
         this.handleSubmit = this.handleSubmit.bind(this);
         // this.navigateToUserPage = this.navigateToUserPage.bind(this);
     }
 
     componentDidMount() {
-        this.props.fetchFlashcards();
+        // this.props.fetchFlashcards();
         // debugger
     }
 
@@ -45,8 +44,9 @@ class FlashcardForm extends React.Component {
     // Handle form submission
     handleSubmit(e) {
         e.preventDefault();
+        // debugger
         let flashcard = {
-            id: this.props.match.params.flashcardId,
+            id: this.props.target._id,
             title: this.state.title,
             text: this.state.text,
             deck: this.state.deck,
@@ -74,37 +74,54 @@ class FlashcardForm extends React.Component {
         );
     }
 
+    handleOpen(e) {
+        e.preventDefault();
+        this.setState({
+            flag: true,
+        })
+    }
+
+    handleClose(e) {
+        e.preventDefault();
+        this.setState({
+            flag: false,
+        })
+    }
+    
+
     render() {
 
-        // if (this.state.title === undefined) {
-            // window.location.reload(false);
-            // return null;
-        // }
+        if (!this.state.flag) {
+            return <button onClick={(e) => this.handleOpen(e)}>
+                Edit
+            </button>
+        }
 
-        // debugger
-        return (
-            <div className='flashcard-form-top'>
-                <form onSubmit={this.handleSubmit}>
-                    <div className='flashcard-form'>
-                        <input 
-                            className='flashcard-form-title-input'
-                            type="text"
-                            value={this.state.title}
-                            onChange={this.update('title')}
-                        />
-                        <br />
-                        <textarea
-                            className='flashcard-form-textarea'
-                            cols="65"
-                            rows="4"
-                            value={this.state.text}
-                            onChange={this.update("text")}
-                        />
-                        <input className='flashcard-form-submit' type="submit" value="Edit card" />
-                    </div>
-                </form>
-            </div>
-        )
+        if (this.state.flag) {
+            return (
+                <div className='modal'>
+                    <form onSubmit={this.handleSubmit}>
+                        <div className='flashcard-form'>
+                            <input
+                                className='flashcard-form-title-input'
+                                type="text"
+                                value={this.state.title}
+                                onChange={this.update('title')}
+                            />
+                            <br />
+                            <textarea
+                                className='flashcard-form-textarea'
+                                cols="65"
+                                rows="4"
+                                value={this.state.text}
+                                onChange={this.update("text")}
+                            />
+                            <input className='flashcard-form-submit' type="submit" value="Edit card" />
+                        </div>
+                    </form>
+                </div>
+            )
+        }
     }
 
 }

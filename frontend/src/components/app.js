@@ -27,10 +27,15 @@ import DeckShowContainer from './deck/deck_show_container';
 // import CommentFormContainer from './comment/comment_form_container';
 import CommentIndexContainer from './comment/comment_index_container';
 
+import Modal from './modal/modal'
 
 const App = () => (
      <div className='whole-div'>     
         <div className='navbar'><NavBarContainer /></div>
+
+        {/* <div>
+            <Modal />
+        </div> */}
         
         <div className='whole-div2'>  
         <Route exact path ="/" component={Splash}/>

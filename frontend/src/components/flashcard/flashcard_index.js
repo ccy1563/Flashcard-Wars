@@ -5,11 +5,17 @@ import '../../stylesheets/flashcard_index.css'
 
 import FlashcardFormContainer from '../../components/flashcard/flashcard_form_container'
 
+import FlashcardEdit from '../flashcard/flashcard_edit'
+
+// import Modal from '../../components/modal/modal'
+import Modal from '../modal/modal'
+
 class FlashcardIndex extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            flashcardArray: []
+            flashcardArray: [],
+            flag: false,
         }
     }
 
@@ -22,6 +28,8 @@ class FlashcardIndex extends React.Component {
                 })
                 // console.log("this is deckArray", this.state.deckArray)
             })
+
+        // debugger
     }
 
 
@@ -41,9 +49,7 @@ class FlashcardIndex extends React.Component {
     }
 
     render() {
-
         // debugger
-
         
         const { flashcardArray } = this.state;
 
@@ -68,7 +74,23 @@ class FlashcardIndex extends React.Component {
                         </div>
                     </div>
 
-                    <Link className='flashcard-index-edit-link' to={`/flashcard/${flashcard._id}/deck/${flashcard.deck}`}><button className='flashcard-index-button'>Edit</button></Link>
+                    {/* <Link className='flashcard-index-edit-link'
+                          to={`/flashcard/${flashcard._id}/deck/${flashcard.deck}`}>
+                        <button className='flashcard-index-button'>
+                            Edit
+                        </button>
+                    </Link> */}
+
+                    {/* <button 
+                        className='flashcard-index-button'
+                        onClick={(e)=>this.handleOpen(e)}>
+                        Edit
+                    </button> */}
+                    <FlashcardEdit 
+                        target={flashcard}
+                        updateFlashcard={this.props.updateFlashcard}
+                    />
+                    
                     {/* {this.openEditForm()} */}
                     <button className='flashcard-index-button' onClick={(e) => this.handleDelete(e, flashcard._id)}>Delete</button>
                 </div>
