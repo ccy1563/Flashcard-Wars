@@ -88,9 +88,13 @@ class FlashcardForm extends React.Component {
 
     render() {
         if (!this.state.flag) {
-            return <button onClick={(e) => this.handleOpen(e)}>
-                Create Card
-            </button>
+            return (
+                <button 
+                onClick={(e) => this.handleOpen(e)}
+                className='create-flashcard-modal-button'>
+                    Create Card
+                </button>
+            )
         }
 
         if (this.state.flag) {

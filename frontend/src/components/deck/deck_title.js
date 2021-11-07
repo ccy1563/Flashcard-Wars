@@ -59,9 +59,13 @@ class DeckTitle extends React.Component {
   render(){
     // debugger
     if (!this.state.flag) {
-      return <button onClick={(e) => this.handleOpen(e)}>
-        Edit Title
-      </button>
+      return (
+        <button 
+        onClick={(e) => this.handleOpen(e)}
+        className='create-flashcard-modal-button'>
+          Edit Title
+        </button>
+      )
     }
 
     if (this.state.flag) {
