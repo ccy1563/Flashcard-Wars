@@ -4,7 +4,9 @@ export default class Menu extends Component {
     render() {
         return (
             <div>
-                <h1>This is the menu</h1>
+                {/* <img src="https://cdn.wallpapersafari.com/74/67/G0vIpR.gif" alt="" /> */}
+        
+
             </div>
         )
     }

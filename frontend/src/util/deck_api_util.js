@@ -1,19 +1,19 @@
 import axios from 'axios';
 
-export const getDecks = () =>{
+export const fetchDecks = () =>{
   return axios.get('/api/decks')
 };
 
-export const getDeck = id => {
+export const fetchDeck = id => {
   return axios.get(`/api/decks/${id}`)
 }
 
-export const getUserDeck = id =>{
+export const fetchUserDeck = id =>{
   return axios.get(`/api/decks/user/${id}`)
 };
 
 export const createDeck = data => {
-  console.log(data)
+  // console.log(data)
   return axios.post(`/api/decks/user/${data.user}`, data)
 }
 

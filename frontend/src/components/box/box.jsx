@@ -1,151 +1,190 @@
-import React, { Component } from 'react'
+import React from 'react'
 import '../newCss.css';
 import Score from '../score/score.jsx'
+import {withRouter} from "react-router-dom"
 // import Time from '../time/time'
 import Fuse from './fuse'
-export default class Box extends Component {
+// import Datetime from 'react-datetime';
+import Stats from '../stats/stats';
+class Box extends React.Component {
     constructor(props){
         super(props)
     this.state = {
-        flashcards: {2:`aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`,
-                1:`for (let i = 0; i < 5; i++) {\ntext += "The number is " + i + "<br>"\n;\n}`,
-                3:`asd`,
-                4:`asd`,
-                5:`asd`,
-                6:"Done"
+        flashcards: {
             },
         input: "",
-        counter: 1,
+        counter: 0,
         score:0,
-        ended:false
+        ended:false,
+        renderCount:0,
+        timer:0,
+        timerEnd:false,
+        ranking:[100,300,600],
+        title:[],
+        timerHasStarted:false,
+        name:"",
     }
     this.resetGame = this.resetGame.bind(this)
     this.loadDeck = this.loadDeck.bind(this)
+    this.tabChange = this.tabChange.bind(this)
+    this.handleChange = this.handleChange.bind(this);
+    var person = {
+    firstName:"John",
+    lastName:"Doe",
+    age:20,
+    nationality:"German"
+    };
+
     }
 
-    // componentDidMount(){
-    //     getDeck
-    // }
+    componentDidMount(){       
+        this.props.fetchDeckFlashcards(this.props.deckId);
+        this.props.fetchDeck(this.props.deckId);
 
-    // checkSingleChar(input,flashcards){
-    //     // let alreadyClear
-    //     let arr = []
-    //     if (input === flashcards && this.state.input != ""){
-    //         // this.setState({counter: this.state.counter+1})
-            
-    //         // debugger
-    //         // alreadyClear = this.state.input           
-    //         // console.log(arr) 
-    //         arr.push(<h1 className="white">{input}</h1>)
-    //         // return <h1 className="white">{this.state.input}</h1>
-    //     }
+        // debugger
+        // console.log(this.props)
        
-    //     else{                       
-    //         arr.push(<h1 className="black">{input}</h1>)                
-                
+        // this.startTimer()
+        
+    }
+
+    componentWillUnmount(){
+        this.stopTimer()
+        
+    }
+
+
+
+    // checkWholepassage(input,flashcards){
+       
+    //     let arr = []
+    //     let subArray = []
+    //     let arrWithSpace = []
+    //     for (let x = 0; x < flashcards.length; x++){
+    //         if(flashcards[x] === `\n`){               
+    //             arr.push(<div>{`\n`}</div>)
+    //         }
+    //         if (flashcards[x] === " "){
+    //             arr.push(<div>&nbsp;</div>)
+    //         }
+    //         if (input[x] === flashcards[x]){
+    //             arr.push(<div className="white">{flashcards[x]}</div>)                
+    //         }            
+    //         else if(input[x] && input[x] !== flashcards[x]){
+    //             arr.push(<div className="red">{flashcards[x]}</div>)    
+    //         }            
+    //         else{
+    //             arr.push(<div className="black">{flashcards[x]}</div>)
+    //         }
+    //     }
+    //     for (let x = 0; x < arr.length; x++){
+    //         arrWithSpace.push(arr[x])
+            
     //     }
     //     return arr
-
     // }
-    // loop
 
-    checkWholepassage(input,flashcards){
-        let arr = []
-        let subArray = []
-        let arrWithSpace = []
-        for (let x = 0; x < flashcards.length; x++){
-            if(flashcards[x] === `\n`){               
-                arr.push(<h1>{`\n`}</h1>)
-            }
-            if (flashcards[x] === " "){
-                arr.push(<h1>&nbsp;</h1>)
-            }
-            if (input[x] === flashcards[x]){
-                arr.push(<h1 className="white">{flashcards[x]}</h1>)                
-            }            
-            else if(input[x] && input[x] !== flashcards[x]){
-                arr.push(<h1 className="red">{flashcards[x]}</h1>)    
-            }            
-            else{
-                arr.push(<h1 className="black">{flashcards[x]}</h1>)
-            }
-        }
-        for (let x = 0; x < arr.length; x++){
-            arrWithSpace.push(arr[x])
-            
-            // arrWithSpace.push(<h1>_</h1>)
-        }
-        return arr
-    }
+
 
 
     checkWholepassage2(input,flashcards){
         let arr = []
         let mainArr = []
         let arrWithSpace = []
-        for (let x = 0; x < flashcards.length; x++){
-            if(flashcards[x] === `\n`){
-                for(let i = arr.length; i < 1000; i++){
-                    arr.push(<h1>&nbsp;</h1>)
+       
+
+        if (flashcards){
+            for (let x = 0; x < flashcards.length; x++){
+                if(flashcards[x] === `\n`){
+                    // for(let i = arr.length; i < 500; i++){
+                        arr.push(<div></div>)
+                    // }
+                    
+                    mainArr.push(arr)
+                    arr = []
                 }
+                if (flashcards[x] === " " && input[x] != " " && input[x] != undefined){
+                    arr.push(<div className="WrongSpace">&nbsp;&nbsp;</div>)
+                }else if (flashcards[x] === " "){
+                    arr.push(<div>&nbsp;&nbsp;</div>)
+                }
+                if (input[x] === flashcards[x]){
+                    arr.push(<div className="white">{flashcards[x]}</div>)                
+                }            
+                else if(input[x] && input[x] !== flashcards[x]){
+                    arr.push(<div className="red">{flashcards[x]}</div>)    
+                }            
+                else{
+                    arr.push(<div className="black">{flashcards[x]}</div>)
+                }
+            }
+            for (let x = 0; x < arr.length; x++){
+                arrWithSpace.push(arr[x])
                 
-                mainArr.push(arr)
-                arr = []
             }
-            if (flashcards[x] === " " && input[x] != " " && input[x] != undefined){
-                arr.push(<h1 className="WrongSpace">&nbsp;&nbsp;</h1>)
-            }else if (flashcards[x] === " "){
-                arr.push(<h1>&nbsp;&nbsp;</h1>)
-            }
-            if (input[x] === flashcards[x]){
-                arr.push(<h1 className="white">{flashcards[x]}</h1>)                
-            }            
-            else if(input[x] && input[x] !== flashcards[x]){
-                arr.push(<h1 className="red">{flashcards[x]}</h1>)    
-            }            
-            else{
-                arr.push(<h1 className="black">{flashcards[x]}</h1>)
-            }
+            mainArr.push(arr)
+            arr = []
+            return mainArr
+        }else{
+            return mainArr
         }
-        for (let x = 0; x < arr.length; x++){
-            arrWithSpace.push(arr[x])
-            
-            // arrWithSpace.push(<h1>_</h1>)
-        }
-        mainArr.push(arr)
-        arr = []
-        console.log(mainArr)
-        return mainArr
+        
     }
 
-    // checkWholepassage(input,flashcards){
+
+    // outputSingleWord(input,flashcards){
     //     let arr = []
-    //     let subArray = []
+    //     let mainArr = []
     //     let arrWithSpace = []
-    //     for (let x = 0; x < flashcards.length; x++){
-    //         if(flashcards[x] === `\n`){
-    //             arr.push(<h1>{`\n`}</h1>)
-    //         }
-    //         if (flashcards[x] === " "){
-    //             arr.push(<h1>&nbsp;</h1>)
-    //         }
-    //         if (input[x] === flashcards[x]){
-    //             arr.push(<h1 className="white">{flashcards[x]}</h1>)                
-    //         }            
-    //         else if(input[x] && input[x] !== flashcards[x]){
-    //             arr.push(<h1 className="red">{flashcards[x]}</h1>)    
-    //         }            
-    //         else{
-    //             arr.push(<h1 className="black">{flashcards[x]}</h1>)
-    //         }
+    //     let newStarting = 0
+    //     let split;
+    //     if(flashcards){
+    //         split = flashcards.split(" ")
     //     }
-    //     for (let x = 0; x < arr.length; x++){
-    //         arrWithSpace.push(arr[x])
-            
-    //         // arrWithSpace.push(<h1>_</h1>)
-    //     }
-    //     return arr
+    //     let counter = 0
+    //     let inputLen = input.length
+    //     let size = 0
+    //     console.log(flashcards)
+    //     let totalLen = 0
+        // if (input){
+        //     totalLen += split[counter].length
+        //     if (inputLen < totalLen){     
+        //         // console.log(inputLen,totalLen)
+        //         // console.log(split[counter])
+        //     }else{
+        //         counter += 1
+        //         console.log(inputLen,counter)
+        //         inputLen += totalLen+1
+        //     }
+        //     // if (inputLen === totalLen){
+                
+        //     // }
+        // }
+        
+        // let split = flashcards.split(" ")
+        // if (flashcards){
+        //     for (let x = 0; x < flashcards.length; x++){
+        //         console.log(flashcards.length)
+        //         if(flashcards[x] === `\n` || flashcards[x] === ""){
+        //             for(let i = newStarting; i < [x]; i++){
+        //                 if (input[x] === flashcards[x]){
+        //                     arr.push(<div className="white">{flashcards[x]}</div>)       
+        //                 }            
+        //                 else if(input[x] && input[x] !== flashcards[x]){
+        //                     arr.push(<div className="red">{flashcards[x]}</div>)    
+        //                 }            
+        //                 else{
+        //                     arr.push(<div className="black">{flashcards[x]}</div>)
+        //                 }
+        //             }
+        //         }
+        //     }
+        // } 
+        // console.log(arr)
     // }
+
+    
+
 
     addOne(){
         let oldcounter = this.state.counter
@@ -162,41 +201,48 @@ export default class Box extends Component {
         }
         
 
-        // if(Object.keys(this.state.flashcards).length === oldcounter){
-        //     this.setState({ended:!oldEnded})
-        // }
+      
         
     }
 
-    // endOfGame(stateEnded){
-    //     state
-    // }
+    stopTimer(){
+        clearInterval(this.interval)
+    }
+
+    startTimer(){
+        this.interval = setInterval(() => {
+            this.setState(prevState  =>({
+                timer:prevState.timer + 1
+            }))
+        },10)
+    } 
+    
+
+   
 
     checkAll(input,flashcards){
-        for (let x = 0; x < flashcards.length; x++){
+        if(flashcards){
+             for (let x = 0; x < flashcards.length; x++){
             if(input[x] !== flashcards[x]){
                 return "Not Done"
             }
             
         }
         return "Done"
+        }else{
+            return "checkingall"
+        }
+       
     }
 
-    resetGame(){
-        // this.setState({
-        //     flashcards: {1:`asd`,
-        //             2:`qwe`,
-        //             3:`asd`,
-        //             4:`asd`,
-        //             5:`asd`,
-        //             6:"Done"
-        //         })
-        this.setState({counter:1})
+    resetGame(){   
+        this.stopTimer()
+        this.setState({counter:0})
         this.setState({score:0})
         this.setState({input:""})
         this.setState({ended:false})
-
-
+        this.setState({timer:0})
+        this.setState({timerHasStarted:false})
 
     }
 
@@ -219,85 +265,294 @@ export default class Box extends Component {
 
    
 
+    propsTostate(){
+        this.setState({renderCount:1}) 
+        const{flashcards} = this.props
+        let arr = []
+        let titlearr = []
+        if (flashcards){
+            for (let x = 0; x < flashcards.length;x++){
+                arr.push(flashcards[x].text)
+                titlearr.push(flashcards[x].title)
+            }
+            this.setState({title:titlearr})
+            
+            
+            
+            let object = Object.assign({}, arr)
+          
+            let oldState = this.state.flashcards
+        
+            if (oldState != object){
+                this.setState({flashcards:object}) 
+             
+            }
+            // 
+        }else{
+        }
+       
+    }
+
+
+
+    someMethod() {
+        window.location.reload(false);
+    }
+    
     
 
- 
-
-    render() {
+    tabChange(e){
+        if(e.code == "TAB" || e.code == "Tab" || e.code == "TABKEY"){
+            e.preventDefault()
+            // console.log(this.state.input)
+            this.setState({input:this.state.input + "    "})
+            // console.log(e)
+        }
+        if(this.state.timerHasStarted === false){
+            this.setState({timerHasStarted:true})
+            // console.log("asd")
+            this.startTimer()
+        }
         
-        // const checkSingleChar = this.checkSingleChar(this.state.input[this.state.input.length-1],this.state.flashcards[this.state.input.length-1])
-        const checkWholepassage = this.checkWholepassage(this.state.input,this.state.flashcards[this.state.counter])
-        const checkWholepassage2 = this.checkWholepassage2(this.state.input,this.state.flashcards[this.state.counter])
-        const firstPassage = checkWholepassage2[0]
-        const firstPassage1 = checkWholepassage2[1]
-        const firstPassage2 = checkWholepassage2[1]
+        
+        
+    }
 
-        const checkAll = this.checkAll(this.state.input,this.state.flashcards[this.state.counter])
-        // const thisState = Object.keys(this.state.flashcards).length
-        // const checkAll = this.checkAll(this.state.input,this.state.flashcards[this.state.counter])
+    handleUpdate(array){
+        const newDeck = {
+            id:this.props.deck._id,
+            title:this.props.deck.title,
+            user:this.props.deck.user,
+            leaderboard:array
+        }
+        this.props.reviseDeck(newDeck)
+    }
+
+    addingToLeader(array,timer){
+        let list = []
+        let counter = 0
+        let name = ""
+        let sorted = []
+        let winners = []
+        let score = []
+        let empty = []
+        
+        if((array && this.state.ended === true && counter === 0)){
+            name = this.state.name
+            if (name === ""){
+                name = "Anonymous"
+            }
+            
+            counter ++
+            if (array.length === 0){
+                array.push(["Chen",500])
+                array.push(["Smith",600])
+                array.push(["Janssen",700])
+            }
+
+
+            if (array.length < 4 ){
+                array.push([name,timer])
+            }
+            // for (let x = 0; x < array.length; x++){
+            //     winners.push(array[x][0])
+            //     score.push(array[x][1])
+              
+            // }
+            // for (let x = 0; x < array.length; x++){
+            //     var indexMenor = score.indexOf(Math.min(...score));
+            //     console.log(indexMenor);
+            //     console.log(winners[indexMenor])
+            //     sorted.push(winners[indexMenor],score[indexMenor])
+        
+            // }
+            // array = [[2,text],[5,text],[1,text]];
+            // array = [[2,text],[5,text],[1,text]];
+            array.sort(function(a,b){return a[1] - b[1]})
+            // console.log(array)
+           
+
+            // let sorted = array.sort(function(a, b) {
+            //                 return a - b;
+            //     });
+            if (array.length === 4){
+                array.pop()
+            }
+        }
+        // console.log(array)
+        // console.log(score  )
+        // console.log(winners)
+
+        this.handleUpdate(array)
+        
+
+        
+    //     if (array && this.state.ended === true && counter === 0){
+    //         array.push(timer)
+    //         let sorted = array.sort(function(a, b) {
+    //             return a - b;
+    //           });
+    //         // sorted.pop()
+    //         for (let x = 0; x < 3 ; x++){
+    //             if(x === 0){
+    //                 list.push(<ul>{sorted[x]}</ul>)
+    //             }
+    //             else if(x === 1){
+    //                 list.push(<ul>{sorted[x]}</ul>)
+    //             }
+    //             else{
+    //                 list.push(<ul>{sorted[x]}</ul>)
+
+    //             }
+                
+    //         }        
+    //     // console.log(sorted)
+
+    //     }
+    //     // console.log(list)
+    //     // list.sort()
+    // }
+    }
+    handleChange(event) {
+        this.setState({name: event.target.value});
+        // console.log(this.state.name)
+      }
+    render() {
+        // const {deck} = this.props
+        let leaderboard = undefined
+        if (this.props.deck){
+            leaderboard = this.props.deck.leaderboard
+            // console.log(leaderboard)
+        }
+        const checkWholepassage2 = this.checkWholepassage2(this.state.input,this.state.flashcards[this.state.counter])
+        let counter = this.state.counter
+        let renderCount = this.state.renderCount
+        const checkAll = this.checkAll(this.state.input,this.state.flashcards[this.state.counter]) 
         const stateEnded = this.state.ended
         const endOfGame = Object.keys(this.state.flashcards).length
         const resetGame = this.resetGame
         const loadDeck = this.loadDeck
+        const someMethod = this.someMethod
+        let addingToLeader = undefined
+        // if (leaderboard && this.state.timer){
+        //      addingToLeader = this.addingToLeader(leaderboard,this.state.timer)
+        // }
+        const timerEnd = this.state.timerEnd
+        const ranking = this.state.ranking
+        // const outputSingleWord = this.outputSingleWord(this.state.input,this.state.flashcards[this.state.counter])
+        // const timer = this.state.timer
+        // const inputIsEmpty = this.inputIsEmpty(this.state.input)
+        // if (inputIsEmpty && timer === 0){
+        //     this.startTimer()
+        // }
+       
+        // checkIfStarted ? this.startTimer() : ""
+        // timer === 0 ? this.startTimer() : null
+        const{flashcards} = this.props
+        if (flashcards && renderCount === 0 ){
+            this.propsTostate()
+        }
         
+    
 
-        // const arr2 = []
-        // let arr4 = [<h1 className="white">Test</h1>,<h1 className="black">ing</h1>,<h1 className="white">s</h1>]
-        // let arr5 = [<h1 className="white">Test</h1>,<h1 className="black">ing</h1>,<h1 className="white">s</h1>]
-        // let arr6 = [arr4,arr5]
+        // flashcards && renderCount === 0 ? this.propsTostate()  : null
 
         return (
             <div className='box-render'>
-                {/* <Time h={5}m={4}s={3}/> */}
-                <Score className="scorebox-text" text={"Your current score is"} currentScore={this.state.score}/>
-                <div className='instruction'><h1>Type this</h1></div>
-                <div className="game">
-                    {/* {arr2} {checkWholepassage}                */}
-                        {checkWholepassage2.map((ele,i) => (
-                            // ele.map((ele2,i) => (
-                                <div className="textbox2">
-                                    <Fuse ele={ele}/>
-                                    {/* {console.log(ele)} */}
-                                </div>
-                               
-                                // <div className="textbox2">
-                                  
-                                // </div>
-                                
-                                // ))
-                            // <div className="textbox2">
-                              
-                            // </div>
-                            
-                            ))}  
-                      
-                </div>
+    
+        
+                
+                
+                {/* <Score text={"Your record was"} currentScore={this.state.timer}/> */}
+                    {/* <div className='instruction'><div>Click&nbsp;</div> <div className="red2">below&nbsp;</div> <div>the text to start typing</div></div> */}
+                    {/* <div className="button-div"><button className='reset' onClick={resetGame}>Reset Flashcards</button></div> */}
+                    <div className="leaderboardMain">
+                        <Stats array={leaderboard} currentTimer={this.state.timer/100}/>
+                    </div>
+                
+
+                    <div className="score-bundle">
+                        <div><Score className="scorebox-text" currentScore={this.state.timer/100}   /></div>
+
+                        <div><Score className="scorebox-text"  text2={"seconds"}  /></div>
+                        <div><Score className="scorebox-text" currentScore={this.state.counter} text3={"/"} text2={endOfGame}/></div>
+                    </div>
+                    
+
+                    <div className='title'>{this.state.title[counter]}</div>
+
+                    <div className="game">
+                        {checkWholepassage2.map((ele,i) => (       
+                                <Fuse className="textbox2" ele={ele} key={i}/>
+                            ))}
+                    </div>
                 {
                    (checkAll === 'Done') ? this.addOne() : null
                 }
-               
+
+                {
+                    (stateEnded === false)
+                    
+                    ?     
+                    <form>
+                        <label className="nameLabel">
+                            Name:
+                            <input className='nameInput' type="text" value={this.state.name} onChange={this.handleChange}/>
+                        </label>
+                        {/* <input type="submit" value="Submit" /> */}
+                    </form>
+                    : ""
+                }
+                   
                 {
                     (stateEnded === false) 
-                    ? <div className='box-input'><textarea name="Text1" value={this.state.input} onChange={(e)=>this.setState({input: e.target.value})}/></div> 
-                    : <Score text={"Your final score is"} currentScore={this.state.score}/>
+                    ? <div className='box-input'><textarea className="Text1" spellCheck="false" value={this.state.input} onKeyDown={this.tabChange} onChange={(e)=>this.setState({input: e.target.value})}/></div>      
+                    : this.stopTimer() 
+                    // : <Score text={"Your final score is"} currentScore={this.state.score}/> ? this.stopTimer() : null  ? console.log("asd") : null
+                    // (stateEnded === true)
+                    // ? console.log(this.state.ranking)
+                    // : null
                 }
+                {/* {
+                    (stateEnded === true)
+                    
+                    ?    <Stats array={leaderboard} currentTimer={this.state.timer/100}/>
+                    : ""
+                } */}
                 
-                {/* <div className='stateflashcards'><h1>{this.state.flashcards}</h1></div>                */}
-                
-                   
-                {/* <div className='game'>
-                    {   
-                        <div className='game2'>
-                        {arr2.map((ele) => ele)}                            
-                        </div>
+                {
+                    (stateEnded === true)
+                    
+                    ? this.addingToLeader(leaderboard,this.state.timer/100)
+                    : ""
+                    
+                }
+                    {
+                        (stateEnded === true)
+                        
+                        ? <div className="button-div"><button className='reset' onClick={resetGame}>Reset Flashcards</button></div>
+                        : ""
+                        
                     }
-                </div> */}
+
+
+
+                {/* {console.log(leaderboard)} */}
+                
+
+                
+              
+                
+                
+       
           
-          <button onClick={resetGame}>Reset Flashcards</button>
-          <button onClick={loadDeck}>Load Deck 1</button>
+      
+
 
                            
             </div>
         )
     }
 }
+
+export default withRouter(Box)

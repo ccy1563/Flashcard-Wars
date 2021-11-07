@@ -9,16 +9,23 @@ import {
 const DeckReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = Object.assign({}, state);
-  
+
+  let nextState = { }
+  let decks = undefined;
+  if (action.decks) {
+    decks = action.decks.data
+  }
   switch(action.type) {
     case RECEIVE_ALL_DECKS:
-      return { ...action.decks };
+      decks.forEach((deck) => {
+        nextState[deck._id] = deck
+      })
+      // debugger
+      return nextState;
 
     case RECEIVE_ALL_USER_DECKS:
       // console.log(action)
       // debugger
-      let decks = action.decks.data
-      let nextState = { }
 
       decks.forEach((deck) => {
         nextState[deck._id]= deck

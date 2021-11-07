@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 
 
 class DeckForm extends React.Component {
@@ -8,10 +8,11 @@ class DeckForm extends React.Component {
     this.state ={
       title: '',
       user: this.props.user_id,
+      leaderboard: [],
       errors: {}
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.navigateToUserPage = this.navigateToUserPage.bind(this);
+    // this.navigateToUserPage = this.navigateToUserPage.bind(this);
   }
 
   // componentDidMount() {
@@ -37,10 +38,14 @@ class DeckForm extends React.Component {
 
     let deck = {
         title: this.state.title,
-        user: this.state.user
+        user: this.state.user,
+        leaderboard: this.state.leaderboard,
     };
-    this.props.composeDeck(deck);
-    this.navigateToUserPage();
+    // debugger
+    this.props.composeDeck(deck)
+      // .then(() => this.props.history.push("/user"));
+    // <Redirect to="/user" />
+    window.location.reload(false);
   }
 
   renderErrors() {
@@ -51,7 +56,7 @@ class DeckForm extends React.Component {
                     {this.state.errors[error]}
                 </li>
             ))}
-        </ul>
+        </ul> 
     );
   } 
 
@@ -60,13 +65,13 @@ class DeckForm extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <div>
-              <input type="text"
+            <input className='user-profile-create-deck-text-box' type="text"
                   value={this.state.title}
                   onChange={this.update('title')}
                   placeholder="Title"
               />
               <br />
-              <input type="submit" value="Create Deck" />
+            <input className='user-profile-create-deck-button' type="submit" value="Create Deck" />
           </div>
         </form>
       </div>

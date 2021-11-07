@@ -14,7 +14,7 @@ router.get('/', (req, res) => { // index
       .catch(err => res.status(404).json({ noCommentsfound: 'No comments found' }));
 });
 
-// get comment from flashcard id
+// get comment from deck id
 router.get('/deck/:deck_id', (req, res) => {
   Comment.find({deck: req.params.deck_id})
       .then(comment => res.json(comment))
@@ -43,7 +43,7 @@ router.post('/deck/:deck_id',
       return res.status(400).json(errors);
     }
 
-    console.log(req);
+    // console.log(req);
 
     const newComment = new Comment({
       text: req.body.text,

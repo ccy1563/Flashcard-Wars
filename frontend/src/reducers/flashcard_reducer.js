@@ -8,13 +8,21 @@ import {
 const flashcardReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
-
+    
+    let flashcards = undefined;     
+    if (action.flashcards) {
+        flashcards = action.flashcards.data
+    }
+    let nextState = {};
     switch(action.type) {
         case RECEIVE_FLASHCARDS:
             return { ...action.flashcards };
+            // flashcards.forEach((flashcard) => {
+            //     nextState[flashcard._id] = flashcard
+            // })
+            // return nextState;
         case RECEIVE_DECK_FLASHCARDS:
-            let flashcards = action.flashcards.data
-            let nextState = {};
+            // let nextState = {};
             flashcards.forEach((flashcard) => {
                 nextState[flashcard._id] = flashcard
             })

@@ -5,7 +5,7 @@ class MainPage extends React.Component {
     render() {
         return (
             <div>
-                <h1>Flashcard Wars</h1>
+                {/* <h1>Flashcard Wars</h1> */}
             </div>
         );
     }

@@ -1,0 +1,56 @@
+.comment-form{
+  padding-top:25px;
+}
+
+.comment-index-item-container{
+  padding-top:25px;
+}
+
+.comment-form-text-area::placeholder{
+  padding-left: 5px;
+  color:#128fdc;
+}
+
+.comment-form-text-area:focus{
+  outline: none;
+}
+
+.comment-form-submit:hover{
+  background-color: #81cdfc;
+}
+
+.comment-form-submit:active{
+  background-color: #5da7d5;
+}
+
+.text-edited{
+  width: 600px;
+  height: 50px;
+}
+
+.text-edited:focus{
+  outline: none;
+}
+
+.text-not-edit{
+  width: 600px;
+  border: solid grey 2px;
+  padding-top: 20px;
+  padding-left: 10px;
+  height: 50px;
+  font-size:30px;
+  text-align: left;
+}
+
+.edit-photo-button-container, .text-edited-container, .delete-comment-container{
+  margin-top: 10px;
+  text-align: initial;
+}
+
+.comment-form-submit{
+  width:100px;
+}
+
+.comment-index-button{
+  display: flex;
+}

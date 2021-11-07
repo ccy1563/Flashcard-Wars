@@ -3,10 +3,10 @@ import {
   fetchAllDecks
 } from '../../actions/deck_actions';
 
-import SplashPage from './splash_page';
+import IndexDeckPage from './index_deck_page'
 
 const mapStateToProps = state => {
-  console.log(state)
+  // console.log(state)
   return ({
     decks: Object.values(state.entities.decks)
   })
@@ -21,4 +21,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SplashPage);
+)(IndexDeckPage);

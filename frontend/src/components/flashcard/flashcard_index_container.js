@@ -26,7 +26,11 @@ const mapStateToProps = (state, myProps) => {
     return ({
         user_id: state.session.user.id,
         deckId: myProps.match.params.deckId,
-        myFlashcards: Object.values(state.entities.flashcards),
+        flashcardId: myProps.match.params.flashcardId,
+        // myFlashcards: Object.values(state.entities.flashcards),
+        flashcards: state.entities.flashcards.data,
+        // canEdit: false,
+        // flashcard: state.entities.flashcards.flashcardId,
     });
 };
 

@@ -1,13 +1,21 @@
 import React from 'react';
 import { Link, Redirect, withRouter } from 'react-router-dom';
 import FlashcardIndexItem from './flashcard_index_item';
+import '../../stylesheets/flashcard_index.css'
 
+import FlashcardFormContainer from '../../components/flashcard/flashcard_form_container'
+
+import FlashcardEdit from '../flashcard/flashcard_edit'
+
+// import Modal from '../../components/modal/modal'
+import Modal from '../modal/modal'
 
 class FlashcardIndex extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            flashcardArray: []
+            flashcardArray: [],
+            flag: false,
         }
     }
 
@@ -20,13 +28,31 @@ class FlashcardIndex extends React.Component {
                 })
                 // console.log("this is deckArray", this.state.deckArray)
             })
+
+        // debugger
+    }
+
+
+    handleDelete(e, flashcardId) {
+        e.preventDefault();
+        // debugger
+        this.props.deleteFlashcard(flashcardId)
+            .then(
+                this.props.fetchDeckFlashcards(this.props.deckId)
+                    .then(res => {
+                        this.setState({
+                            flashcardArray: Object.values(res.flashcards.data)
+                        })
+                    })
+            )
+        window.location.reload();
     }
 
     render() {
-
         // debugger
-
+        
         const { flashcardArray } = this.state;
+
 
         if (flashcardArray.length === 0) return null;
 
@@ -34,15 +60,45 @@ class FlashcardIndex extends React.Component {
         const allFlashcardsInDeck = flashcardArray.map(flashcard => {
             // debugger
             return (
-                <FlashcardIndexItem
-                    key={flashcard._id}
-                    flashcard={flashcard}
-                />
+                <div key={flashcard._id} className='flashcard-index-card-form'>
+                    <div>
+                        <div className='flashcard-index-card-img'>
+                        </div>
+                        <div className="flashcard-index-card-top">
+                            <div className="flashcard-index-card-form-header">
+                                <div>{flashcard.title}</div>
+                            </div>
+                            <div className="flashcard-index-card-body">
+                                <div>{flashcard.text}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* <Link className='flashcard-index-edit-link'
+                          to={`/flashcard/${flashcard._id}/deck/${flashcard.deck}`}>
+                        <button className='flashcard-index-button'>
+                            Edit
+                        </button>
+                    </Link> */}
+
+                    {/* <button 
+                        className='flashcard-index-button'
+                        onClick={(e)=>this.handleOpen(e)}>
+                        Edit
+                    </button> */}
+                    <FlashcardEdit 
+                        target={flashcard}
+                        updateFlashcard={this.props.updateFlashcard}
+                    />
+                    
+                    {/* {this.openEditForm()} */}
+                    <button className='flashcard-index-button' onClick={(e) => this.handleDelete(e, flashcard._id)}>Delete</button>
+                </div>
             )
         });
 
         return (
-            <div>
+            <div className='flashcard-index-page'>
                 {allFlashcardsInDeck}
             </div>
         )

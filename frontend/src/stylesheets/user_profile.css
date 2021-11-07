@@ -1,0 +1,161 @@
+.user-profile-page {
+    background-image: url("https://img.wallpapersafari.com/desktop/1920/1080/61/86/uzZq2M.jpg");
+    width: 100%;
+    min-height: 2000px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.decks-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user-profile-all-decks {
+    padding: 3% 0 0 5%;
+}
+
+.deck-title {
+    background-image: url("https://static.thenounproject.com/png/219525-200.png");
+    background-size: 150px;
+    width: 150px;
+    height: 130px;
+    text-align: center;
+    font-size: 15px;
+    font-family: system-ui;
+    box-shadow: 1px 1px 10px rgb(0 0 0 / 5%);
+    border-radius: 5px;
+    color: white;
+}
+
+.deck-title p {
+
+    width: 150px;
+    height: 130px;
+    padding-top: 60px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 15px;
+    color:white;
+}
+
+.deck-title p:hover{
+    color: #8fa2ae;
+}
+  
+.deck-title p:active{
+    color: #c4c4c4;
+}
+
+.deck-title a {
+    text-decoration: none;
+}
+
+.user-profile-button {
+    display: flex;
+    cursor: pointer;
+    border-radius: 6px;
+    font-family: Arial,Helvetica,sans-serif;
+    color: rgb(214, 214, 214);
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 2px rgb(255 255 255 / 13%);
+    width: 140px;
+    height: 30px;
+    background-color: transparent;
+    text-decoration: none;
+    color: white;
+    justify-content: center;
+    padding-top: 6px;
+}
+
+
+
+.user-profile-all-buttons {
+    padding: 2% 0 0 2%;
+}
+
+.user-profile-link {
+    text-decoration: none;
+}
+
+.user-profile-create-deck-button {
+    margin: 1% 0 1% 42%;
+    /* padding-top: 50px; */
+    width: 250px;
+    height: 50px;
+    background-color: transparent;
+    font-size: 18px;
+
+    cursor: pointer;
+    border-radius: 6px;
+    font-family: Arial,Helvetica,sans-serif;
+    /* color: rgb(214, 214, 214); */
+    color: white;
+    border-radius: 6px;
+    border: 0;
+    cursor: pointer;
+
+    box-shadow: inset 0 0 0 2px rgb(255 255 255 / 13%);
+}
+
+.user-profile-page button{
+    background-color: #128fdc;
+    color:white;
+}
+
+.user-profile-page button:hover{
+    background-color: #81cdfc;
+}
+
+.user-profile-page button:active{
+    background-color: #5da7d5;
+}
+
+.user-profile-create-deck-text-box {
+    background: #FFFFFF;
+    box-shadow: 0 1px 4px 0 rgb(204, 204, 204);
+    border-color: rgba(34, 34, 34, 0.15);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 6px;
+    color: #222222;
+    outline: none;
+    resize: none;
+    margin: 1% 0 0 42%;
+    width: 245px;
+    text-align: center;
+}
+
+.user-profile-create-deck-button{
+    background-color: #128fdc;
+    color:white;
+}
+
+.user-profile-create-deck-button:hover{
+    background-color: #81cdfc;
+}
+
+.user-profile-create-deck-button:active{
+    background-color: #5da7d5;
+}
+
+.deck-title-p {
+        /* padding-top: 10px; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    /* -webkit-box-orient: vertical;
+    overflow-wrap: break-word; */
+
+    color: #FFFFFF;
+    text-decoration: none!important;
+    width: 140px;
+    
+}
+
+.deck-title-link {
+    text-decoration: none;
+}

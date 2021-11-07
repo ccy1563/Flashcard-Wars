@@ -12,10 +12,11 @@ import DeckForm from './deck_form';
 
 const mapStateToProps = state => {
 
-    // debugger
-    return({
-      user_id: state.session.user.id
-    });
+  let temp = undefined;
+  if (state.session.user) temp = state.session.user.id;
+  return({
+    user_id: temp,
+  });
 };
 
 const mapDispatchToProps = (dispatch) => {

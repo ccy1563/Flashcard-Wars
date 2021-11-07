@@ -2,36 +2,135 @@
   width: 100%;
   /* background-color: #61dafb; */
   /* position: fixed; */
-  z-index: 10;
+  /* z-index: 10;
+} */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 .Bundle { 
   display: flex;
-  height: 760px;
+  /* height: 760px; */
   position: relative;
   padding-top: 64px;
 }
+.whole-div2{
+  background-image: url("https://img.wallpapersafari.com/desktop/1920/1080/61/86/uzZq2M.jpg");
+  width: 100%;
+  /* min-height: 1100px; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-image: url("https://img.wallpapersafari.com/desktop/1920/1080/61/86/uzZq2M.jpg");
+
+    background-image: url("https://img.wallpapersafari.com/desktop/1920/1080/61/86/uzZq2M.jpg");
+
+
+  width: 100%;
+  min-height: 2000px;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+   */
+}
+
+.box-render{
+  min-height: 2000px;
+}
+img{
+  /* width: 100% */height: 100%;
+}
+/* .game{
+  margin-left: auto;
+  margin-right: auto;
+
+} */
 
 .bundle-box{
-  padding: 100px;
-  background-color: green;
+  padding: 0px;
+  /* background-color: #0B0C10; */
   flex: 2;
-  min-width: 800px;
+  min-width: 300px;
+  /* flex-basis: 10%; */
 }
 
 .bundle-menu{
-  background-color: red;
-  flex: 1
+  /* background-color: #0B0C10; */
+  /* flex: 1; */
+  /* flex-basis: content; */
+  min-width: 200px;
+  max-width: 300px;
 }
 .bundle-stats{
-  background-color: blue;
-  flex: 1
+  /* background-color: #0B0C10; */
+  /* flex: 1; */
+  min-width: 200px;
+  max-width: 300px;
+
+
+  /* flex-basis: content; */
+  
 }
 
-.scorebox-text{
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 20px
+.scorebox-text3{
+  margin-left: 100px;
 }
+
+
+.scorebox-text{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+  color:white;
+  justify-content: center;
+  display: inline-flex;
+}
+
+
 
 .App {
   text-align: center;
@@ -45,29 +144,156 @@
 }
 
 .white{
-  color:white;
+  color:#66FCF1;
 }
 
 .black{
-  color:black;
+  color:#e2e2e2;
 }
 
+/* div{
+  
+} */
+
 .red{
-  color:red
+  color:#db2810
+}
+
+.Stats{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
+  color:white
+}
+
+.nameLabel{
+  color:white
 }
 
 .fuse-box{
   padding: 0px;
   margin: 0px;
   height: 30px;
+  display: flex;
+  /* margin: auto; */
+  /* width: 50%; */
+  
+}
+
+.leaderboardMain{
+  text-align: center;
+  padding: 10px;
+  background-image: url("https://imgur.com/a/uhGGFlg") !important;
+  z-index: auto;
 }
 
 .box-input{
-  margin-top: 100px;
+  margin-bottom: 200px;
+  /* background-color: transparent; */
+}
+
+.nameInput{
+  background-color: rgb(51, 48, 48);
+  color: white;
+  
+}
+
+.Text1{
+  background-color: rgb(51, 48, 48);
+  border-radius: 10px;
+  height: 500px;
+  width: 100%;
+  color: white;
+  border: none;
+  /* color: transparent; */
+  /* background: transparent */
+  /* background-image: ''; */
+}
+
+.reset {
+	box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	background:linear-gradient(to bottom, #187f99 5%, #187f99 100%);
+	background-color:#187f99;
+	border-radius:6px;
+	border:1px solid #84bbf3;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528ecc;
+}
+.reset:hover {
+	background:linear-gradient(to bottom, #187f99 5%, #187f99 100%);
+	background-color:#23a6c7;
+}
+.reset:active {
+	position:relative;
+	top:1px;
+}
+
+        
+
+        
+
+.button-div{
+  display: flex;
+  justify-content: center;
+}
+
+.Text1:focus {
+  outline: none !important;
+  border:1px solid transparent;
+  box-shadow: 0 0 10px transparent;
 }
 
 .WrongSpace{
   background-color:rgb(241, 24, 9)
+}
+
+.instruction{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+  display: flex;
+  color: #4c4d52;
+  padding-top: 50px;
+}
+
+.score-bundle{
+  /* text-align: center; */
+  display:flex;
+  justify-content: center;
+}
+.score-bundle > div{
+  /* text-align: center; */
+  /* margin-right: 20px; */
+  width: 75px;
+}
+
+.red2{
+  color:rgb(209, 213, 214)
+}
+
+
+
+.title{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+
+  color: white;
+  font-size: 20px;
+  /* border-bottom: 2px solid rgb(131, 1, 1); */
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding:20px;
+  padding-top: 20px;
+
+  padding-bottom: 20px;
+  /* border-radius: 5px; */
+ 
 }
 
 .footer-content{
@@ -75,15 +301,32 @@
   justify-content: center;
 }
 
-.fuse{
-  display: inline-flex;
+.textbox2{
+  /* display: flex;
+  justify-content: center; */
+  /* font-size: 20px; */
+
 }
 
-.game{
+.fuse{
   display: flex;
-  flex-wrap: wrap;
+  margin-top: 10px;
+  flex-wrap:wrap ;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  /* width: max-content; */
+  /* margin-left: auto;
+  margin-right: auto; */
+  justify-content: center !important  ;
+ 
+  /* border: 2px solid rgb(156, 1, 35); */
+
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items:flex-start */
 }
-  
+
+
 
 
 .App {
@@ -102,7 +345,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: transparent;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -123,4 +366,4 @@
   to {
     transform: rotate(360deg);
   }
-} */
+} 
