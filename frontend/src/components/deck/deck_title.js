@@ -4,8 +4,13 @@ import { withRouter, Redirect } from 'react-router-dom';
 class DeckTitle extends React.Component {
   constructor(props){
     super(props);
-    this.state = this.props.decks[this.props.deckId];
-    this.titleEdited = React.createRef();
+    // this.state = this.props.decks[this.props.deckId];
+    this.state = {
+      flag: false,
+    }
+    this.state["title"] = this.props.target.title;
+
+    // this.titleEdited = React.createRef();
     this.handleTitleEdit = this.handleTitleEdit.bind(this);
   }
 
@@ -17,16 +22,18 @@ class DeckTitle extends React.Component {
   handleTitleEdit(e){
     e.preventDefault();
 
-    let editTitle = this.titleEdited.current.value;
+    // debugger;
+    // let editTitle = this.titleEdited.current.value;
     
     let editedDeck = {
-      id: this.props.deckId,
-      user: this.props.user_id,
-      title: editTitle
+      id: this.props.target._id,
+      user: this.props.target.user,
+      title: this.state.title,
     }
     // console.log(editedDeck)
     this.props.reviseDeck(editedDeck);
-    this.props.history.push('/user');
+    // this.props.history.push('/user');
+    window.location.reload(false);
   }
 
   update(field) {
@@ -35,26 +42,47 @@ class DeckTitle extends React.Component {
     });
   }
 
+  handleOpen(e) {
+    e.preventDefault();
+    this.setState({
+      flag: true,
+    })
+  }
+
+  handleClose(e) {
+    e.preventDefault();
+    this.setState({
+      flag: false,
+    })
+  }
+
   render(){
     // debugger
+    if (!this.state.flag) {
+      return <button onClick={(e) => this.handleOpen(e)}>
+        Edit Title
+      </button>
+    }
 
-    return(
-      <div>
-        <form onSubmit={this.handleTitleEdit}>
-          <div>
-            <input 
-              className='user-profile-create-deck-text-box'
-              type="text"
-              ref = {this.titleEdited}
-              value={this.state.title}
-              onChange={this.update('title')}
-            />
-            <br />
-            <input className='user-profile-create-deck-button' type="submit" value="Revise Title" />
-          </div>
-        </form>
-      </div>
-    )
+    if (this.state.flag) {
+      return (
+        <div className='modal'>
+          <form onSubmit={this.handleTitleEdit}>
+            <div>
+              <input
+                className='user-profile-create-deck-text-box'
+                type="text"
+                // ref={this.titleEdited}
+                value={this.state.title}
+                onChange={this.update('title')}
+              />
+              <br />
+              <input className='user-profile-create-deck-button' type="submit" value="Edit Title" />
+            </div>
+          </form>
+        </div>
+      )
+    }
   }
 }
 

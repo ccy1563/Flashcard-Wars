@@ -3,6 +3,9 @@ import { Link, withRouter } from 'react-router-dom';
 // import UserDeckIndexItem from './user_deck_index_item';
 import '../../stylesheets/user_profile.css'
 import DeckFormContainer from '../../components/deck/deck_form_container';
+import DeckTitle from '../deck/deck_title'
+import FlashCardForm from '../flashcard/flashcard_form'
+
 class UserProfile extends React.Component {
     constructor(props) {
         super(props);
@@ -44,16 +47,28 @@ class UserProfile extends React.Component {
                     <div className='deck-title'>
                     </div>
                     <div className='user-profile-all-buttons'>
-                        <Link className='user-profile-link' to={`/decks/${deck._id}/edit`}>
+                        {/* <Link className='user-profile-link' to={`/decks/${deck._id}/edit`}>
                             <button className='user-profile-button'>
                                 Edit Title
                             </button>
-                        </Link>
-                        <Link className='user-profile-link' to={`/flashcard/user/${deck.user}/deck/${deck._id}/create`}>
+                        </Link> */}
+
+                        <DeckTitle 
+                            reviseDeck={this.props.reviseDeck}
+                            target={deck}
+                        />
+
+                        {/* <Link className='user-profile-link' to={`/flashcard/user/${deck.user}/deck/${deck._id}/create`}>
                             <button className='user-profile-button'>
                                 Add Card
                             </button>
-                        </Link>
+                        </Link> */}
+
+                        <FlashCardForm 
+                            createFlashcard={this.props.createFlashcard}
+                            target={deck}
+                        />
+
 
                         <Link className='user-profile-link' to={`/flashcard/deck/${deck._id}`}>
                             <button className='user-profile-button'>
