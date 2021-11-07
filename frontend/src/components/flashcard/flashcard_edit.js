@@ -52,13 +52,13 @@ class FlashcardForm extends React.Component {
             deck: this.state.deck,
         };
         this.props.updateFlashcard(flashcard);
-        // window.location.reload(false);
-        this.navigateToUserPage();
+        window.location.reload(false);
+        // this.navigateToUserPage();
     }
 
     navigateToUserPage() {
         // debugger
-        const url = `/user`
+        const url = `/flashcard/deck/${this.props.target.deck}`
         this.props.history.push(url);
     }
 
