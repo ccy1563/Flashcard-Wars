@@ -52,13 +52,13 @@ class FlashcardForm extends React.Component {
             deck: this.state.deck,
         };
         this.props.updateFlashcard(flashcard);
-        // window.location.reload(false);
-        this.navigateToUserPage();
+        window.location.reload(false);
+        // this.navigateToUserPage();
     }
 
     navigateToUserPage() {
         // debugger
-        const url = `/user`
+        const url = `/flashcard/deck/${this.props.target.deck}`
         this.props.history.push(url);
     }
 
@@ -92,9 +92,13 @@ class FlashcardForm extends React.Component {
     render() {
 
         if (!this.state.flag) {
-            return <button onClick={(e) => this.handleOpen(e)}>
-                Edit
-            </button>
+            return (
+                <button 
+                onClick={(e) => this.handleOpen(e)}
+                className='edit-flashcard-modal-button'>
+                    Edit
+                </button>
+            )
         }
 
         if (this.state.flag) {

@@ -2,13 +2,7 @@ import React from 'react';
 import { Link, Redirect, withRouter } from 'react-router-dom';
 import FlashcardIndexItem from './flashcard_index_item';
 import '../../stylesheets/flashcard_index.css'
-
-import FlashcardFormContainer from '../../components/flashcard/flashcard_form_container'
-
 import FlashcardEdit from '../flashcard/flashcard_edit'
-
-// import Modal from '../../components/modal/modal'
-import Modal from '../modal/modal'
 
 class FlashcardIndex extends React.Component {
     constructor(props) {
@@ -28,8 +22,6 @@ class FlashcardIndex extends React.Component {
                 })
                 // console.log("this is deckArray", this.state.deckArray)
             })
-
-        // debugger
     }
 
 

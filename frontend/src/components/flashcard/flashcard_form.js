@@ -22,16 +22,17 @@ class FlashcardForm extends React.Component {
         this.state = {
             title: '',
             text: '',
-            deck: this.props.deckId,
+            deck: this.props.target._id,
+            flag: false,
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.navigateToUserPage = this.navigateToUserPage.bind(this);
     }
 
-    // componentDidMount() {
-    //     // debugger
-    //     this.props.match.params.deckId;
-    // }
+    componentDidMount() {
+        // debugger
+        // this.props.match.params.deckId;
+    }
 
     update(field) {
         return e => this.setState({
@@ -49,7 +50,8 @@ class FlashcardForm extends React.Component {
             deck: this.state.deck,
         };
         this.props.createFlashcard(flashcard);
-        this.navigateToUserPage();
+        // this.navigateToUserPage();
+        window.location.reload(false);
     }
 
     navigateToUserPage() {
@@ -70,32 +72,58 @@ class FlashcardForm extends React.Component {
         );
     }
 
+    handleOpen(e) {
+        e.preventDefault();
+        this.setState({
+            flag: true,
+        })
+    }
+
+    handleClose(e) {
+        e.preventDefault();
+        this.setState({
+            flag: false,
+        })
+    }
+
     render() {
-        return (
-            <div className='flashcard-form-top'>
-                <form onSubmit={this.handleSubmit}>
-                    <div className='flashcard-form'>
-                        <input 
-                            className='flashcard-form-title-input'
-                            type="text"
-                            value={this.state.title}
-                            onChange={this.update('title')}
-                            placeholder="title"
-                        />  
-                        <br />
-                        <textarea
-                            className='flashcard-form-textarea'
-                            placeholder="enter text here..."
-                            cols="65"
-                            rows="4"
-                            value={this.state.text}
-                            onChange={this.update("text")}
-                        />
-                        <input className='flashcard-form-submit' type="submit" value="Add card" />
-                    </div>
-                </form>
-            </div>
-        )
+        if (!this.state.flag) {
+            return (
+                <button 
+                onClick={(e) => this.handleOpen(e)}
+                className='create-flashcard-modal-button'>
+                    Create Card
+                </button>
+            )
+        }
+
+        if (this.state.flag) {
+            return (
+                <div className='modal'>
+                    <form onSubmit={this.handleSubmit}>
+                        <div className='flashcard-form'>
+                            <input
+                                className='flashcard-form-title-input'
+                                type="text"
+                                value={this.state.title}
+                                onChange={this.update('title')}
+                                placeholder="title"
+                            />
+                            <br />
+                            <textarea
+                                className='flashcard-form-textarea'
+                                placeholder="enter text here..."
+                                cols="65"
+                                rows="4"
+                                value={this.state.text}
+                                onChange={this.update("text")}
+                            />
+                            <input className='flashcard-form-submit' type="submit" value="Add card" />
+                        </div>
+                    </form>
+                </div>
+            )
+        }
     }
 
 }
