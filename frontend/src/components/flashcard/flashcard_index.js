@@ -5,6 +5,11 @@ import '../../stylesheets/flashcard_index.css'
 
 import FlashcardFormContainer from '../../components/flashcard/flashcard_form_container'
 
+import FlashcardEdit from '../flashcard/flashcard_edit_container'
+
+// import Modal from '../../components/modal/modal'
+import Modal from '../modal/modal'
+
 class FlashcardIndex extends React.Component {
     constructor(props) {
         super(props);
@@ -23,6 +28,8 @@ class FlashcardIndex extends React.Component {
                 })
                 // console.log("this is deckArray", this.state.deckArray)
             })
+
+        // debugger
     }
 
 
@@ -41,23 +48,7 @@ class FlashcardIndex extends React.Component {
         window.location.reload();
     }
 
-    handleOpen(e) {
-        e.preventDefault();
-        this.setState({
-            flag: true,
-        })
-        debugger
-    }
-
-    handleClose(e) {
-        e.preventDefault();
-        this.setState({
-            flag: false,
-        })
-    }
-
     render() {
-
         // debugger
         
         const { flashcardArray } = this.state;
@@ -90,11 +81,14 @@ class FlashcardIndex extends React.Component {
                         </button>
                     </Link> */}
 
-                    <button 
+                    {/* <button 
                         className='flashcard-index-button'
                         onClick={(e)=>this.handleOpen(e)}>
                         Edit
-                    </button>
+                    </button> */}
+                    <FlashcardEdit 
+                        // {}
+                    />
                     
                     {/* {this.openEditForm()} */}
                     <button className='flashcard-index-button' onClick={(e) => this.handleDelete(e, flashcard._id)}>Delete</button>
