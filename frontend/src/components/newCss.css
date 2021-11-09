@@ -80,7 +80,7 @@ table {
 }
 
 .box-render{
-  min-height: 2000px;
+  min-height: 880px;
 }
 img{
   /* width: 100% */height: 100%;
@@ -137,11 +137,11 @@ img{
 }
 
 
-.footer{
+/* .footer{
   background-color: rosybrown;
   height: 500px;
   
-}
+} */
 
 .white{
   color:#66FCF1;
@@ -296,10 +296,10 @@ img{
  
 }
 
-.footer-content{
+/* .footer-content{
   display: flex;
   justify-content: center;
-}
+} */
 
 .textbox2{
   /* display: flex;
