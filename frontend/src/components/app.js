@@ -6,7 +6,7 @@ import BoxContainer from './box/box_container';
 
 import Menu from './menu/menu';
 // import Stats from './stats/stats';
-// import Footer from './footer/footer';
+import Footer from './footer/footer';
 import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
@@ -75,7 +75,7 @@ const App = () => (
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
         </Switch>
         </div>
-        {/* <div className='footer'><Footer /></div> */}
+        <div className='footer'><Footer /></div>
     </div>
 );
 
