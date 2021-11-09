@@ -20,15 +20,6 @@ class UserProfile extends React.Component {
 
     handleDelete(e, deckId) {
         e.preventDefault();
-        // this.props.fetchDeckFlashcards(deckId)
-        //     .then(res => {
-        //         this.setState({
-        //             flashcardArray: Object.values(res.flashcards.data)
-        //         })
-        //     })
-        // this.state.flashcardArray.forEach(flashcard => {
-        //     this.props.deleteFlashcard(flashcard._id);
-        // })
         this.props.eraseDeck(deckId);
     }
 
