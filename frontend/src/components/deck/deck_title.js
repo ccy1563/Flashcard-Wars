@@ -70,20 +70,34 @@ class DeckTitle extends React.Component {
 
     if (this.state.flag) {
       return (
-        <div className='modal'>
-          <form onSubmit={this.handleTitleEdit}>
-            <div>
-              <input
-                className='user-profile-create-deck-text-box-modal'
-                type="text"
-                // ref={this.titleEdited}
-                value={this.state.title}
-                onChange={this.update('title')}
-              />
-              <br />
-              <input className='user-profile-create-deck-button-edit' type="submit" value="Edit Title" />
-            </div>
-          </form>
+        <div>
+          <button
+            onClick={(e) => this.handleOpen(e)}
+            className='create-flashcard-modal-button'>
+            Edit Title
+          </button>
+
+          <div className='modal'>
+            <form onSubmit={this.handleTitleEdit}>
+              <div>
+                <input
+                  className='user-profile-create-deck-text-box-modal'
+                  type="text"
+                  // ref={this.titleEdited}
+                  value={this.state.title}
+                  onChange={this.update('title')}
+                />
+                <br />
+                <input className='user-profile-create-deck-button-edit' type="submit" value="Edit Title" />
+
+                <button
+                  className='edit-card-close-title'
+                  onClick={(e) => this.handleClose(e)}>
+                  X
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       )
     }
