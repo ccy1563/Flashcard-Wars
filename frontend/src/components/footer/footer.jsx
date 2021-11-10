@@ -9,7 +9,7 @@ export default class Footer extends Component {
       <div className="team">
         <div className="team-container">
           <div className="profile-container">
-            <span>Christopher Chung</span>
+            <span className='three-muskateers'>Christopher Chung</span>
             <div className="link-button">
               <a href="https://www.linkedin.com/in/chris-c-160950221/" target="_blank" rel="noreferrer">
                 <img className="linkedin-icon" src={linkedin.default} alt="linkedin"/>
@@ -24,7 +24,7 @@ export default class Footer extends Component {
           </div>
 
           <div className="profile-container">
-            <span>Sunny Mei</span>
+            <span className='three-muskateers'>Sunny Mei</span>
             <div className="link-button">
               <a href="https://www.linkedin.com/in/sunny-mei-534677153/" target="_blank" rel="noreferrer">
                 <img className="linkedin-icon" src={linkedin.default} alt="linkedin"/>
@@ -39,7 +39,7 @@ export default class Footer extends Component {
           </div>
 
           <div className="profile-container">
-            <span>Kevin Lin</span>
+            <span className='three-muskateers'>Kevin Lin</span>
             <div className="link-button">
               <a href="https://www.linkedin.com/in/kevin-lin-0a0aa31b1/" target="_blank" rel="noreferrer">
                 <img className="linkedin-icon" src={linkedin.default} alt="linkedin"/>
