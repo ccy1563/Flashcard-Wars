@@ -99,28 +99,41 @@ class FlashcardForm extends React.Component {
 
         if (this.state.flag) {
             return (
-                <div className='modal'>
-                    <form onSubmit={this.handleSubmit}>
-                        <div className='flashcard-form'>
-                            <input
-                                className='flashcard-form-title-input'
-                                type="text"
-                                value={this.state.title}
-                                onChange={this.update('title')}
-                                placeholder="title"
-                            />
-                            <br />
-                            <textarea
-                                className='flashcard-form-textarea'
-                                placeholder="enter text here..."
-                                cols="65"
-                                rows="4"
-                                value={this.state.text}
-                                onChange={this.update("text")}
-                            />
-                            <input className='flashcard-form-submit' type="submit" value="Add card" />
-                        </div>
-                    </form>
+                <div>
+                    <button
+                        onClick={(e) => this.handleOpen(e)}
+                        className='create-flashcard-modal-button'>
+                        Create Card
+                    </button>
+                    <div className='modal'>
+                        <form onSubmit={this.handleSubmit}>
+                            <div className='flashcard-form'>
+                                <input
+                                    className='flashcard-form-title-input'
+                                    type="text"
+                                    value={this.state.title}
+                                    onChange={this.update('title')}
+                                    placeholder="title"
+                                />
+                                <br />
+                                <textarea
+                                    className='flashcard-form-textarea'
+                                    placeholder="enter text here..."
+                                    cols="65"
+                                    rows="4"
+                                    value={this.state.text}
+                                    onChange={this.update("text")}
+                                />
+                                <input className='flashcard-form-submit' type="submit" value="Add card" />
+
+                                <button
+                                    className='edit-card-close'
+                                    onClick={(e) => this.handleClose(e)}>
+                                    X
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             )
         }
