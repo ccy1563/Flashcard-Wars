@@ -10,8 +10,8 @@ class Splash extends React.Component{
 
         <div className="splash-header-1">
           <div className="header-1-para">
-            <p>Don't just memorize,</p>
-            <p>Type and Memorize</p>
+            <p className='front-page-motto'>Don't just memorize,</p>
+            <p className='front-page-motto'>Type and Memorize</p>
           </div>
           <p className="header-1-para-2">Active learning should be more than just memorizing. Why not make it more "active". 
           Improve your typing speed while memorizing key information at the same time.</p>

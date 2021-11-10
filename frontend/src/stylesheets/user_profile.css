@@ -81,6 +81,7 @@
 }
 
 .user-profile-create-deck-button {
+    font-family: 'Courier New', Courier, monospace !important;
     margin: 1% 0 1% 42%;
     /* padding-top: 50px; */
     width: 250px;
@@ -101,6 +102,7 @@
 }
 
 .user-profile-create-deck-button-edit {
+    font-family: 'Courier New', Courier, monospace !important;
     margin: 1% 0 1% 0%;
     /* padding-top: 50px; */
     width: 250px;
@@ -132,6 +134,7 @@
 
 
 .user-profile-page button{
+    font-family: 'Courier New', Courier, monospace;
     background-color: #128fdc;
     color:white;
 }
@@ -194,6 +197,7 @@
 }
 
 .deck-title-p {
+    font-family: 'Courier New', Courier, monospace;
         /* padding-top: 10px; */
     overflow: hidden;
     text-overflow: ellipsis;

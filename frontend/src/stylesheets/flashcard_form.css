@@ -66,6 +66,7 @@
 }
 
 .flashcard-form-submit {
+    font-family: 'Courier New', Courier, monospace !important;
     display: flex;
     margin: 1% 0 1% 24%;
     width: 250px;
