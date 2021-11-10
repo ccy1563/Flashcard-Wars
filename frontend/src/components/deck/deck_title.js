@@ -74,14 +74,14 @@ class DeckTitle extends React.Component {
           <form onSubmit={this.handleTitleEdit}>
             <div>
               <input
-                className='user-profile-create-deck-text-box'
+                className='user-profile-create-deck-text-box-modal'
                 type="text"
                 // ref={this.titleEdited}
                 value={this.state.title}
                 onChange={this.update('title')}
               />
               <br />
-              <input className='user-profile-create-deck-button' type="submit" value="Edit Title" />
+              <input className='user-profile-create-deck-button-edit' type="submit" value="Edit Title" />
             </div>
           </form>
         </div>

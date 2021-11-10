@@ -14,6 +14,14 @@
     height: 500px;
     width: 500px;
     /* justify-content: center; */
+
+       width: 300px;
+   height: 300px;
+   position: absolute;
+   left: 50%;
+   top: 50%; 
+   margin-left: -150px;
+   margin-top: -150px;
     
 }
 
@@ -28,6 +36,13 @@
     width: 400px;
     outline: none;
     /* resize: none; */
+
+
+   position: absolute;
+   left: 50%;
+   top: 50%; 
+   margin-left: -150px;
+   margin-top: -150px;
 }
 
 .flashcard-form-textarea {
@@ -41,11 +56,18 @@
     width: 400px;
     outline: none;
     resize: none;
+
+
+   position: absolute;
+   left: 50%;
+   top: 55%; 
+   margin-left: -150px;
+   margin-top: -150px;
 }
 
 .flashcard-form-submit {
     display: flex;
-    margin: 1% 0 1% 15%;
+    margin: 1% 0 1% 24%;
     width: 250px;
     height: 50px;
     background-color: transparent;
@@ -63,4 +85,10 @@
     justify-content: center;
 
     box-shadow: inset 0 0 0 2px rgb(255 255 255 / 13%);
+
+   position: absolute;
+   left: 50%;
+   top: 80%; 
+   margin-left: -80px;
+   margin-top: -150px;
 }
