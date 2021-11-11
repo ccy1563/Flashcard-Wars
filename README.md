@@ -34,3 +34,47 @@ Slipper aims to improve your typing speed while memorizing key information at th
 * Express
 * React.js
 * Redux
+
+## Code Snippet
+```Javascript
+    let arr = []
+        let mainArr = []
+        let arrWithSpace = []
+       
+
+        if (flashcards){
+            for (let x = 0; x < flashcards.length; x++){
+                if(flashcards[x] === `\n`){
+                    // for(let i = arr.length; i < 500; i++){
+                        arr.push(<div></div>)
+                    // }
+                    
+                    mainArr.push(arr)
+                    arr = []
+                }
+                if (flashcards[x] === " " && input[x] != " " && input[x] != undefined){
+                    arr.push(<div className="WrongSpace">&nbsp;&nbsp;</div>)
+                }else if (flashcards[x] === " "){
+                    arr.push(<div>&nbsp;&nbsp;</div>)
+                }
+                if (input[x] === flashcards[x]){
+                    arr.push(<div className="white">{flashcards[x]}</div>)                
+                }            
+                else if(input[x] && input[x] !== flashcards[x]){
+                    arr.push(<div className="red">{flashcards[x]}</div>)    
+                }            
+                else{
+                    arr.push(<div className="black">{flashcards[x]}</div>)
+                }
+            }
+            for (let x = 0; x < arr.length; x++){
+                arrWithSpace.push(arr[x])
+                
+            }
+            mainArr.push(arr)
+            arr = []
+            return mainArr
+        }else{
+            return mainArr
+        }
+```
