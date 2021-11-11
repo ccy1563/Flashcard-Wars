@@ -40,8 +40,6 @@ Slipper aims to improve your typing speed while memorizing key information at th
     let arr = []
         let mainArr = []
         let arrWithSpace = []
-       
-
         if (flashcards){
             for (let x = 0; x < flashcards.length; x++){
                 if(flashcards[x] === `\n`){
