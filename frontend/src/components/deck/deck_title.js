@@ -79,7 +79,7 @@ class DeckTitle extends React.Component {
 
           <div className='modal'>
             <form onSubmit={this.handleTitleEdit}>
-              <div>
+              <div className='flashcard-form'>
                 <input
                   className='user-profile-create-deck-text-box-modal'
                   type="text"
