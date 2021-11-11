@@ -45,10 +45,7 @@ Slipper aims to improve your typing speed while memorizing key information at th
         if (flashcards){
             for (let x = 0; x < flashcards.length; x++){
                 if(flashcards[x] === `\n`){
-                    // for(let i = arr.length; i < 500; i++){
-                        arr.push(<div></div>)
-                    // }
-                    
+                    arr.push(<div></div>)                    
                     mainArr.push(arr)
                     arr = []
                 }
@@ -69,12 +66,11 @@ Slipper aims to improve your typing speed while memorizing key information at th
             }
             for (let x = 0; x < arr.length; x++){
                 arrWithSpace.push(arr[x])
-                
             }
             mainArr.push(arr)
             arr = []
             return mainArr
-        }else{
+        } else{
             return mainArr
         }
 ```
