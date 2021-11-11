@@ -1,6 +1,6 @@
 # [Slipper](https://slippers.herokuapp.com/)
 
-<img align="center" width="500" height="300" src="https://github.com/ccy1563/Richardvania/blob/main/richardvania.gif">
+<img align="center" width="500" height="300" src="https://github.com/ccy1563/Flashcard-Wars/blob/main/slipper.gif">
 
 ## Overview
 Don't just memorize, Type and Memorize.
