@@ -24,7 +24,7 @@ Slipper aims to improve your typing speed while memorizing key information at th
 * User profile page featuring all the decks the user has created, as well as decks created by other users that were saved.
 <img align="center" width="500" height="300" src="https://github.com/ccy1563/Flashcard-Wars/blob/main/user_profile.jpg">
 
-* Users can apply CRUD features to creating decks, flashcards, and comments.
+* Users can apply CRUD features to decks, flashcards, and comments.
 
 * Users can type out contents of any deck through our typing feature for improved rote memory.
 <img align="center" width="500" height="300" src="https://github.com/ccy1563/Flashcard-Wars/blob/main/typing.jpg">
