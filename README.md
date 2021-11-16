@@ -27,6 +27,9 @@ Slipper aims to improve your typing speed while memorizing key information at th
 * Redux
 
 ## Code Snippet
+* In order for the typing test to give a visual representation of whether the word is correct, it was necessary to color code words based on if it matches the flashcard.
+* The code below is used to push letters into an array with a class name and css style in order for it to re-render for every output the user types.
+
 ```Javascript
     let arr = []
         let mainArr = []
