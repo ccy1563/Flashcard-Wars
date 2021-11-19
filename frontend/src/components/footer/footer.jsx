@@ -47,7 +47,7 @@ export default class Footer extends Component {
               <a href="https://github.com/KevLin2358?tab=repositories" target="_blank" rel="noreferrer">
                 <img className="github-icon" src={github.default} alt="github"/>
               </a>
-              <a href="https://github.com/KevLin2358?tab=repositories" >
+              <a href="https://github.com/KevLin2358?tab=repositories" target='_blank' rel='noreferrer'>
                 <img className="portfolio-icon" src={portfolio.default} alt="portfolio"/>
               </a>
             </div>

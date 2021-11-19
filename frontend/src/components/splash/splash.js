@@ -2,20 +2,27 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import '../../stylesheets/splash.css';
 
-class Splash extends React.Component{
 
+class Splash extends React.Component{
+  
   render(){
+    var flashcard_img = require('../../images/flashcard_frontpage.png');
     return(
       <div className="splash-page">
 
-        <div className="splash-header-1">
-          <div className="header-1-para">
-            <p className='front-page-motto'>Don't just memorize,</p>
-            <p className='front-page-motto'>Type and Memorize</p>
-          </div>
-          <p className="header-1-para-2">Active learning should be more than just memorizing. Why not make it more "active". 
-          Improve your typing speed while memorizing key information at the same time.</p>
+        <div className='splash-head'>
+          <div className="splash-header-1">
+            <div className="header-1-para">
+              <p className='front-page-motto'>Don't just memorize,</p>
+              <p className='front-page-motto'>Type and Memorize</p>
+            </div>
+            <p className="header-1-para-2">Active learning should be more than just memorizing. Why not make it more "active".
+              Improve your typing speed while memorizing key information at the same time.</p>
 
+          </div>
+          <div className='flashcard-frontpage-icon-container'>
+            <img className="flashcard-frontpage-icon" src={flashcard_img.default} alt="flashcard-frontpage" />
+          </div>
         </div>
 
         <div className="splash-header-2">

@@ -67,3 +67,19 @@
   list-style: circle;
   padding: 10px;
 }
+
+.splash-head {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.flashcard-frontpage-icon-container {
+  padding-left: 20%;
+  padding-top: 5%;
+}
+
+.flashcard-frontpage-icon {
+  /* max-width: 70%;
+  max-height: 70%; */
+  display: flex;
+}
