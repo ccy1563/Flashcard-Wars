@@ -82,7 +82,7 @@
 
 .user-profile-create-deck-button {
     font-family: 'Courier New', Courier, monospace !important;
-    margin: 1% 0 1% 42%;
+    /* margin: 1% 0 1% 42%; */
     /* padding-top: 50px; */
     width: 250px;
     height: 50px;
@@ -93,6 +93,25 @@
     border-radius: 6px;
     font-family: Arial,Helvetica,sans-serif;
     /* color: rgb(214, 214, 214); */
+    color: white;
+    border-radius: 6px;
+    border: 0;
+    cursor: pointer;
+
+    box-shadow: inset 0 0 0 2px rgb(255 255 255 / 13%);
+}
+
+.user-profile-create-deck-button-2 {
+    font-family: 'Courier New', Courier, monospace !important;
+    /* margin: 1% 0 1% 42%; */
+    /* padding-top: 50px; */
+    width: 250px;
+    height: 50px;
+    background-color: gray !important;
+    font-size: 18px;
+
+    cursor: pointer;
+    border-radius: 6px;
     color: white;
     border-radius: 6px;
     border: 0;
@@ -157,7 +176,7 @@
     color: #222222;
     outline: none;
     resize: none;
-    margin: 1% 0 0 42%;
+    /* margin: 1% 0 0 42%; */
     width: 245px;
     text-align: center;
 }
@@ -214,4 +233,62 @@
 
 .deck-title-link {
     text-decoration: none;
+}
+
+.profile-create-deck-modal {
+    display: flex;
+    cursor: pointer;
+    border-radius: 6px;
+    font-family: Arial,Helvetica,sans-serif;
+    color: rgb(214, 214, 214);
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 2px rgb(255 255 255 / 13%);
+    width: 140px;
+    height: 30px;
+    background-color: #128fdc;
+    text-decoration: none;
+    color: white;
+    justify-content: center;
+    padding-top: 6px;
+    /* margin-left: 32%; */
+}
+
+.new-deck-bttn-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2%;
+}
+
+.edit-card-close-2 {
+    position: relative;
+    left: 5%;
+    bottom: 50px;
+    background-color: transparent !important;
+    color: white !important;
+    border-style: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.empty-profile-page-text-list {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    height:100vh;
+}
+
+.empty-deck-page {
+    text-align: center;
+    line-height: 300px;
+    font-size: 250%;
+    color: rgb(16, 127, 131);
+}
+
+.empty-deck-page-2 {
+    text-align: center;
+    /* line-height: 300px; */
+    font-size: 250%;
 }

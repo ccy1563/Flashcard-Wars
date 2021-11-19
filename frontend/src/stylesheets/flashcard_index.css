@@ -89,3 +89,10 @@
 .flashcard-index-edit-link {
     text-decoration: none;
 }
+
+.empty-flashcard-index {
+    text-align: center;
+    line-height: 500px;
+    font-size: 250%;
+    color: rgb(16, 127, 131);
+}

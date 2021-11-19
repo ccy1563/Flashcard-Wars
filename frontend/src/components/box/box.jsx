@@ -497,7 +497,12 @@ class Box extends React.Component {
                     <form>
                         <label className="nameLabel">
                             Name:
-                            <input className='nameInput' type="text" value={this.state.name} onChange={this.handleChange}/>
+                            <input 
+                                className='nameInput' 
+                                type="text" 
+                                value={this.state.name} 
+                                onChange={this.handleChange}
+                                placeholder='Enter your name.'/>
                         </label>
                         {/* <input type="submit" value="Submit" /> */}
                     </form>
@@ -506,7 +511,7 @@ class Box extends React.Component {
                    
                 {
                     (stateEnded === false) 
-                    ? <div className='box-input'><textarea className="Text1" spellCheck="false" value={this.state.input} onKeyDown={this.tabChange} onChange={(e)=>this.setState({input: e.target.value})}/></div>      
+                    ? <div className='box-input'><textarea className="Text1" spellCheck="false" value={this.state.input} onKeyDown={this.tabChange} onChange={(e)=>this.setState({input: e.target.value})} placeholder='Start typing to begin timer.'/></div>      
                     : this.stopTimer() 
                     // : <Score text={"Your final score is"} currentScore={this.state.score}/> ? this.stopTimer() : null  ? console.log("asd") : null
                     // (stateEnded === true)

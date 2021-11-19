@@ -9,7 +9,8 @@ class DeckForm extends React.Component {
       title: '',
       user: this.props.user_id,
       leaderboard: [],
-      errors: {}
+      errors: {},
+      flag: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.navigateToUserPage = this.navigateToUserPage.bind(this);
@@ -19,6 +20,20 @@ class DeckForm extends React.Component {
   //   this.props.fetchUserDecks("6148fcd4300bf698b2d71234");
   //   debugger
   // }
+
+  handleOpen(e) {
+    e.preventDefault();
+    this.setState({
+      flag: true,
+    })
+  }
+
+  handleClose(e) {
+    e.preventDefault();
+    this.setState({
+      flag: false,
+    })
+  }
 
   update(field) {
     return e => this.setState({
@@ -61,22 +76,61 @@ class DeckForm extends React.Component {
   } 
 
   render(){
-    return(
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <input className='user-profile-create-deck-text-box' type="text"
+
+    if (!this.state.flag) {
+      return (
+        <div className='new-deck-bttn-modal'>
+          <button
+            onClick={(e) => this.handleOpen(e)}
+            className='profile-create-deck-modal'>
+            New Deck
+          </button>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <div className='new-deck-bttn-modal'>
+            <button
+              onClick={(e) => this.handleOpen(e)}
+              className='profile-create-deck-modal'>
+              New Deck
+            </button>
+          </div>
+          <div className='modal'>
+            <form>
+              <div>
+                <input className='user-profile-create-deck-text-box'
+                  type="text"
                   value={this.state.title}
                   onChange={this.update('title')}
                   placeholder="Title"
-              />
-              <br />
-            <input className='user-profile-create-deck-button' type="submit" value="Create Deck" />
+                />
+                <br />
+                {
+                  // Only shows submit button when title input box contain characters.
+                  this.state.title.length > 0 ?
+                    <button
+                      className='user-profile-create-deck-button'
+                      onClick={this.handleSubmit}>
+                      Create Deck
+                    </button> : <button
+                      className='user-profile-create-deck-button-2'>
+                      Create Deck
+                    </button>
+                }
+                <button
+                  className='edit-card-close-2'
+                  onClick={(e) => this.handleClose(e)}>
+                  X
+                </button>
+              </div>
+            </form>
           </div>
-        </form>
-      </div>
-    )
-  }
+        </div>
+      )
+    }
+    }
 
 }
 

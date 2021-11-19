@@ -46,9 +46,9 @@ class FlashcardIndex extends React.Component {
         const { flashcardArray } = this.state;
 
 
-        if (flashcardArray.length === 0) return null;
-
         // debugger
+        // if (flashcardArray.length === 0) return null;
+
         const allFlashcardsInDeck = flashcardArray.map(flashcard => {
             // debugger
             return (
@@ -89,11 +89,24 @@ class FlashcardIndex extends React.Component {
             )
         });
 
-        return (
-            <div className='flashcard-index-page'>
-                {allFlashcardsInDeck}
-            </div>
-        )
+        console.log("saljkfl;kasd")
+        console.log(allFlashcardsInDeck.length)
+
+        if (allFlashcardsInDeck.length == 0) {
+            return (
+                <div className='empty-profile-page-text-list'>
+                    <div className='empty-flashcard-index'>
+                        No flashcards are in this deck
+                    </div>
+                </div>
+            )
+        } else {
+            return (
+                <div className='flashcard-index-page'>
+                    {allFlashcardsInDeck}
+                </div>
+            )
+        }
     }
 
 }

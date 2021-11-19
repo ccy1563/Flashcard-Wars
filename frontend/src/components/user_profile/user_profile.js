@@ -44,21 +44,38 @@ class UserProfile extends React.Component {
             )
         });
 
-        return (
-            <div className='user-profile-page'>
-                <div>
-                    <DeckFormContainer />
-                </div>
-                {/* <Link to="/decks">
+        if (allMyDecks.length > 0) {
+            return (
+                <div className='user-profile-page'>
+                    <div>
+                        <DeckFormContainer />
+                    </div>
+                    {/* <Link to="/decks">
                     <button className='user-profile-create-deck-button'>
                         Create a deck
                     </button>
                 </Link> */}
-                <div className='decks-container'>
-                    {allMyDecks}
+                    <div className='decks-container'>
+                        {allMyDecks}
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        } else {
+            return (
+                <div className='empty-profile-page'>
+                    <div>
+                        <DeckFormContainer />
+                    </div>
+                    <div className='empty-profile-page-text-list'>
+                        <div className='empty-deck-page'>
+                            You have no decks
+                        </div>
+                        {/* <div className='empty-deck-page-2'>
+                        </div> */}
+                    </div>
+                </div>
+            )
+        }
     }
 
 }
