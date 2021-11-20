@@ -27,7 +27,7 @@ import DeckShowContainer from './deck/deck_show_container';
 // import CommentFormContainer from './comment/comment_form_container';
 import CommentIndexContainer from './comment/comment_index_container';
 
-import Modal from './modal/modal'
+// import Modal from './modal/modal'
 
 const App = () => (
      <div className='whole-div'>     
