@@ -8,9 +8,18 @@ class FlashcardIndex extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            title: '',
+            text: '',
+            deck: this.props.deckId,
             flashcardArray: [],
             flag: false,
         }
+    }
+
+    update(field) {
+        return e => this.setState({
+            [field]: e.currentTarget.value
+        });
     }
 
     componentDidMount() {
@@ -22,6 +31,38 @@ class FlashcardIndex extends React.Component {
                 })
                 // console.log("this is deckArray", this.state.deckArray)
             })
+    }
+
+    handleOpen(e) {
+        e.preventDefault();
+        this.setState({
+            flag: true,
+        })
+    }
+
+    handleClose(e) {
+        e.preventDefault();
+        this.setState({
+            flag: false,
+        })
+    }
+
+    // componentDidUpdate() {
+    //     if (this.state.flag) this.setState({flag: false});
+    // }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        // debugger
+        let flashcard = {
+            title: this.state.title,
+            text: this.state.text,
+            deck: this.state.deck,
+        };
+        this.props.createFlashcard(flashcard);
+        // this.navigateToUserPage();
+        this.setState({flag: false});
+        window.location.reload(false);
     }
 
 
@@ -47,7 +88,7 @@ class FlashcardIndex extends React.Component {
 
 
         // debugger
-        // if (flashcardArray.length === 0) return null;
+        // if (flashcardArray.length == 0) return null;
 
         const allFlashcardsInDeck = flashcardArray.map(flashcard => {
             // debugger
@@ -72,8 +113,8 @@ class FlashcardIndex extends React.Component {
                             Edit
                         </button>
                     </Link> */}
-
-                    {/* <button 
+{/* 
+                    <button 
                         className='flashcard-index-button'
                         onClick={(e)=>this.handleOpen(e)}>
                         Edit
@@ -89,22 +130,102 @@ class FlashcardIndex extends React.Component {
             )
         });
 
-        console.log("saljkfl;kasd")
-        console.log(allFlashcardsInDeck.length)
-
         if (allFlashcardsInDeck.length == 0) {
             return (
-                <div className='empty-profile-page-text-list'>
-                    <div className='empty-flashcard-index'>
-                        No flashcards are in this deck
+                <div>
+                    <div className='new-deck-bttn-modal'>
+                        <button
+                            onClick={(e) => this.handleOpen(e)}
+                            className='profile-create-deck-modal'>
+                            Create Card
+                        </button>
+                    {
+                        this.state.flag ?
+                                <div className='modal'>
+                                    <form onSubmit={(e)=>this.handleSubmit(e)}>
+                                        <div className='flashcard-form'>
+                                            <input
+                                                className='flashcard-form-title-input'
+                                                type="text"
+                                                value={this.state.title}
+                                                onChange={this.update('title')}
+                                                placeholder="title"
+                                            />
+                                            <br />
+                                            <textarea
+                                                className='flashcard-form-textarea'
+                                                placeholder="enter text here..."
+                                                cols="65"
+                                                rows="4"
+                                                value={this.state.text}
+                                                onChange={this.update("text")}
+                                            />
+                                            <input className='flashcard-form-submit' type="submit" value="Add card" />
+
+                                            <button
+                                                className='edit-card-close'
+                                                onClick={(e) => this.handleClose(e)}>
+                                                X
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div> : null
+                    }
+                </div>
+                    <div className='empty-profile-page-text-list'>
+                        <div className='empty-flashcard-index'>
+                            No flashcards are in this deck
+                        </div>
                     </div>
                 </div>
             )
         } else {
             return (
-                <div className='flashcard-index-page'>
-                    {allFlashcardsInDeck}
+                <div>
+                    <div className='new-deck-bttn-modal'>
+                        <button
+                            onClick={(e) => this.handleOpen(e)}
+                            className='profile-create-deck-modal'>
+                            Create Card
+                        </button>
+                    </div>
+                    {
+                        this.state.flag ?
+                            <div className='modal'>
+                                <form onSubmit={(e) => this.handleSubmit(e)}>
+                                    <div className='flashcard-form'>
+                                        <input
+                                            className='flashcard-form-title-input'
+                                            type="text"
+                                            value={this.state.title}
+                                            onChange={this.update('title')}
+                                            placeholder="title"
+                                        />
+                                        <br />
+                                        <textarea
+                                            className='flashcard-form-textarea'
+                                            placeholder="enter text here..."
+                                            cols="65"
+                                            rows="4"
+                                            value={this.state.text}
+                                            onChange={this.update("text")}
+                                        />
+                                        <input className='flashcard-form-submit' type="submit" value="Add card" />
+
+                                        <button
+                                            className='edit-card-close'
+                                            onClick={(e) => this.handleClose(e)}>
+                                            X
+                                        </button>
+                                    </div>
+                                </form>
+                            </div> : null
+                    }
+                    <div className='flashcard-index-page'>
+                        {allFlashcardsInDeck}
+                    </div>
                 </div>
+
             )
         }
     }
