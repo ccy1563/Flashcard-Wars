@@ -91,7 +91,7 @@ class FlashcardForm extends React.Component {
             return (
                 <button 
                 onClick={(e) => this.handleOpen(e)}
-                className='create-flashcard-modal-button'>
+                className='user-profile-button'>
                     Create Card
                 </button>
             )
@@ -102,7 +102,7 @@ class FlashcardForm extends React.Component {
                 <div>
                     <button
                         onClick={(e) => this.handleOpen(e)}
-                        className='create-flashcard-modal-button'>
+                        className='user-profile-button'>
                         Create Card
                     </button>
                     <div className='modal'>

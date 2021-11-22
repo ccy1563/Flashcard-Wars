@@ -62,7 +62,7 @@ class DeckTitle extends React.Component {
       return (
         <button 
         onClick={(e) => this.handleOpen(e)}
-        className='create-flashcard-modal-button'>
+        className='user-profile-button'>
           Edit Title
         </button>
       )
@@ -73,7 +73,7 @@ class DeckTitle extends React.Component {
         <div>
           <button
             onClick={(e) => this.handleOpen(e)}
-            className='create-flashcard-modal-button'>
+            className='user-profile-button'>
             Edit Title
           </button>
 
