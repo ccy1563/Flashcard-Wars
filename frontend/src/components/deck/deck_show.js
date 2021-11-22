@@ -11,6 +11,7 @@ class DeckShow extends React.Component {
       flashcardArray: [],
       deckTitle: {},
       saved: false,
+      flashcardsFlag: {},
     }
 
     this.textEdited = React.createRef();
@@ -39,7 +40,7 @@ class DeckShow extends React.Component {
           flashcardArray: Object.values(res.flashcards.data)
         })
       })
-    this.props.fetchDeck(this.props.DeckId);  
+    this.props.fetchDeck(this.props.DeckId);
   }
 
   handleSave(e) {
@@ -70,6 +71,17 @@ class DeckShow extends React.Component {
     //   nextState[comment._id] = comment
     // })
 
+  }
+
+  showFlashcard(e, id) {
+    e.preventDefault();
+    // debugger
+    let newArr = this.state.flashcardsFlag;
+    (newArr[id] === 1) ? newArr[id] = 0 : newArr[id] = 1;
+    this.setState({
+      flashcardsFlag: newArr,
+    })
+    // debugger
   }
 
   render(){
@@ -120,8 +132,9 @@ class DeckShow extends React.Component {
       // debugger
       return (
         <div className="deck-show-flashcard"key={flashcard._id}>
-          <div className="deck-show-flashcard-title"> {flashcard.title}</div>
-          <div className="deck-show-flashcard-text">{flashcard.text}</div>
+          <div onClick={(e) => this.showFlashcard(e, flashcard._id)} className="deck-show-flashcard-title"> {flashcard.title}</div>
+          {/* <div className="deck-show-flashcard-text">{flashcard.text}</div> */}
+          {this.state.flashcardsFlag[flashcard._id] === 1 ? <div className="deck-show-flashcard-text">{flashcard.text}</div> : null}
         </div>
       )
     });

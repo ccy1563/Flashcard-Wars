@@ -75,7 +75,13 @@
 .deck-show-flashcard-text{
   display: none;
   text-align: left;
-
+  border-top: red solid 1px;
+  padding-top: 5px;
+  padding-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  font-size:25px;
+  min-height: 100px;
 }
 
 .deck-show-flashcard-title:hover + .deck-show-flashcard-text{
