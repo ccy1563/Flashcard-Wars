@@ -36,9 +36,8 @@ class UserDeckIndexItem extends React.Component {
                     <p className="deck-title-p">
                         {deck.title}
                     </p>
+                    <div className='deck-title'></div>
                 </Link>
-                <div className='deck-title'>
-                </div>
                 <div className='user-profile-all-buttons'>
                     {/* <Link className='user-profile-link' to={`/decks/${deck._id}/edit`}>
                             <button className='user-profile-button'>

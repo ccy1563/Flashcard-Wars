@@ -84,6 +84,11 @@
     justify-content: center;
     padding-top: 6px;
     margin-left: 32%;
+
+}
+
+.flashcard-index-button span{
+    text-align: center;
 }
 
 .flashcard-index-edit-link {
