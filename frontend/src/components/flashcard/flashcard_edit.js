@@ -95,7 +95,7 @@ class FlashcardForm extends React.Component {
             return (
                 <button 
                 onClick={(e) => this.handleOpen(e)}
-                className='edit-flashcard-modal-button'>
+                className='flashcard-index-button'>
                     Edit
                 </button>
             )
@@ -106,7 +106,7 @@ class FlashcardForm extends React.Component {
                 <div>
                     <button
                         onClick={(e) => this.handleOpen(e)}
-                        className='edit-flashcard-modal-button'>
+                        className='flashcard-index-button'>
                         Edit
                     </button>
 
