@@ -5,6 +5,7 @@ export default class Footer extends Component {
     var github = require('../../images/github.png');
     var linkedin = require('../../images/linkedin.png');
     var portfolio = require('../../images/portfolio.png');
+    var angellist = require('../../images/angellist.png');
     return (
       <div className="team">
         <div className="team-container">
@@ -47,7 +48,7 @@ export default class Footer extends Component {
               <a href="https://github.com/KevLin2358?tab=repositories" target="_blank" rel="noreferrer">
                 <img className="github-icon" src={github.default} alt="github"/>
               </a>
-              <a href="https://github.com/KevLin2358?tab=repositories" target='_blank' rel='noreferrer'>
+              <a href="https://kevlin2358.github.io/portfolio/" target='_blank' rel='noreferrer'>
                 <img className="portfolio-icon" src={portfolio.default} alt="portfolio"/>
               </a>
             </div>
