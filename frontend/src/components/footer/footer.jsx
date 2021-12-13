@@ -5,7 +5,6 @@ export default class Footer extends Component {
     var github = require('../../images/github.png');
     var linkedin = require('../../images/linkedin.png');
     var portfolio = require('../../images/portfolio.png');
-    var angellist = require('../../images/angellist.png');
     return (
       <div className="team">
         <div className="team-container">
